@@ -1,11 +1,25 @@
+export function normalizeV3(text) {
+  return (text.toLowerCase()
+    .replace(/<[^>]*>|\[[^\]]*\]/g, ' ')
+    .replace(/(?:https?:\/\/|www\.)\S+|(?<![\p{L}\p{N}_])[^\s@]+@[^\s@]+\.[^\s@]+(?![\p{L}\p{N}_])/gu, ' ')
+    .replace(/(?<![\p{L}\p{N}_])(?:[a-z0-9-]+\.)+(?:com|net|org|info|ph|gov|uk|co|io)(?![\p{L}\p{N}_])\S*/gu, ' ')
+    .match(/[a-z]+/g) || []).join(' ');
+}
+
 export function vectorize(text, config) {
   const counts = new Map();
-  for (const token of text.toLowerCase().match(/[a-z0-9]+/g) || []) {
-    if (Object.hasOwn(config.vocabulary, token)) counts.set(token, (counts.get(token) || 0) + 1);
+  const normalized = config.preprocessing === 'ascii-artifact-removal-v3' ? normalizeV3(text) : text.toLowerCase();
+  const units = config.analyzer === 'char' ? [...normalized] : (normalized.match(/[a-z0-9]+/g) || []);
+  const [minN, maxN] = config.ngram_range || [1, 1];
+  for (let n = minN; n <= maxN; n++) {
+    for (let i = 0; i <= units.length - n; i++) {
+      const token = units.slice(i, i + n).join(config.analyzer === 'char' ? '' : ' ');
+      if (Object.hasOwn(config.vocabulary, token)) counts.set(token, (counts.get(token) || 0) + 1);
+    }
   }
   const features = [...counts].map(([term, count]) => {
     const index = config.vocabulary[term];
-    return { term, index, value: count * config.idf[index] };
+    return { term, index, value: (config.sublinear_tf ? 1 + Math.log(count) : count) * config.idf[index] };
   });
   const norm = Math.sqrt(features.reduce((sum, f) => sum + f.value ** 2, 0));
   for (const feature of features) feature.value /= norm || 1;

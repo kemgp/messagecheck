@@ -1,5 +1,7 @@
 # Training and validation
 
+For the completed external-data experiment and its candidate artifacts, see [revision 3](revision-v3.md). That experiment did not replace the served revision 2 models. The commands below reproduce the earlier baseline/revision 2 and overwrite current model artifacts; they are not the revision 3 workflow.
+
 From the project directory, create a virtual environment and install the pinned dependencies:
 
 ```sh

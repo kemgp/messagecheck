@@ -1,0 +1,42 @@
+{
+  "normalization": "text_v3.normalize_v3; ASCII words, remove bracket artifacts, URLs, emails, digits",
+  "grouping": "Connected components of equal normalized text or word-trigram Jaccard >= 0.80. Not proof against all paraphrases.",
+  "split": "Group SHA-256 bucket: 60/20/20. Already inspected hacking groups assigned to training before evaluation.",
+  "excluded": {
+    "excluded_context_dependent_or_short_imc": 1023,
+    "excluded_new_normalized_or_near_overlap_with_legacy": 118,
+    "normalized_duplicates_collapsed": 1583
+  },
+  "partitions": {
+    "train": {
+      "rows": 8187,
+      "labels": {
+        "spam": 7952,
+        "ham": 235
+      },
+      "groups": 7458
+    },
+    "validation": {
+      "rows": 2626,
+      "labels": {
+        "spam": 2554,
+        "ham": 72
+      },
+      "groups": 2417
+    },
+    "test": {
+      "rows": 2840,
+      "labels": {
+        "spam": 2750,
+        "ham": 90
+      },
+      "groups": 2596
+    }
+  },
+  "sha256": {
+    "train": "f7dfc7837203ccc5b3202bc1fe34a2c70294ce2f4800b58bf57fd42c50f8f7cf",
+    "validation": "601b200f592238fbaf599a4c20e3161a5f6d8a213787a686f53c5dfb81015a56",
+    "test": "87e08bb45b080144e0ad117f9a350719ecde5f412145c0a06620185ebbb71572"
+  },
+  "limitations": "IMC labels are report-derived, not independently verified. Ambiguous conversation/short-message categories excluded by fixed rule. Source and geographic differences remain."
+}

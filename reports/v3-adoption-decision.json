@@ -1,0 +1,65 @@
+{
+  "adopted": false,
+  "candidate": "models/v3-weight010/logistic_regression.json",
+  "candidate_sha256": "fb9de2132c2b84c67f735c19d3c600be8594b2b75c20fef1d5bede3d5121abbb",
+  "reason": "Aggregate candidate passes numerical gates but changes the previously correct user-license-reminder diagnostic from ham to spam. Current served models retained.",
+  "diagnostics": [
+    {
+      "id": "user-parcel-fee",
+      "expected": "spam",
+      "predicted": "spam"
+    },
+    {
+      "id": "user-license-reminder",
+      "expected": "ham",
+      "predicted": "spam"
+    },
+    {
+      "id": "user-extortion-deadline",
+      "expected": "spam",
+      "predicted": "spam"
+    }
+  ],
+  "validation": {
+    "legacy": {
+      "accuracy": 0.9870801033591732,
+      "spam_precision": 0.967391304347826,
+      "spam_recall": 0.9270833333333334,
+      "spam_f1": 0.9468085106382979,
+      "macro_f1": 0.9697277847309136,
+      "confusion_matrix": [
+        [
+          675,
+          3
+        ],
+        [
+          7,
+          89
+        ]
+      ]
+    },
+    "external": {
+      "accuracy": 0.9154607768469155,
+      "spam_precision": 1.0,
+      "spam_recall": 0.9130775254502741,
+      "spam_f1": 0.9545640605812525,
+      "macro_f1": 0.674003341766036,
+      "confusion_matrix": [
+        [
+          72,
+          0
+        ],
+        [
+          222,
+          2332
+        ]
+      ]
+    }
+  },
+  "parity_cases_per_model": 3418,
+  "final_test_evaluated": false,
+  "served_model_sha256": {
+    "naive_bayes": "46e6172003fe6185a3ae2e9f4243daca96adabdc972455ee205531e036d1df06",
+    "logistic_regression": "41d7fa4bc0a9d27768cd3e76490408327d4059230c4bec3dffe74430a9c8bc98"
+  }
+}

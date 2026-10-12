@@ -4,6 +4,8 @@ An explainable SMS spam detection web application for an AI case study.
 
 Status: React/JavaScript/Vite frontend and browser inference are implemented locally. Both models, explanations, and the validation comparison are connected. Production build and 782-case Python/JavaScript parity checks pass. Final test evaluation and public deployment are pending.
 
+The external-data revision is now evaluated: 36 candidates were compared, but none was adopted after regression review. The leading candidate catches the hacking/payment diagnostic while incorrectly flagging the legitimate license reminder. Served models remain revision 2. See [the revision 3 experiment](docs/revision-v3.md) for data preparation, results, limitations, and reproduction commands. Expanded Python/JavaScript parity checks cover 3,418 cases per model.
+
 ## Run the website
 
 Use Node.js 24 and pnpm. From this project directory:

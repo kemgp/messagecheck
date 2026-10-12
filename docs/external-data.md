@@ -23,6 +23,8 @@ The current template heuristic does not group every paraphrase or redaction vari
 
 ## Next model-development step
 
+Update: the preparation and 36-candidate comparison are complete. No candidate was adopted after diagnostic regression review. See [revision 3 results](revision-v3.md). The paragraph below records the original intake plan.
+
 Review ambiguous external labels, normalize redaction/URL artifacts consistently, strengthen near-duplicate grouping, and select a controlled training mixture with legitimate payment/security examples. Compare word and character features on development partitions. Then verify Python/browser parity and measure false negatives and false positives before adopting a model. The current models and split files were not changed during intake, and the reported threat remains unresolved.
 
 ## Sources

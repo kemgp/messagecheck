@@ -1,0 +1,20 @@
+{
+  "representations": [
+    "word-unigram",
+    "word-bigram",
+    "character-3-5"
+  ],
+  "naive_bayes_alpha": [
+    0.1,
+    0.5
+  ],
+  "logistic_C": [
+    3.0,
+    10.0
+  ],
+  "external_spam_weight_budget": 849.25,
+  "threshold": 0,
+  "selection": "Per family, highest mean of legacy and external spam F1 among candidates passing all adoption gates; then legacy precision, then earlier order.",
+  "gates": "Legacy false positives <= 3, legacy false negatives <= served baseline; external ham false-positive rate <= 5%; external spam F1 improves >= 0.05 over baseline. Diagnostics reported, not a ranking metric.",
+  "test_policy": "Neither test partition is loaded or evaluated."
+}
