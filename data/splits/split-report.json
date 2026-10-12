@@ -1,0 +1,50 @@
+{
+  "seed": 42,
+  "target_ratios": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "messages": 5159,
+  "template_groups": 5097,
+  "multi_message_groups": 50,
+  "messages_in_multi_message_groups": 112,
+  "largest_group": 5,
+  "mixed_label_groups": 0,
+  "splits": {
+    "train": {
+      "messages": 3612,
+      "class_counts": {
+        "ham": 3162,
+        "spam": 450
+      },
+      "fraction": 0.7001356852103121
+    },
+    "validation": {
+      "messages": 774,
+      "class_counts": {
+        "ham": 678,
+        "spam": 96
+      },
+      "fraction": 0.15002907540220972
+    },
+    "test": {
+      "messages": 773,
+      "class_counts": {
+        "ham": 677,
+        "spam": 96
+      },
+      "fraction": 0.1498352393874782
+    }
+  },
+  "policy": "Lowercase; replace explicit URLs, emails, and digit runs with placeholders; compare word-token sequences ignoring punctuation; keep each template group in one partition. Preserve all original message text and labels.",
+  "limitations": "Heuristic template grouping can overgroup and does not detect all paraphrases, unprefixed domains, or changed phone-number formatting. It is not proof of zero semantic overlap.",
+  "input_sha256": "f8042a53df7c8f3a56df287a71ecec38e0c6289855f978252d52ba6c026622f1",
+  "verified_id_overlap": 0,
+  "verified_template_overlap": 0,
+  "split_sha256": {
+    "train": "bff3f06e47d4b2bbaa282bbb30014fa4c2b84336904d52ea0b79f78e578568ff",
+    "validation": "6fe5abd5dc70cc95a83d06aa8033ba1c2509cee8e2804822c90c732a1c74d520",
+    "test": "ef7ac0072b704157ae79c9fa26b28cbcf7658b758d6ebaee941143f0cc114439"
+  }
+}

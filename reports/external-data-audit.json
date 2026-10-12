@@ -1,0 +1,168 @@
+{
+  "sources": {
+    "mendeley": {
+      "file": "data/raw/Dataset_5971.csv",
+      "url": "https://data.mendeley.com/datasets/f45bkkt8pr/1",
+      "sha256": "649844f1c62a6b27e145eaf17a65f7010c56c390e11a794ea8329993a05ba71e",
+      "rows": 5971,
+      "columns": [
+        "LABEL",
+        "TEXT",
+        "URL",
+        "EMAIL",
+        "PHONE"
+      ],
+      "source_labels": {
+        "ham": 4844,
+        "smishing": 638,
+        "spam": 489
+      },
+      "filter_counts": {
+        "eligible_rows": 5971,
+        "excluded_original_exact_overlap": 5025,
+        "novel_rows_before_deduplication": 848,
+        "excluded_original_template_overlap": 98
+      }
+    },
+    "imc2025": {
+      "file": "data/raw/final_dataset_output.csv",
+      "url": "https://github.com/reportsmishing/Smishing-Dataset-IMC25",
+      "sha256": "1bbd1e9e82c3ea023112207b80da268a5c4a07d2353c2b0898360ab037fa9a64",
+      "rows": 33869,
+      "columns": [
+        "time",
+        "sender_id",
+        "telephone_number_type",
+        "original_network_name",
+        "original_network_country",
+        "text",
+        "translation",
+        "language",
+        "url_shortener",
+        "named_entity",
+        "scam_type",
+        "lure_principles"
+      ],
+      "source_labels": {
+        "delivery": 3810,
+        "others": 6922,
+        "wrong number": 332,
+        "banking": 15277,
+        "government": 3248,
+        "hey mum/dad": 263,
+        "spam": 1710,
+        "telecom": 2226,
+        "": 81
+      },
+      "languages": {
+        "Portuguese": 280,
+        "Dutch": 1945,
+        "Spanish": 4639,
+        "English": 22078,
+        "French": 1163,
+        "Romanian": 32,
+        "German": 810,
+        "Italian": 669,
+        "Russian": 10,
+        "Unknown": 17,
+        "Chinese": 45,
+        "Greek": 84,
+        "Bengali": 6,
+        "Ukrainian": 6,
+        "Croatian": 5,
+        "Danish": 111,
+        "Malay": 152,
+        "Turkish": 95,
+        "Czech": 72,
+        "Norwegian": 35,
+        "Hindi": 175,
+        "Korean": 30,
+        "Polish": 133,
+        "Serbian": 6,
+        "Arabic": 58,
+        "Catalan": 31,
+        "Japanese": 257,
+        "Indonesian": 347,
+        "Hungarian": 24,
+        "Uzbek": 1,
+        "Thai": 65,
+        "Swahili": 30,
+        "Tagalog": 79,
+        "Urdu": 75,
+        "Javanese": 6,
+        "Igbo": 7,
+        "Estonian": 10,
+        "Latvian": 9,
+        "Persian": 8,
+        "Icelandic": 4,
+        "Gujarati": 5,
+        "Finnish": 14,
+        "Swedish": 56,
+        "Slovenian": 14,
+        "Hebrew": 8,
+        "Sinhala": 3,
+        "Lithuanian": 3,
+        "Bulgarian": 2,
+        "Slovak": 4,
+        "Punjabi": 3,
+        "Vietnamese": 1,
+        "Mixed (Dutch/French)": 1,
+        "Zulu": 4,
+        "Kannada": 10,
+        "Maltese": 2,
+        "Albanian": 3,
+        "Welsh": 1,
+        "Afrikaans": 6,
+        "unknown": 21,
+        "Divehi": 2,
+        "Yoruba": 1,
+        "nl_fr": 1,
+        "Telugu": 2,
+        "Tamil": 2,
+        "Filipino": 4,
+        "Mongolian": 1,
+        "Kinyarwanda": 3,
+        "": 81,
+        "Ganda": 1,
+        "Marathi": 1
+      },
+      "filter_counts": {
+        "excluded_non_english_or_missing_language": 11791,
+        "eligible_rows": 22077,
+        "novel_rows_before_deduplication": 22077,
+        "excluded_unknown_label": 1
+      }
+    }
+  },
+  "policy": {
+    "existing_corpus": "Exclude matches against the entire original cleaned corpus, including held-out messages, without computing test predictions or metrics.",
+    "labels": "Mendeley ham maps to ham; spam and smishing map to spam. IMC scam categories provisionally map to spam and need label review.",
+    "language": "Use original English-labeled IMC text only; do not substitute translations. Mendeley has no language field.",
+    "duplicates": "Collapse lowercase/whitespace duplicates; exclude conflicting binary labels. Stage template groups together for future splitting.",
+    "status": "Staging only. No training, new split creation, or final-test evaluation."
+  },
+  "staging": {
+    "unique_messages": 16377,
+    "class_counts": {
+      "spam": 15914,
+      "ham": 463
+    },
+    "duplicate_rows_collapsed": 6548,
+    "conflicting_text_groups_excluded": 0,
+    "cross_source_duplicate_groups": 0,
+    "template_groups": 15677
+  },
+  "keyword_coverage_not_verified_scam_categories": {
+    "hacked": {
+      "spam": 2
+    },
+    "blackmail_or_extortion": {},
+    "bitcoin": {
+      "spam": 20
+    },
+    "pay": {
+      "spam": 637,
+      "ham": 2
+    }
+  }
+}

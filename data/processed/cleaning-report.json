@@ -1,0 +1,23 @@
+{
+  "source": "UCI SMS Spam Collection",
+  "source_url": "https://archive.ics.uci.edu/dataset/228/sms+spam+collection",
+  "raw_sha256": "7d039a24a6083ed9ef0f806ebad56bbb976e3aeb8de05669173bfdc4996c239d",
+  "input_lines": 5574,
+  "valid_rows": 5574,
+  "raw_class_counts": {
+    "ham": 4827,
+    "spam": 747
+  },
+  "invalid_rows": [],
+  "exact_duplicate_rows": 403,
+  "duplicate_rows_removed": 415,
+  "conflicting_groups": [],
+  "conflicting_rows_excluded": 0,
+  "clean_rows": 5159,
+  "clean_class_counts": {
+    "ham": 4517,
+    "spam": 642
+  },
+  "policy": "Group by lowercase text with whitespace collapsed; keep first original text for same-label groups; exclude all conflicting-label groups for review.",
+  "limitations": "This does not remove paraphrases or templates with changed numbers or URLs. Review near-duplicate grouping before dataset splitting."
+}

@@ -1,0 +1,73 @@
+{
+  "before_validation": {
+    "accuracy": 0.9857881136950905,
+    "spam_precision": 0.9885057471264368,
+    "spam_recall": 0.8958333333333334,
+    "spam_f1": 0.9398907103825137,
+    "macro_f1": 0.9659160511619529,
+    "confusion_matrix": [
+      [
+        677,
+        1
+      ],
+      [
+        10,
+        86
+      ]
+    ]
+  },
+  "after_validation": {
+    "accuracy": 0.9870801033591732,
+    "spam_precision": 0.9886363636363636,
+    "spam_recall": 0.90625,
+    "spam_f1": 0.9456521739130435,
+    "macro_f1": 0.9691603978069616,
+    "confusion_matrix": [
+      [
+        677,
+        1
+      ],
+      [
+        9,
+        87
+      ]
+    ]
+  },
+  "training_group_cv": {
+    "accuracy": 0.9839424141749723,
+    "spam_precision": 0.9711538461538461,
+    "spam_recall": 0.8977777777777778,
+    "spam_f1": 0.9330254041570438,
+    "macro_f1": 0.9619515193166471,
+    "confusion_matrix": [
+      [
+        3150,
+        12
+      ],
+      [
+        46,
+        404
+      ]
+    ]
+  },
+  "diagnostics": [
+    {
+      "id": "user-parcel-fee",
+      "user_expected_label": "spam",
+      "before": "ham",
+      "after": "spam",
+      "revised_score": 0.08251733177399467,
+      "is_independent_test": false
+    },
+    {
+      "id": "user-license-reminder",
+      "user_expected_label": "ham",
+      "before": "ham",
+      "after": "ham",
+      "revised_score": -0.035240356089498714,
+      "is_independent_test": false
+    }
+  ],
+  "selection": "Revision 2: Naive Bayes unchanged. Moderate logistic class weighting chosen after user diagnostics; improves training-group CV and validation misses without increasing validation false alarms, while matching both user-supplied labels. Not the highest-F1 candidate in the separate broad experiment. No final-test evaluation.",
+  "review_notice_policy": "Display a review notice for model disagreement or absolute log-score margin below 0.5. This heuristic is not calibrated and does not change or remove raw classifier predictions from metrics."
+}

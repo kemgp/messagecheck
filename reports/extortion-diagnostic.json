@@ -1,0 +1,137 @@
+{
+  "example": {
+    "id": "user-extortion-deadline",
+    "expected_label": "spam",
+    "text": "You have been hacked! Pay within 12 hours!",
+    "provenance": "User-supplied development diagnostic. Excluded from training and final testing; not independent performance evidence."
+  },
+  "results": {
+    "naive_bayes": {
+      "label": "ham",
+      "score": -2.511607132702566,
+      "offset": -1.9497124350050514,
+      "knownTerms": 7,
+      "borderline": false,
+      "contributions": [
+        {
+          "term": "pay",
+          "index": 4704,
+          "value": 0.40228422631170935,
+          "contribution": -0.6896230540219314
+        },
+        {
+          "term": "12",
+          "index": 237,
+          "value": 0.48470062068729125,
+          "contribution": 0.4401339482363503
+        },
+        {
+          "term": "you",
+          "index": 7103,
+          "value": 0.14661713764900486,
+          "contribution": -0.14337147500678
+        },
+        {
+          "term": "hours",
+          "index": 3232,
+          "value": 0.42940522913203216,
+          "contribution": -0.13742151407392378
+        },
+        {
+          "term": "within",
+          "index": 6955,
+          "value": 0.49501154741994235,
+          "contribution": -0.08425110575240394
+        },
+        {
+          "term": "been",
+          "index": 1192,
+          "value": 0.32092121785074096,
+          "contribution": 0.08404436330577467
+        },
+        {
+          "term": "have",
+          "index": 3086,
+          "value": 0.22208199738370332,
+          "contribution": -0.031405860384600845
+        }
+      ],
+      "unknown_terms": [
+        "hacked"
+      ],
+      "current_validation": {
+        "false_positives": 1,
+        "false_negatives": 8
+      },
+      "exploratory_threshold": -2.511607132802566,
+      "exploratory_validation": {
+        "false_positives": 23,
+        "false_negatives": 4
+      }
+    },
+    "logistic_regression": {
+      "label": "ham",
+      "score": -3.075455501234235,
+      "offset": -3.4989214026663347,
+      "knownTerms": 7,
+      "borderline": false,
+      "contributions": [
+        {
+          "term": "have",
+          "index": 3086,
+          "value": 0.22208199738370332,
+          "contribution": 0.36600715179792775
+        },
+        {
+          "term": "12",
+          "index": 237,
+          "value": 0.48470062068729125,
+          "contribution": 0.23324346406406357
+        },
+        {
+          "term": "pay",
+          "index": 4704,
+          "value": 0.40228422631170935,
+          "contribution": -0.16205342642388043
+        },
+        {
+          "term": "been",
+          "index": 1192,
+          "value": 0.32092121785074096,
+          "contribution": 0.13802721340361393
+        },
+        {
+          "term": "hours",
+          "index": 3232,
+          "value": 0.42940522913203216,
+          "contribution": -0.13634434378184485
+        },
+        {
+          "term": "you",
+          "index": 7103,
+          "value": 0.14661713764900486,
+          "contribution": -0.061991330488805604
+        },
+        {
+          "term": "within",
+          "index": 6955,
+          "value": 0.49501154741994235,
+          "contribution": 0.04657717286102562
+        }
+      ],
+      "unknown_terms": [
+        "hacked"
+      ],
+      "current_validation": {
+        "false_positives": 1,
+        "false_negatives": 9
+      },
+      "exploratory_threshold": -3.075455501334235,
+      "exploratory_validation": {
+        "false_positives": 69,
+        "false_negatives": 2
+      }
+    }
+  },
+  "decision": "No model or threshold changes adopted. Threshold comparison is exploratory on reused validation data, not a final-test evaluation. This diagnostic remains an unresolved false negative."
+}

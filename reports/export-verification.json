@@ -1,0 +1,16 @@
+{
+  "stage": "Python arithmetic verification; browser parity still pending",
+  "messages_checked_per_model": 782,
+  "models": {
+    "naive_bayes": {
+      "maximum_feature_error": 1.1102230246251565e-16,
+      "maximum_score_error": 2.5757174171303632e-14,
+      "label_mismatches": 0
+    },
+    "logistic_regression": {
+      "maximum_feature_error": 1.1102230246251565e-16,
+      "maximum_score_error": 3.552713678800501e-15,
+      "label_mismatches": 0
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "parameters": {
+    "C": 10,
+    "class_weight": {
+      "ham": 1,
+      "spam": 2
+    }
+  },
+  "training_cv_metrics": {
+    "accuracy": 0.9839424141749723,
+    "spam_precision": 0.9711538461538461,
+    "spam_recall": 0.8977777777777778,
+    "spam_f1": 0.9330254041570438,
+    "macro_f1": 0.9619515193166471,
+    "confusion_matrix": [
+      [
+        3150,
+        12
+      ],
+      [
+        46,
+        404
+      ]
+    ]
+  },
+  "validation_metrics": {
+    "accuracy": 0.9870801033591732,
+    "spam_precision": 0.9886363636363636,
+    "spam_recall": 0.90625,
+    "spam_f1": 0.9456521739130435,
+    "macro_f1": 0.9691603978069616,
+    "confusion_matrix": [
+      [
+        677,
+        1
+      ],
+      [
+        9,
+        87
+      ]
+    ]
+  },
+  "reason": "Moderate class-weight experiment added after user diagnostic examples; those examples were not used as training rows. This is development evidence, not independent final evaluation."
+}

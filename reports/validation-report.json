@@ -1,0 +1,281 @@
+{
+  "stage": "validation only; final test not evaluated",
+  "selection_rule": "Revision 2: Naive Bayes unchanged. Moderate logistic class weighting chosen after user diagnostics; improves training-group CV and validation misses without increasing validation false alarms, while matching both user-supplied labels. Not the highest-F1 candidate in the separate broad experiment. No final-test evaluation.",
+  "input_sha256": {
+    "train": "bff3f06e47d4b2bbaa282bbb30014fa4c2b84336904d52ea0b79f78e578568ff",
+    "validation": "6fe5abd5dc70cc95a83d06aa8033ba1c2509cee8e2804822c90c732a1c74d520"
+  },
+  "training_script_sha256": "7cfbdfad09771d851ae195dbe251a61922173c22c020ee414f5f5912b8b4a094",
+  "versions": {
+    "python": "3.12.14",
+    "scikit-learn": "1.9.1",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "joblib": "1.6.0"
+  },
+  "counts": {
+    "train": {
+      "spam": 450,
+      "ham": 3162
+    },
+    "validation": {
+      "ham": 678,
+      "spam": 96
+    }
+  },
+  "confusion_matrix_order": "Rows=true, columns=predicted; ham then spam",
+  "majority_baseline": {
+    "accuracy": 0.875968992248062,
+    "spam_precision": 0.0,
+    "spam_recall": 0.0,
+    "spam_f1": 0.0,
+    "macro_f1": 0.4669421487603306,
+    "confusion_matrix": [
+      [
+        678,
+        0
+      ],
+      [
+        96,
+        0
+      ]
+    ]
+  },
+  "candidates": [
+    {
+      "family": "naive_bayes",
+      "parameters": {
+        "alpha": 0.1
+      },
+      "order": 0,
+      "metrics": {
+        "accuracy": 0.9883720930232558,
+        "spam_precision": 0.9887640449438202,
+        "spam_recall": 0.9166666666666666,
+        "spam_f1": 0.9513513513513514,
+        "macro_f1": 0.9723741349566735,
+        "confusion_matrix": [
+          [
+            677,
+            1
+          ],
+          [
+            8,
+            88
+          ]
+        ]
+      }
+    },
+    {
+      "family": "naive_bayes",
+      "parameters": {
+        "alpha": 0.5
+      },
+      "order": 1,
+      "metrics": {
+        "accuracy": 0.9741602067183462,
+        "spam_precision": 1.0,
+        "spam_recall": 0.7916666666666666,
+        "spam_f1": 0.8837209302325582,
+        "macro_f1": 0.934593023255814,
+        "confusion_matrix": [
+          [
+            678,
+            0
+          ],
+          [
+            20,
+            76
+          ]
+        ]
+      }
+    },
+    {
+      "family": "naive_bayes",
+      "parameters": {
+        "alpha": 1.0
+      },
+      "order": 2,
+      "metrics": {
+        "accuracy": 0.9573643410852714,
+        "spam_precision": 1.0,
+        "spam_recall": 0.65625,
+        "spam_f1": 0.7924528301886793,
+        "macro_f1": 0.8843473654183137,
+        "confusion_matrix": [
+          [
+            678,
+            0
+          ],
+          [
+            33,
+            63
+          ]
+        ]
+      }
+    },
+    {
+      "family": "logistic_regression",
+      "parameters": {
+        "C": 1.0
+      },
+      "order": 3,
+      "metrics": {
+        "accuracy": 0.9677002583979328,
+        "spam_precision": 1.0,
+        "spam_recall": 0.7395833333333334,
+        "spam_f1": 0.8502994011976048,
+        "macro_f1": 0.9160982885785273,
+        "confusion_matrix": [
+          [
+            678,
+            0
+          ],
+          [
+            25,
+            71
+          ]
+        ]
+      }
+    },
+    {
+      "family": "logistic_regression",
+      "parameters": {
+        "C": 3.0
+      },
+      "order": 4,
+      "metrics": {
+        "accuracy": 0.979328165374677,
+        "spam_precision": 0.9878048780487805,
+        "spam_recall": 0.84375,
+        "spam_f1": 0.9101123595505618,
+        "macro_f1": 0.9492167637168867,
+        "confusion_matrix": [
+          [
+            677,
+            1
+          ],
+          [
+            15,
+            81
+          ]
+        ]
+      }
+    },
+    {
+      "family": "logistic_regression",
+      "parameters": {
+        "C": 10.0
+      },
+      "order": 5,
+      "metrics": {
+        "accuracy": 0.9857881136950905,
+        "spam_precision": 0.9885057471264368,
+        "spam_recall": 0.8958333333333334,
+        "spam_f1": 0.9398907103825137,
+        "macro_f1": 0.9659160511619529,
+        "confusion_matrix": [
+          [
+            677,
+            1
+          ],
+          [
+            10,
+            86
+          ]
+        ]
+      }
+    },
+    {
+      "family": "logistic_regression",
+      "parameters": {
+        "C": 10.0,
+        "class_weight": {
+          "ham": 1,
+          "spam": 2
+        }
+      },
+      "order": 6,
+      "metrics": {
+        "accuracy": 0.9870801033591732,
+        "spam_precision": 0.9886363636363636,
+        "spam_recall": 0.90625,
+        "spam_f1": 0.9456521739130435,
+        "macro_f1": 0.9691603978069616,
+        "confusion_matrix": [
+          [
+            677,
+            1
+          ],
+          [
+            9,
+            87
+          ]
+        ]
+      }
+    }
+  ],
+  "selected": {
+    "naive_bayes": {
+      "family": "naive_bayes",
+      "parameters": {
+        "alpha": 0.1
+      },
+      "order": 0,
+      "metrics": {
+        "accuracy": 0.9883720930232558,
+        "spam_precision": 0.9887640449438202,
+        "spam_recall": 0.9166666666666666,
+        "spam_f1": 0.9513513513513514,
+        "macro_f1": 0.9723741349566735,
+        "confusion_matrix": [
+          [
+            677,
+            1
+          ],
+          [
+            8,
+            88
+          ]
+        ]
+      }
+    },
+    "logistic_regression": {
+      "family": "logistic_regression",
+      "parameters": {
+        "C": 10.0,
+        "class_weight": {
+          "ham": 1,
+          "spam": 2
+        }
+      },
+      "order": 6,
+      "metrics": {
+        "accuracy": 0.9870801033591732,
+        "spam_precision": 0.9886363636363636,
+        "spam_recall": 0.90625,
+        "spam_f1": 0.9456521739130435,
+        "macro_f1": 0.9691603978069616,
+        "confusion_matrix": [
+          [
+            677,
+            1
+          ],
+          [
+            9,
+            87
+          ]
+        ]
+      }
+    }
+  },
+  "provisional_preferred_model": "naive_bayes",
+  "model_json_sha256": {
+    "naive_bayes": "46e6172003fe6185a3ae2e9f4243daca96adabdc972455ee205531e036d1df06",
+    "logistic_regression": "41d7fa4bc0a9d27768cd3e76490408327d4059230c4bec3dffe74430a9c8bc98"
+  },
+  "vocabulary_size": 7133,
+  "limitations": "Validation scores informed model selection and are not final generalization estimates. The tokenizer is ASCII word/number based; the older English corpus does not establish multilingual or modern scam detection. Model revision uses development diagnostics and reused validation data; user examples are not independent performance evidence.",
+  "revision": "moderate-spam-weight-v2",
+  "revision_script_sha256": "c72bc83e7ab1276961df04b4b16d701a329dc57d04153840bedd4b768bc7b3dd"
+}

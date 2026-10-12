@@ -1,0 +1,20 @@
+[
+  {
+    "id": "user-parcel-fee",
+    "expected_label": "spam",
+    "text": "PHLPost: Your parcel has arrived at our local sorting hub but cannot be delivered due to an incomplete house number. Please update your address and pay the ₱18.50 redirection fee within 12 hours here: [https://phlpost-tracking-office.info](https://phlpost-tracking-office.info)",
+    "provenance": "User-supplied diagnostic label, not independently verified. Excluded from training and final testing."
+  },
+  {
+    "id": "user-license-reminder",
+    "expected_label": "ham",
+    "text": "LTO: Your driver's license is due for renewal on or before 12/15/2026. Please log in to your official [LTMS Online Portal](https://portal.lto.gov.ph/) account at ltms.lto.gov.ph to schedule an appointment. This is an automated notification. Do not reply.",
+    "provenance": "User-supplied diagnostic label, not proof of sender or URL authenticity. Excluded from training and final testing."
+  },
+  {
+    "id": "user-extortion-deadline",
+    "expected_label": "spam",
+    "text": "You have been hacked! Pay within 12 hours!",
+    "provenance": "User-supplied development diagnostic. Excluded from training and final testing; not independent performance evidence."
+  }
+]

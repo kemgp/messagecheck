@@ -1,0 +1,309 @@
+{
+  "selection": "3-fold stratified grouped CV on training only; highest spam F1, then precision, then earlier candidate. Validation used as a non-regression check. No final test reads.",
+  "reason": "User reported false positives/negatives; bounded phrase-feature and class-balancing experiment.",
+  "candidates": [
+    {
+      "order": 0,
+      "family": "naive_bayes",
+      "ngram_range": [
+        1,
+        1
+      ],
+      "sublinear_tf": false,
+      "parameters": {
+        "alpha": 0.1
+      },
+      "training_cv_metrics": {
+        "accuracy": 0.9817275747508306,
+        "spam_precision": 0.9873096446700508,
+        "spam_recall": 0.8644444444444445,
+        "spam_f1": 0.9218009478672986,
+        "macro_f1": 0.9557280601405458,
+        "confusion_matrix": [
+          [
+            3157,
+            5
+          ],
+          [
+            61,
+            389
+          ]
+        ]
+      }
+    },
+    {
+      "order": 1,
+      "family": "naive_bayes",
+      "ngram_range": [
+        1,
+        2
+      ],
+      "sublinear_tf": true,
+      "parameters": {
+        "alpha": 0.1
+      },
+      "training_cv_metrics": {
+        "accuracy": 0.979235880398671,
+        "spam_precision": 0.9973474801061007,
+        "spam_recall": 0.8355555555555556,
+        "spam_f1": 0.909310761789601,
+        "macro_f1": 0.9487932580247052,
+        "confusion_matrix": [
+          [
+            3161,
+            1
+          ],
+          [
+            74,
+            376
+          ]
+        ]
+      }
+    },
+    {
+      "order": 2,
+      "family": "naive_bayes",
+      "ngram_range": [
+        1,
+        2
+      ],
+      "sublinear_tf": true,
+      "parameters": {
+        "alpha": 0.05
+      },
+      "training_cv_metrics": {
+        "accuracy": 0.9853266888150609,
+        "spam_precision": 0.9925558312655087,
+        "spam_recall": 0.8888888888888888,
+        "spam_f1": 0.9378663540445487,
+        "macro_f1": 0.964773704412009,
+        "confusion_matrix": [
+          [
+            3159,
+            3
+          ],
+          [
+            50,
+            400
+          ]
+        ]
+      }
+    },
+    {
+      "order": 3,
+      "family": "logistic_regression",
+      "ngram_range": [
+        1,
+        1
+      ],
+      "sublinear_tf": false,
+      "parameters": {
+        "C": 10.0
+      },
+      "training_cv_metrics": {
+        "accuracy": 0.9828349944629015,
+        "spam_precision": 0.985,
+        "spam_recall": 0.8755555555555555,
+        "spam_f1": 0.9270588235294117,
+        "macro_f1": 0.9586659037634507,
+        "confusion_matrix": [
+          [
+            3156,
+            6
+          ],
+          [
+            56,
+            394
+          ]
+        ]
+      }
+    },
+    {
+      "order": 4,
+      "family": "logistic_regression",
+      "ngram_range": [
+        1,
+        1
+      ],
+      "sublinear_tf": false,
+      "parameters": {
+        "C": 10.0,
+        "class_weight": "balanced"
+      },
+      "training_cv_metrics": {
+        "accuracy": 0.9853266888150609,
+        "spam_precision": 0.9521640091116174,
+        "spam_recall": 0.9288888888888889,
+        "spam_f1": 0.9403824521934758,
+        "macro_f1": 0.9660081163887664,
+        "confusion_matrix": [
+          [
+            3141,
+            21
+          ],
+          [
+            32,
+            418
+          ]
+        ]
+      }
+    },
+    {
+      "order": 5,
+      "family": "logistic_regression",
+      "ngram_range": [
+        1,
+        2
+      ],
+      "sublinear_tf": true,
+      "parameters": {
+        "C": 10.0,
+        "class_weight": "balanced"
+      },
+      "training_cv_metrics": {
+        "accuracy": 0.9864341085271318,
+        "spam_precision": 0.9588100686498856,
+        "spam_recall": 0.9311111111111111,
+        "spam_f1": 0.9447576099210823,
+        "macro_f1": 0.9685126222242306,
+        "confusion_matrix": [
+          [
+            3144,
+            18
+          ],
+          [
+            31,
+            419
+          ]
+        ]
+      }
+    },
+    {
+      "order": 6,
+      "family": "logistic_regression",
+      "ngram_range": [
+        1,
+        2
+      ],
+      "sublinear_tf": true,
+      "parameters": {
+        "C": 10.0
+      },
+      "training_cv_metrics": {
+        "accuracy": 0.9831118493909191,
+        "spam_precision": 0.9874686716791979,
+        "spam_recall": 0.8755555555555555,
+        "spam_f1": 0.928150765606596,
+        "macro_f1": 0.9592910690778078,
+        "confusion_matrix": [
+          [
+            3157,
+            5
+          ],
+          [
+            56,
+            394
+          ]
+        ]
+      }
+    }
+  ],
+  "winners": {
+    "naive_bayes": {
+      "order": 2,
+      "family": "naive_bayes",
+      "ngram_range": [
+        1,
+        2
+      ],
+      "sublinear_tf": true,
+      "parameters": {
+        "alpha": 0.05
+      },
+      "training_cv_metrics": {
+        "accuracy": 0.9853266888150609,
+        "spam_precision": 0.9925558312655087,
+        "spam_recall": 0.8888888888888888,
+        "spam_f1": 0.9378663540445487,
+        "macro_f1": 0.964773704412009,
+        "confusion_matrix": [
+          [
+            3159,
+            3
+          ],
+          [
+            50,
+            400
+          ]
+        ]
+      },
+      "validation_metrics": {
+        "accuracy": 0.9883720930232558,
+        "spam_precision": 0.9887640449438202,
+        "spam_recall": 0.9166666666666666,
+        "spam_f1": 0.9513513513513514,
+        "macro_f1": 0.9723741349566735,
+        "confusion_matrix": [
+          [
+            677,
+            1
+          ],
+          [
+            8,
+            88
+          ]
+        ]
+      },
+      "reduces_errors_without_worsening_either_type": false
+    },
+    "logistic_regression": {
+      "order": 5,
+      "family": "logistic_regression",
+      "ngram_range": [
+        1,
+        2
+      ],
+      "sublinear_tf": true,
+      "parameters": {
+        "C": 10.0,
+        "class_weight": "balanced"
+      },
+      "training_cv_metrics": {
+        "accuracy": 0.9864341085271318,
+        "spam_precision": 0.9588100686498856,
+        "spam_recall": 0.9311111111111111,
+        "spam_f1": 0.9447576099210823,
+        "macro_f1": 0.9685126222242306,
+        "confusion_matrix": [
+          [
+            3144,
+            18
+          ],
+          [
+            31,
+            419
+          ]
+        ]
+      },
+      "validation_metrics": {
+        "accuracy": 0.9909560723514211,
+        "spam_precision": 0.989010989010989,
+        "spam_recall": 0.9375,
+        "spam_f1": 0.9625668449197861,
+        "macro_f1": 0.9787117839587909,
+        "confusion_matrix": [
+          [
+            677,
+            1
+          ],
+          [
+            6,
+            90
+          ]
+        ]
+      },
+      "reduces_errors_without_worsening_either_type": true
+    }
+  },
+  "limitations": "Development/validation data have now been reused; these are exploratory improvements, not final generalization estimates. More false positives may accompany fewer misses."
+}
