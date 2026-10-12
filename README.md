@@ -66,7 +66,9 @@ Development and Evaluation of an Explainable SMS Spam Detection Web Application 
 
 ## References
 
-- Dataset: https://archive.ics.uci.edu/dataset/228/sms+spam+collection
+- Datasets: https://archive.ics.uci.edu/dataset/228/sms+spam+collection
+- https://github.com/reportsmishing/Smishing-Dataset-IMC25
+- https://data.mendeley.com/datasets/f45bkkt8pr/1
 - Text features: https://scikit-learn.org/stable/modules/feature_extraction.html#text-feature-extraction
 - Leakage prevention: https://scikit-learn.org/stable/common_pitfalls.html
 - Vercel Free eligibility: https://vercel.com/docs/plans/hobby
