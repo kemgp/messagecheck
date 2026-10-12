@@ -6,6 +6,12 @@ Status: React/JavaScript/Vite frontend and browser inference are implemented loc
 
 The external-data revision is now evaluated: 36 candidates were compared, but none was adopted after regression review. The leading candidate catches the hacking/payment diagnostic while incorrectly flagging the legitimate license reminder. Served models remain revision 2. See [the revision 3 experiment](docs/revision-v3.md) for data preparation, results, limitations, and reproduction commands. Expanded Python/JavaScript parity checks cover 3,418 cases per model.
 
+## New dataset pending review
+
+The [Financial Scams Detection Dataset from Mendeley](https://data.mendeley.com/datasets/znsk27yk3h/1) has been added locally. Its intended use is to investigate additional legitimate English payment, account, and security notifications that could help reduce false positives.
+
+The newly added dataset has not been inspected, cleaned, merged, or used for training or evaluation. Its suitability and overlap with existing data remain unverified. Dataset work is on hold at the user's request; only this README has been updated. The served models remain revision 2, and both final-test partitions remain unevaluated.
+
 ## Run the website
 
 Use Node.js 24 and pnpm. From this project directory:
