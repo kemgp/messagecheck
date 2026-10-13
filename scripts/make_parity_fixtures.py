@@ -10,6 +10,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('output')
 parser.add_argument('--model-dir', type=Path, default=ROOT / 'models')
 parser.add_argument('--external', action='store_true')
+parser.add_argument('--super-sms', action='store_true', help='Include Super SMS v1 validation only')
 args = parser.parse_args()
 texts = [json.loads(line)['text'] for line in
          (ROOT / 'data/splits/validation.jsonl').read_text().splitlines()]
@@ -21,6 +22,8 @@ texts += ['Pay <DATE_TIME> at <URL> [REDACTED]', 'Pay 123 at https://example.com
           '[https://example.com](https://example.com) <url> <email>']
 if args.external:
     texts += [json.loads(line)['text'] for line in (ROOT / 'data/revision-v3/validation.jsonl').read_text().splitlines()]
+if args.super_sms:
+    texts += [json.loads(line)['text'] for line in (ROOT / 'data/super-sms-v1/validation.jsonl').read_text().splitlines()]
 diagnostics = ROOT / 'data/diagnostics/user-examples.json'
 if diagnostics.exists():
     texts += [r['text'] for r in json.loads(diagnostics.read_text())]

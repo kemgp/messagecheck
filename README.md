@@ -28,7 +28,7 @@ The [notification evidence queue](reports/notification-evidence-queue.md) contai
 
 Current collection scope is existing local datasets only. Direct overlap checks found matches for one of the eight leads; unresolved context remains unknown, and original labels are preserved.
 
-The [Super SMS candidate preparation](docs/super-sms-preparation.md) now provides 59,615 source-labeled messages in 58,348 template groups after exclusions and deduplication. Existing-corpus overlaps, malformed/encoding-flagged groups, conflicting labels, and all previously reviewed cases are quarantined. Candidates remain unassigned to partitions; no training has been performed on this subset.
+The [Super SMS candidate preparation](docs/super-sms-preparation.md) provides 59,615 source-labeled messages in 58,348 template groups after exclusions and deduplication. Existing-corpus overlaps, malformed/encoding-flagged groups, conflicting labels, and all previously reviewed cases are quarantined. A separate [controlled experiment](docs/super-sms-experiment.md) assigned these groups to partitions and evaluated eight candidates. None passed the adoption gates: all missed more original-validation spam and flagged the legitimate license reminder. Revision 2 remains served; all final tests remain unevaluated.
 
 ## Next steps
 
@@ -38,7 +38,7 @@ The [Super SMS candidate preparation](docs/super-sms-preparation.md) now provide
 4. Adopt a candidate only when the measured tradeoff and diagnostic review support it; verify Python/JavaScript feature values, scores, labels, and explanations before changing app model imports and dashboard metrics.
 5. Once model choices are frozen, evaluate the reserved final tests, update the results, verify the application on desktop/mobile, and complete deployment and the paper.
 
-The policy and review template are ready. Collection, approval, dataset preparation, and another training experiment remain future work; no new model has been adopted.
+The policy, review template, candidate preparation, and initial Super SMS experiment are complete. The next development investigation is the license false alarm and additional original-validation misses. No new model has been adopted.
 
 ## Run the website
 

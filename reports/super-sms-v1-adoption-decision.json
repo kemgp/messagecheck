@@ -1,0 +1,39 @@
+{
+  "adopted": false,
+  "reason": "All eight candidates fail original-validation missed-spam and diagnostic gates. Every candidate incorrectly labels the legitimate license reminder spam. Served revision 2 retained.",
+  "selected_for_analysis": {
+    "naive_bayes": {
+      "order": 6,
+      "eligible": false,
+      "failed_gates": [
+        "legacy_fn",
+        "diagnostics"
+      ]
+    },
+    "logistic_regression": {
+      "order": 7,
+      "eligible": false,
+      "failed_gates": [
+        "legacy_fn",
+        "diagnostics"
+      ]
+    }
+  },
+  "parity": {
+    "cases_per_model": 15580,
+    "naive_bayes_max_score_error": 1.2789769243681803e-13,
+    "logistic_regression_max_score_error": 7.993605777301127e-15,
+    "checks": "labels, TF-IDF feature values, scores, explanations"
+  },
+  "verification": "All 59,615 prepared IDs appear exactly once in the new manifest; group assignments are deterministic and disjoint; served model hashes unchanged.",
+  "final_tests_evaluated": false,
+  "served_sha256": {
+    "models/logistic_regression-candidate.joblib": "b00dc3f1d6cd3c8fb1ca25c7bd8354af606429f25a8076740159854beb5609f3",
+    "models/logistic_regression.json": "41d7fa4bc0a9d27768cd3e76490408327d4059230c4bec3dffe74430a9c8bc98",
+    "models/naive_bayes-candidate.joblib": "c0568dcc951ce761ec4f897db7801860586b24cbc6bc77d38a4ad2dde8804ec7",
+    "models/logistic_regression-moderate-candidate.joblib": "e2272df9967f293eb0b392ae120efbf0a9060845631843ca388d0dcf0f9186de",
+    "models/naive_bayes.json": "46e6172003fe6185a3ae2e9f4243daca96adabdc972455ee205531e036d1df06",
+    "models/logistic_regression.joblib": "8bdf3f1e663b5f051d5efced37ebf437d3eaa1103f6d288649b2147a24b52135",
+    "models/naive_bayes.joblib": "7e9d1c40cdb5f299c67341e301083c637421b3820696b28ee3dafa48ae55925e"
+  }
+}

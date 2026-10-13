@@ -1,0 +1,1146 @@
+{
+  "protocol": {
+    "run": "super-sms-v1",
+    "split": "sha256(super-sms-v1: + group_id) first 8 hex digits modulo 100: <60 train, <80 validation, else reserved test",
+    "representations": [
+      "word-unigram",
+      "word-bigram"
+    ],
+    "families": {
+      "naive_bayes": {
+        "alpha": 0.1
+      },
+      "logistic_regression": {
+        "C": 10,
+        "solver": "liblinear",
+        "max_iter": 2000,
+        "random_state": 42
+      }
+    },
+    "new_data_class_budgets": [
+      0.25,
+      1.0
+    ],
+    "weighting": "Original rows weight 1. Each new template group has equal mass within its class; each new class total is budget times original training count for that class. No old external training rows included.",
+    "vectorizer": "normalize_v3, word ngrams, min_df=2, max_features=30000, sublinear_tf=True, L2 TF-IDF. Fit on combined training rows only. Classifier weights do not weight vocabulary or IDF.",
+    "candidate_count": 8,
+    "threshold": "Default classifier threshold; no threshold tuning",
+    "gates": {
+      "legacy_fp": "<=3",
+      "legacy_fn": "<= served family baseline",
+      "super_sms_f1": ">= served family baseline + 0.02",
+      "super_sms_ham_fpr": "<=0.05 and <= served family baseline + 0.01",
+      "prior_external_f1": ">= served family baseline",
+      "diagnostics": "All three expected labels correct, including extortion and legitimate license"
+    },
+    "ranking": "Eligible first, then mean spam F1 across three validation domains, then legacy precision, then earlier candidate order. Save one candidate per family even if ineligible, clearly marked.",
+    "test_policy": "Allocate Super SMS test rows once; never reopen or score any final-test partition. Existing protected source rows were used only in prior overlap auditing.",
+    "adoption": "Experiment only. Served models unchanged; eligibility does not deploy a model.",
+    "prepared_sha256": "762e2fc532d06a12c0bc7bda7420f1f44454000215415dfa2a8789a25a9df5f6",
+    "served_sha256": {
+      "models/logistic_regression-candidate.joblib": "b00dc3f1d6cd3c8fb1ca25c7bd8354af606429f25a8076740159854beb5609f3",
+      "models/logistic_regression.json": "41d7fa4bc0a9d27768cd3e76490408327d4059230c4bec3dffe74430a9c8bc98",
+      "models/naive_bayes-candidate.joblib": "c0568dcc951ce761ec4f897db7801860586b24cbc6bc77d38a4ad2dde8804ec7",
+      "models/logistic_regression-moderate-candidate.joblib": "e2272df9967f293eb0b392ae120efbf0a9060845631843ca388d0dcf0f9186de",
+      "models/naive_bayes.json": "46e6172003fe6185a3ae2e9f4243daca96adabdc972455ee205531e036d1df06",
+      "models/logistic_regression.joblib": "8bdf3f1e663b5f051d5efced37ebf437d3eaa1103f6d288649b2147a24b52135",
+      "models/naive_bayes.joblib": "7e9d1c40cdb5f299c67341e301083c637421b3820696b28ee3dafa48ae55925e"
+    },
+    "script_sha256": "965a75c8d4fe3c83698389b22786ee831f9d7eba5379aad7a0edee18765fc125"
+  },
+  "splits": {
+    "train": {
+      "rows": 35702,
+      "groups": 34957,
+      "labels": {
+        "ham": 21413,
+        "spam": 14289
+      },
+      "sha256": "de0a5414cc00436a8a8950cbc218b2e88b540fab08b389fff0dcd0c4db646896"
+    },
+    "validation": {
+      "rows": 12162,
+      "groups": 11868,
+      "labels": {
+        "ham": 7303,
+        "spam": 4859
+      },
+      "sha256": "32daf32bd012ccab75ad2f0b16a369bd49af21adc7f4939a72568cb17fecb2d2"
+    },
+    "test": {
+      "rows": 11751,
+      "groups": 11523,
+      "labels": {
+        "spam": 4700,
+        "ham": 7051
+      },
+      "sha256": "bcaeb743aba5d5cde19ee4e5cb264fc726ac7e424a364010403cafa5bf590583"
+    }
+  },
+  "training_counts": {
+    "spam": 14739,
+    "ham": 24575
+  },
+  "input_sha256": {
+    "data/splits/train.jsonl": "bff3f06e47d4b2bbaa282bbb30014fa4c2b84336904d52ea0b79f78e578568ff",
+    "data/splits/validation.jsonl": "6fe5abd5dc70cc95a83d06aa8033ba1c2509cee8e2804822c90c732a1c74d520",
+    "data/revision-v3/validation.jsonl": "601b200f592238fbaf599a4c20e3161a5f6d8a213787a686f53c5dfb81015a56",
+    "data/diagnostics/user-examples.json": "f8a8698bb0bf7a8bd9065458917702fa0ff555c0af57c966e44442fd5a6ff862"
+  },
+  "baseline": {
+    "naive_bayes": {
+      "validation": {
+        "legacy": {
+          "accuracy": 0.9883720930232558,
+          "spam_precision": 0.9887640449438202,
+          "spam_recall": 0.9166666666666666,
+          "spam_f1": 0.9513513513513514,
+          "macro_f1": 0.9723741349566735,
+          "confusion_matrix": [
+            [
+              677,
+              1
+            ],
+            [
+              8,
+              88
+            ]
+          ]
+        },
+        "super_sms": {
+          "accuracy": 0.7314586416707778,
+          "spam_precision": 0.9859670530811471,
+          "spam_recall": 0.33257871990121424,
+          "spam_f1": 0.497383810403201,
+          "macro_f1": 0.6570841412612887,
+          "confusion_matrix": [
+            [
+              7280,
+              23
+            ],
+            [
+              3243,
+              1616
+            ]
+          ]
+        },
+        "prior_external": {
+          "accuracy": 0.3187357197258187,
+          "spam_precision": 1.0,
+          "spam_recall": 0.2995301487862177,
+          "spam_f1": 0.46098222356131363,
+          "macro_f1": 0.2677389131257163,
+          "confusion_matrix": [
+            [
+              72,
+              0
+            ],
+            [
+              1789,
+              765
+            ]
+          ]
+        }
+      },
+      "diagnostics": [
+        {
+          "id": "user-parcel-fee",
+          "expected": "spam",
+          "predicted": "ham"
+        },
+        {
+          "id": "user-license-reminder",
+          "expected": "ham",
+          "predicted": "ham"
+        },
+        {
+          "id": "user-extortion-deadline",
+          "expected": "spam",
+          "predicted": "ham"
+        }
+      ]
+    },
+    "logistic_regression": {
+      "validation": {
+        "legacy": {
+          "accuracy": 0.9870801033591732,
+          "spam_precision": 0.9886363636363636,
+          "spam_recall": 0.90625,
+          "spam_f1": 0.9456521739130435,
+          "macro_f1": 0.9691603978069616,
+          "confusion_matrix": [
+            [
+              677,
+              1
+            ],
+            [
+              9,
+              87
+            ]
+          ]
+        },
+        "super_sms": {
+          "accuracy": 0.7121361618154909,
+          "spam_precision": 0.9774964838255977,
+          "spam_recall": 0.2860670919942375,
+          "spam_f1": 0.4426046807833148,
+          "macro_f1": 0.624284106173401,
+          "confusion_matrix": [
+            [
+              7271,
+              32
+            ],
+            [
+              3469,
+              1390
+            ]
+          ]
+        },
+        "prior_external": {
+          "accuracy": 0.25514089870525514,
+          "spam_precision": 1.0,
+          "spam_recall": 0.2341425215348473,
+          "spam_f1": 0.37944162436548223,
+          "macro_f1": 0.2240065264684554,
+          "confusion_matrix": [
+            [
+              72,
+              0
+            ],
+            [
+              1956,
+              598
+            ]
+          ]
+        }
+      },
+      "diagnostics": [
+        {
+          "id": "user-parcel-fee",
+          "expected": "spam",
+          "predicted": "spam"
+        },
+        {
+          "id": "user-license-reminder",
+          "expected": "ham",
+          "predicted": "ham"
+        },
+        {
+          "id": "user-extortion-deadline",
+          "expected": "spam",
+          "predicted": "ham"
+        }
+      ]
+    }
+  },
+  "candidates": [
+    {
+      "order": 0,
+      "family": "naive_bayes",
+      "representation": "word-unigram",
+      "new_class_budget": 0.25,
+      "parameters": {
+        "alpha": 0.1
+      },
+      "validation": {
+        "legacy": {
+          "accuracy": 0.9780361757105943,
+          "spam_precision": 0.9876543209876543,
+          "spam_recall": 0.8333333333333334,
+          "spam_f1": 0.903954802259887,
+          "macro_f1": 0.9457775470088641,
+          "confusion_matrix": [
+            [
+              677,
+              1
+            ],
+            [
+              16,
+              80
+            ]
+          ]
+        },
+        "super_sms": {
+          "accuracy": 0.9120210491695445,
+          "spam_precision": 0.9952941176470588,
+          "spam_recall": 0.7834945462029224,
+          "spam_f1": 0.8767848917549517,
+          "macro_f1": 0.9041852847521561,
+          "confusion_matrix": [
+            [
+              7285,
+              18
+            ],
+            [
+              1052,
+              3807
+            ]
+          ]
+        },
+        "prior_external": {
+          "accuracy": 0.6694592536176694,
+          "spam_precision": 1.0,
+          "spam_recall": 0.6601409553641346,
+          "spam_f1": 0.7952830188679245,
+          "macro_f1": 0.46878775449325083,
+          "confusion_matrix": [
+            [
+              72,
+              0
+            ],
+            [
+              868,
+              1686
+            ]
+          ]
+        }
+      },
+      "diagnostics": [
+        {
+          "id": "user-parcel-fee",
+          "expected": "spam",
+          "predicted": "spam"
+        },
+        {
+          "id": "user-license-reminder",
+          "expected": "ham",
+          "predicted": "spam"
+        },
+        {
+          "id": "user-extortion-deadline",
+          "expected": "spam",
+          "predicted": "ham"
+        }
+      ],
+      "gates": {
+        "legacy_fp": true,
+        "legacy_fn": false,
+        "super_sms_f1": true,
+        "super_sms_ham_fpr": true,
+        "prior_external_f1": true,
+        "diagnostics": false
+      },
+      "eligible": false
+    },
+    {
+      "order": 1,
+      "family": "logistic_regression",
+      "representation": "word-unigram",
+      "new_class_budget": 0.25,
+      "parameters": {
+        "C": 10,
+        "solver": "liblinear",
+        "max_iter": 2000,
+        "random_state": 42
+      },
+      "validation": {
+        "legacy": {
+          "accuracy": 0.9844961240310077,
+          "spam_precision": 1.0,
+          "spam_recall": 0.875,
+          "spam_f1": 0.9333333333333333,
+          "macro_f1": 0.962280701754386,
+          "confusion_matrix": [
+            [
+              678,
+              0
+            ],
+            [
+              12,
+              84
+            ]
+          ]
+        },
+        "super_sms": {
+          "accuracy": 0.9079098832428877,
+          "spam_precision": 0.9939233817701453,
+          "spam_recall": 0.7742333813541881,
+          "spam_f1": 0.8704303563165201,
+          "macro_f1": 0.8995008924439744,
+          "confusion_matrix": [
+            [
+              7280,
+              23
+            ],
+            [
+              1097,
+              3762
+            ]
+          ]
+        },
+        "prior_external": {
+          "accuracy": 0.6728865194211728,
+          "spam_precision": 1.0,
+          "spam_recall": 0.663664839467502,
+          "spam_f1": 0.797834784655213,
+          "macro_f1": 0.47070203838942104,
+          "confusion_matrix": [
+            [
+              72,
+              0
+            ],
+            [
+              859,
+              1695
+            ]
+          ]
+        }
+      },
+      "diagnostics": [
+        {
+          "id": "user-parcel-fee",
+          "expected": "spam",
+          "predicted": "spam"
+        },
+        {
+          "id": "user-license-reminder",
+          "expected": "ham",
+          "predicted": "spam"
+        },
+        {
+          "id": "user-extortion-deadline",
+          "expected": "spam",
+          "predicted": "ham"
+        }
+      ],
+      "gates": {
+        "legacy_fp": true,
+        "legacy_fn": false,
+        "super_sms_f1": true,
+        "super_sms_ham_fpr": true,
+        "prior_external_f1": true,
+        "diagnostics": false
+      },
+      "eligible": false
+    },
+    {
+      "order": 2,
+      "family": "naive_bayes",
+      "representation": "word-unigram",
+      "new_class_budget": 1.0,
+      "parameters": {
+        "alpha": 0.1
+      },
+      "validation": {
+        "legacy": {
+          "accuracy": 0.9819121447028424,
+          "spam_precision": 1.0,
+          "spam_recall": 0.8541666666666666,
+          "spam_f1": 0.9213483146067416,
+          "macro_f1": 0.9555646682522759,
+          "confusion_matrix": [
+            [
+              678,
+              0
+            ],
+            [
+              14,
+              82
+            ]
+          ]
+        },
+        "super_sms": {
+          "accuracy": 0.9551882913994408,
+          "spam_precision": 0.9951790633608816,
+          "spam_recall": 0.8921588804280716,
+          "spam_f1": 0.940857297883885,
+          "macro_f1": 0.9523930410261308,
+          "confusion_matrix": [
+            [
+              7282,
+              21
+            ],
+            [
+              524,
+              4335
+            ]
+          ]
+        },
+        "prior_external": {
+          "accuracy": 0.824067022086824,
+          "spam_precision": 1.0,
+          "spam_recall": 0.8191072826938136,
+          "spam_f1": 0.9005596211795093,
+          "macro_f1": 0.5690916917778734,
+          "confusion_matrix": [
+            [
+              72,
+              0
+            ],
+            [
+              462,
+              2092
+            ]
+          ]
+        }
+      },
+      "diagnostics": [
+        {
+          "id": "user-parcel-fee",
+          "expected": "spam",
+          "predicted": "spam"
+        },
+        {
+          "id": "user-license-reminder",
+          "expected": "ham",
+          "predicted": "spam"
+        },
+        {
+          "id": "user-extortion-deadline",
+          "expected": "spam",
+          "predicted": "spam"
+        }
+      ],
+      "gates": {
+        "legacy_fp": true,
+        "legacy_fn": false,
+        "super_sms_f1": true,
+        "super_sms_ham_fpr": true,
+        "prior_external_f1": true,
+        "diagnostics": false
+      },
+      "eligible": false
+    },
+    {
+      "order": 3,
+      "family": "logistic_regression",
+      "representation": "word-unigram",
+      "new_class_budget": 1.0,
+      "parameters": {
+        "C": 10,
+        "solver": "liblinear",
+        "max_iter": 2000,
+        "random_state": 42
+      },
+      "validation": {
+        "legacy": {
+          "accuracy": 0.9844961240310077,
+          "spam_precision": 1.0,
+          "spam_recall": 0.875,
+          "spam_f1": 0.9333333333333333,
+          "macro_f1": 0.962280701754386,
+          "confusion_matrix": [
+            [
+              678,
+              0
+            ],
+            [
+              12,
+              84
+            ]
+          ]
+        },
+        "super_sms": {
+          "accuracy": 0.9559283012662391,
+          "spam_precision": 0.9945092656142759,
+          "spam_recall": 0.8946285243877341,
+          "spam_f1": 0.9419284940411701,
+          "macro_f1": 0.9532088475240963,
+          "confusion_matrix": [
+            [
+              7279,
+              24
+            ],
+            [
+              512,
+              4347
+            ]
+          ]
+        },
+        "prior_external": {
+          "accuracy": 0.7951256664127951,
+          "spam_precision": 1.0,
+          "spam_recall": 0.7893500391542678,
+          "spam_f1": 0.8822757111597375,
+          "macro_f1": 0.5467097030872001,
+          "confusion_matrix": [
+            [
+              72,
+              0
+            ],
+            [
+              538,
+              2016
+            ]
+          ]
+        }
+      },
+      "diagnostics": [
+        {
+          "id": "user-parcel-fee",
+          "expected": "spam",
+          "predicted": "spam"
+        },
+        {
+          "id": "user-license-reminder",
+          "expected": "ham",
+          "predicted": "spam"
+        },
+        {
+          "id": "user-extortion-deadline",
+          "expected": "spam",
+          "predicted": "ham"
+        }
+      ],
+      "gates": {
+        "legacy_fp": true,
+        "legacy_fn": false,
+        "super_sms_f1": true,
+        "super_sms_ham_fpr": true,
+        "prior_external_f1": true,
+        "diagnostics": false
+      },
+      "eligible": false
+    },
+    {
+      "order": 4,
+      "family": "naive_bayes",
+      "representation": "word-bigram",
+      "new_class_budget": 0.25,
+      "parameters": {
+        "alpha": 0.1
+      },
+      "validation": {
+        "legacy": {
+          "accuracy": 0.9844961240310077,
+          "spam_precision": 1.0,
+          "spam_recall": 0.875,
+          "spam_f1": 0.9333333333333333,
+          "macro_f1": 0.962280701754386,
+          "confusion_matrix": [
+            [
+              678,
+              0
+            ],
+            [
+              12,
+              84
+            ]
+          ]
+        },
+        "super_sms": {
+          "accuracy": 0.946225949679329,
+          "spam_precision": 0.9959896201934418,
+          "spam_recall": 0.8689030664745833,
+          "spam_f1": 0.9281160694658167,
+          "macro_f1": 0.9425816128230173,
+          "confusion_matrix": [
+            [
+              7286,
+              17
+            ],
+            [
+              637,
+              4222
+            ]
+          ]
+        },
+        "prior_external": {
+          "accuracy": 0.7882711348057883,
+          "spam_precision": 1.0,
+          "spam_recall": 0.7823022709475332,
+          "spam_f1": 0.8778558875219684,
+          "macro_f1": 0.5417850866181271,
+          "confusion_matrix": [
+            [
+              72,
+              0
+            ],
+            [
+              556,
+              1998
+            ]
+          ]
+        }
+      },
+      "diagnostics": [
+        {
+          "id": "user-parcel-fee",
+          "expected": "spam",
+          "predicted": "spam"
+        },
+        {
+          "id": "user-license-reminder",
+          "expected": "ham",
+          "predicted": "spam"
+        },
+        {
+          "id": "user-extortion-deadline",
+          "expected": "spam",
+          "predicted": "ham"
+        }
+      ],
+      "gates": {
+        "legacy_fp": true,
+        "legacy_fn": false,
+        "super_sms_f1": true,
+        "super_sms_ham_fpr": true,
+        "prior_external_f1": true,
+        "diagnostics": false
+      },
+      "eligible": false
+    },
+    {
+      "order": 5,
+      "family": "logistic_regression",
+      "representation": "word-bigram",
+      "new_class_budget": 0.25,
+      "parameters": {
+        "C": 10,
+        "solver": "liblinear",
+        "max_iter": 2000,
+        "random_state": 42
+      },
+      "validation": {
+        "legacy": {
+          "accuracy": 0.9832041343669251,
+          "spam_precision": 1.0,
+          "spam_recall": 0.8645833333333334,
+          "spam_f1": 0.9273743016759777,
+          "macro_f1": 0.9589391596035111,
+          "confusion_matrix": [
+            [
+              678,
+              0
+            ],
+            [
+              13,
+              83
+            ]
+          ]
+        },
+        "super_sms": {
+          "accuracy": 0.8985364249301102,
+          "spam_precision": 0.9948129948129948,
+          "spam_recall": 0.7499485490841737,
+          "spam_f1": 0.8551983102558085,
+          "macro_f1": 0.8885534647089699,
+          "confusion_matrix": [
+            [
+              7284,
+              19
+            ],
+            [
+              1215,
+              3644
+            ]
+          ]
+        },
+        "prior_external": {
+          "accuracy": 0.6462300076161462,
+          "spam_precision": 1.0,
+          "spam_recall": 0.6362568519968677,
+          "spam_f1": 0.7776980138789183,
+          "macro_f1": 0.4559505912824228,
+          "confusion_matrix": [
+            [
+              72,
+              0
+            ],
+            [
+              929,
+              1625
+            ]
+          ]
+        }
+      },
+      "diagnostics": [
+        {
+          "id": "user-parcel-fee",
+          "expected": "spam",
+          "predicted": "spam"
+        },
+        {
+          "id": "user-license-reminder",
+          "expected": "ham",
+          "predicted": "spam"
+        },
+        {
+          "id": "user-extortion-deadline",
+          "expected": "spam",
+          "predicted": "ham"
+        }
+      ],
+      "gates": {
+        "legacy_fp": true,
+        "legacy_fn": false,
+        "super_sms_f1": true,
+        "super_sms_ham_fpr": true,
+        "prior_external_f1": true,
+        "diagnostics": false
+      },
+      "eligible": false
+    },
+    {
+      "order": 6,
+      "family": "naive_bayes",
+      "representation": "word-bigram",
+      "new_class_budget": 1.0,
+      "parameters": {
+        "alpha": 0.1
+      },
+      "validation": {
+        "legacy": {
+          "accuracy": 0.9844961240310077,
+          "spam_precision": 0.9883720930232558,
+          "spam_recall": 0.8854166666666666,
+          "spam_f1": 0.9340659340659341,
+          "macro_f1": 0.9626405805029524,
+          "confusion_matrix": [
+            [
+              677,
+              1
+            ],
+            [
+              11,
+              85
+            ]
+          ]
+        },
+        "super_sms": {
+          "accuracy": 0.9715507317875349,
+          "spam_precision": 0.9951722624533684,
+          "spam_recall": 0.9333196130891129,
+          "spam_f1": 0.9632540356839422,
+          "macro_f1": 0.9700225101950701,
+          "confusion_matrix": [
+            [
+              7281,
+              22
+            ],
+            [
+              324,
+              4535
+            ]
+          ]
+        },
+        "prior_external": {
+          "accuracy": 0.8693830921553694,
+          "spam_precision": 1.0,
+          "spam_recall": 0.8657008613938919,
+          "spam_f1": 0.9280167890870934,
+          "macro_f1": 0.6118523370486801,
+          "confusion_matrix": [
+            [
+              72,
+              0
+            ],
+            [
+              343,
+              2211
+            ]
+          ]
+        }
+      },
+      "diagnostics": [
+        {
+          "id": "user-parcel-fee",
+          "expected": "spam",
+          "predicted": "spam"
+        },
+        {
+          "id": "user-license-reminder",
+          "expected": "ham",
+          "predicted": "spam"
+        },
+        {
+          "id": "user-extortion-deadline",
+          "expected": "spam",
+          "predicted": "spam"
+        }
+      ],
+      "gates": {
+        "legacy_fp": true,
+        "legacy_fn": false,
+        "super_sms_f1": true,
+        "super_sms_ham_fpr": true,
+        "prior_external_f1": true,
+        "diagnostics": false
+      },
+      "eligible": false
+    },
+    {
+      "order": 7,
+      "family": "logistic_regression",
+      "representation": "word-bigram",
+      "new_class_budget": 1.0,
+      "parameters": {
+        "C": 10,
+        "solver": "liblinear",
+        "max_iter": 2000,
+        "random_state": 42
+      },
+      "validation": {
+        "legacy": {
+          "accuracy": 0.9870801033591732,
+          "spam_precision": 1.0,
+          "spam_recall": 0.8958333333333334,
+          "spam_f1": 0.945054945054945,
+          "macro_f1": 0.968867150419127,
+          "confusion_matrix": [
+            [
+              678,
+              0
+            ],
+            [
+              10,
+              86
+            ]
+          ]
+        },
+        "super_sms": {
+          "accuracy": 0.9585594474592994,
+          "spam_precision": 0.9954493742889647,
+          "spam_recall": 0.9003910269602798,
+          "spam_f1": 0.9455370650529501,
+          "macro_f1": 0.9560465683592554,
+          "confusion_matrix": [
+            [
+              7283,
+              20
+            ],
+            [
+              484,
+              4375
+            ]
+          ]
+        },
+        "prior_external": {
+          "accuracy": 0.8042650418888042,
+          "spam_precision": 1.0,
+          "spam_recall": 0.7987470634299139,
+          "spam_f1": 0.8881149325206792,
+          "macro_f1": 0.5534799586615554,
+          "confusion_matrix": [
+            [
+              72,
+              0
+            ],
+            [
+              514,
+              2040
+            ]
+          ]
+        }
+      },
+      "diagnostics": [
+        {
+          "id": "user-parcel-fee",
+          "expected": "spam",
+          "predicted": "spam"
+        },
+        {
+          "id": "user-license-reminder",
+          "expected": "ham",
+          "predicted": "spam"
+        },
+        {
+          "id": "user-extortion-deadline",
+          "expected": "spam",
+          "predicted": "spam"
+        }
+      ],
+      "gates": {
+        "legacy_fp": true,
+        "legacy_fn": false,
+        "super_sms_f1": true,
+        "super_sms_ham_fpr": true,
+        "prior_external_f1": true,
+        "diagnostics": false
+      },
+      "eligible": false
+    }
+  ],
+  "selected": {
+    "naive_bayes": {
+      "order": 6,
+      "family": "naive_bayes",
+      "representation": "word-bigram",
+      "new_class_budget": 1.0,
+      "parameters": {
+        "alpha": 0.1
+      },
+      "validation": {
+        "legacy": {
+          "accuracy": 0.9844961240310077,
+          "spam_precision": 0.9883720930232558,
+          "spam_recall": 0.8854166666666666,
+          "spam_f1": 0.9340659340659341,
+          "macro_f1": 0.9626405805029524,
+          "confusion_matrix": [
+            [
+              677,
+              1
+            ],
+            [
+              11,
+              85
+            ]
+          ]
+        },
+        "super_sms": {
+          "accuracy": 0.9715507317875349,
+          "spam_precision": 0.9951722624533684,
+          "spam_recall": 0.9333196130891129,
+          "spam_f1": 0.9632540356839422,
+          "macro_f1": 0.9700225101950701,
+          "confusion_matrix": [
+            [
+              7281,
+              22
+            ],
+            [
+              324,
+              4535
+            ]
+          ]
+        },
+        "prior_external": {
+          "accuracy": 0.8693830921553694,
+          "spam_precision": 1.0,
+          "spam_recall": 0.8657008613938919,
+          "spam_f1": 0.9280167890870934,
+          "macro_f1": 0.6118523370486801,
+          "confusion_matrix": [
+            [
+              72,
+              0
+            ],
+            [
+              343,
+              2211
+            ]
+          ]
+        }
+      },
+      "diagnostics": [
+        {
+          "id": "user-parcel-fee",
+          "expected": "spam",
+          "predicted": "spam"
+        },
+        {
+          "id": "user-license-reminder",
+          "expected": "ham",
+          "predicted": "spam"
+        },
+        {
+          "id": "user-extortion-deadline",
+          "expected": "spam",
+          "predicted": "spam"
+        }
+      ],
+      "gates": {
+        "legacy_fp": true,
+        "legacy_fn": false,
+        "super_sms_f1": true,
+        "super_sms_ham_fpr": true,
+        "prior_external_f1": true,
+        "diagnostics": false
+      },
+      "eligible": false
+    },
+    "logistic_regression": {
+      "order": 7,
+      "family": "logistic_regression",
+      "representation": "word-bigram",
+      "new_class_budget": 1.0,
+      "parameters": {
+        "C": 10,
+        "solver": "liblinear",
+        "max_iter": 2000,
+        "random_state": 42
+      },
+      "validation": {
+        "legacy": {
+          "accuracy": 0.9870801033591732,
+          "spam_precision": 1.0,
+          "spam_recall": 0.8958333333333334,
+          "spam_f1": 0.945054945054945,
+          "macro_f1": 0.968867150419127,
+          "confusion_matrix": [
+            [
+              678,
+              0
+            ],
+            [
+              10,
+              86
+            ]
+          ]
+        },
+        "super_sms": {
+          "accuracy": 0.9585594474592994,
+          "spam_precision": 0.9954493742889647,
+          "spam_recall": 0.9003910269602798,
+          "spam_f1": 0.9455370650529501,
+          "macro_f1": 0.9560465683592554,
+          "confusion_matrix": [
+            [
+              7283,
+              20
+            ],
+            [
+              484,
+              4375
+            ]
+          ]
+        },
+        "prior_external": {
+          "accuracy": 0.8042650418888042,
+          "spam_precision": 1.0,
+          "spam_recall": 0.7987470634299139,
+          "spam_f1": 0.8881149325206792,
+          "macro_f1": 0.5534799586615554,
+          "confusion_matrix": [
+            [
+              72,
+              0
+            ],
+            [
+              514,
+              2040
+            ]
+          ]
+        }
+      },
+      "diagnostics": [
+        {
+          "id": "user-parcel-fee",
+          "expected": "spam",
+          "predicted": "spam"
+        },
+        {
+          "id": "user-license-reminder",
+          "expected": "ham",
+          "predicted": "spam"
+        },
+        {
+          "id": "user-extortion-deadline",
+          "expected": "spam",
+          "predicted": "spam"
+        }
+      ],
+      "gates": {
+        "legacy_fp": true,
+        "legacy_fn": false,
+        "super_sms_f1": true,
+        "super_sms_ham_fpr": true,
+        "prior_external_f1": true,
+        "diagnostics": false
+      },
+      "eligible": false
+    }
+  },
+  "environment": {
+    "python": "3.12.14",
+    "sklearn": "1.9.1"
+  },
+  "status": "complete; candidates only; served models unchanged; all final tests unevaluated",
+  "artifact_sha256": {
+    "models/super-sms-v1/logistic_regression.json": "b81e990d19013c0650a432fa579b119e9e5dc43134b75c0fb2652467ecb26a0c",
+    "models/super-sms-v1/naive_bayes.json": "c5084d05928c2ac3aa95f46cce4083b018c9665f703be6f10e7bb8da845e22d6",
+    "models/super-sms-v1/logistic_regression.joblib": "5cc6fa55792cbadc134a7520fe2e1c5e91d61dd20a2bc7e62b3d13a703f1fc24",
+    "models/super-sms-v1/naive_bayes.joblib": "fd39690d806ccf1622a66eaf51fdb1c58890032f0216c95556caec1029996a81"
+  }
+}

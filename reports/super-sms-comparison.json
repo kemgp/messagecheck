@@ -1,0 +1,4263 @@
+{
+  "method": "Signed TF-IDF times class-log-weight difference (NB) or coefficient (LR), plus prior/intercept. Positive scores predict spam. Scores are not calibrated or comparable across model families.",
+  "limitations": "Observational comparison changes training data, normalization, vocabulary, IDF, features and weighting together. Attribution is arithmetic, not causal identification. Normalizing input to the frozen served model is a sensitivity check, not a fitted ablation.",
+  "model_sha256": {
+    "models/naive_bayes.joblib": "7e9d1c40cdb5f299c67341e301083c637421b3820696b28ee3dafa48ae55925e",
+    "models/super-sms-v1/naive_bayes.joblib": "fd39690d806ccf1622a66eaf51fdb1c58890032f0216c95556caec1029996a81",
+    "models/logistic_regression.joblib": "8bdf3f1e663b5f051d5efced37ebf437d3eaa1103f6d288649b2147a24b52135",
+    "models/super-sms-v1/logistic_regression.joblib": "5cc6fa55792cbadc134a7520fe2e1c5e91d61dd20a2bc7e62b3d13a703f1fc24"
+  },
+  "families": {
+    "naive_bayes": {
+      "diagnostics": [
+        {
+          "id": "user-parcel-fee",
+          "expected": "spam",
+          "served": {
+            "prediction": "ham",
+            "score": -0.47007481443329624,
+            "bias": -1.9497124350050514,
+            "known_features": 30,
+            "spam_evidence": 4.465872576636931,
+            "ham_evidence": -2.9862349560651746,
+            "top_spam": [
+              {
+                "term": "18",
+                "tfidf": 0.15801152777284946,
+                "weight": 5.456984621284249,
+                "contribution": 0.8622664770420686
+              },
+              {
+                "term": "delivered",
+                "tfidf": 0.2129886660168538,
+                "weight": 3.6035283993850094,
+                "contribution": 0.7675107067388615
+              },
+              {
+                "term": "info",
+                "tfidf": 0.38815193996215247,
+                "weight": 1.7438740136974218,
+                "contribution": 0.6768880814662395
+              },
+              {
+                "term": "local",
+                "tfidf": 0.19771940778298944,
+                "weight": 2.7480607944408213,
+                "contribution": 0.5433449528284907
+              },
+              {
+                "term": "50",
+                "tfidf": 0.15016204970553942,
+                "weight": 3.0906803183603557,
+                "contribution": 0.46410289158956014
+              },
+              {
+                "term": "update",
+                "tfidf": 0.1879874417770946,
+                "weight": 2.172536973938679,
+                "contribution": 0.4084096678968827
+              },
+              {
+                "term": "our",
+                "tfidf": 0.12773411619506853,
+                "weight": 1.4112891269034984,
+                "contribution": 0.18026976932072827
+              },
+              {
+                "term": "12",
+                "tfidf": 0.19771940778298944,
+                "weight": 0.908053197068849,
+                "contribution": 0.17953974035990303
+              },
+              {
+                "term": "due",
+                "tfidf": 0.2129886660168538,
+                "weight": 0.5763836706156926,
+                "contribution": 0.12276318911833402
+              },
+              {
+                "term": "your",
+                "tfidf": 0.17661505988415963,
+                "weight": 0.5718222491097986,
+                "contribution": 0.10099242076962192
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "office",
+                "tfidf": 0.3438990680882823,
+                "weight": -1.6784030555819989,
+                "contribution": -0.5772012466911749
+              },
+              {
+                "term": "house",
+                "tfidf": 0.1608863160756736,
+                "weight": -3.0368365296706976,
+                "contribution": -0.4885854417827516
+              },
+              {
+                "term": "pay",
+                "tfidf": 0.1641000559768311,
+                "weight": -1.714268193770983,
+                "contribution": -0.28131150655711945
+              },
+              {
+                "term": "but",
+                "tfidf": 0.09658446196485206,
+                "weight": -2.7451750357337694,
+                "contribution": -0.26514125382568965
+              },
+              {
+                "term": "cannot",
+                "tfidf": 0.20690013781287217,
+                "weight": -1.2603194119195802,
+                "contribution": -0.26076026001439917
+              },
+              {
+                "term": "here",
+                "tfidf": 0.13024487510724825,
+                "weight": -1.8891417543708684,
+                "contribution": -0.2460510318579216
+              },
+              {
+                "term": "sorting",
+                "tfidf": 0.22083814408416383,
+                "weight": -0.8854154360274489,
+                "contribution": -0.1955335016357725
+              },
+              {
+                "term": "at",
+                "tfidf": 0.0990894541533961,
+                "weight": -1.657625797140823,
+                "contribution": -0.16425323542927223
+              },
+              {
+                "term": "arrived",
+                "tfidf": 0.2319013620526314,
+                "weight": -0.4575612931439572,
+                "contribution": -0.10610908710264703
+              },
+              {
+                "term": "address",
+                "tfidf": 0.17194953404414115,
+                "weight": -0.5753032683490904,
+                "contribution": -0.09892312892669759
+              }
+            ]
+          },
+          "candidate": {
+            "prediction": "spam",
+            "score": 3.645353547590922,
+            "bias": -1.9497124350056705,
+            "known_features": 43,
+            "spam_evidence": 7.194099514938499,
+            "ham_evidence": -1.599033532341929,
+            "top_spam": [
+              {
+                "term": "address and",
+                "tfidf": 0.21155107667321332,
+                "weight": 3.101181249986089,
+                "contribution": 0.6560582323933387
+              },
+              {
+                "term": "please update",
+                "tfidf": 0.14589275818528372,
+                "weight": 3.4477591811316035,
+                "contribution": 0.5030030964939248
+              },
+              {
+                "term": "delivered",
+                "tfidf": 0.15625496839972547,
+                "weight": 3.131100195313735,
+                "contribution": 0.4892499620751219
+              },
+              {
+                "term": "be delivered",
+                "tfidf": 0.2196848254971033,
+                "weight": 2.2253903921319615,
+                "contribution": 0.48888449995844024
+              },
+              {
+                "term": "update your",
+                "tfidf": 0.1300220032008297,
+                "weight": 3.5817189873880455,
+                "contribution": 0.465702277642641
+              },
+              {
+                "term": "parcel",
+                "tfidf": 0.15645767528124127,
+                "weight": 2.912029823914903,
+                "contribution": 0.4556094165993681
+              },
+              {
+                "term": "your parcel",
+                "tfidf": 0.16221784927756253,
+                "weight": 2.681942279341177,
+                "contribution": 0.4350589084412896
+              },
+              {
+                "term": "within hours",
+                "tfidf": 0.1981469697248793,
+                "weight": 2.0854894388650607,
+                "contribution": 0.4132334127043507
+              },
+              {
+                "term": "local",
+                "tfidf": 0.13613959548628982,
+                "weight": 2.522129711214685,
+                "contribution": 0.34336171864872017
+              },
+              {
+                "term": "fee",
+                "tfidf": 0.15707683659081886,
+                "weight": 1.9944085138618295,
+                "contribution": 0.31327538022721246
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "cannot",
+                "tfidf": 0.1450131416043914,
+                "weight": -2.615074390687008,
+                "contribution": -0.37922015292271266
+              },
+              {
+                "term": "house",
+                "tfidf": 0.13476200314202982,
+                "weight": -2.518643353695243,
+                "contribution": -0.33941742354433085
+              },
+              {
+                "term": "but",
+                "tfidf": 0.09352510967423618,
+                "weight": -2.9064739788434215,
+                "contribution": -0.27182829763664457
+              },
+              {
+                "term": "sorting",
+                "tfidf": 0.2232001352547805,
+                "weight": -1.0196474607130437,
+                "contribution": -0.22758545114334483
+              },
+              {
+                "term": "arrived",
+                "tfidf": 0.20230469869727763,
+                "weight": -0.8643023227040985,
+                "contribution": -0.17485242097800985
+              },
+              {
+                "term": "at",
+                "tfidf": 0.07189148811151312,
+                "weight": -0.7108390689067257,
+                "contribution": -0.051103278471506926
+              },
+              {
+                "term": "the",
+                "tfidf": 0.06002580175010775,
+                "weight": -0.6995686697658385,
+                "contribution": -0.04199217028195082
+              },
+              {
+                "term": "and",
+                "tfidf": 0.06965364523629074,
+                "weight": -0.5585270696327234,
+                "contribution": -0.03890344636306277
+              },
+              {
+                "term": "here",
+                "tfidf": 0.0979030473207131,
+                "weight": -0.30522688484491756,
+                "contribution": -0.02988264215052581
+              },
+              {
+                "term": "address",
+                "tfidf": 0.14804063866507686,
+                "weight": -0.1248139485849844,
+                "contribution": -0.018477536662831157
+              }
+            ]
+          },
+          "served_on_v3_normalized_input": {
+            "prediction": "ham",
+            "score": -2.1066143078356347,
+            "bias": -1.9497124350050514,
+            "known_features": 25,
+            "spam_evidence": 2.8439470677201775,
+            "ham_evidence": -3.00084894055076,
+            "top_spam": [
+              {
+                "term": "delivered",
+                "tfidf": 0.2653125235562109,
+                "weight": 3.6035283993850094,
+                "contribution": 0.9560612133473102
+              },
+              {
+                "term": "local",
+                "tfidf": 0.24629214322039789,
+                "weight": 2.7480607944408213,
+                "contribution": 0.6768257827627792
+              },
+              {
+                "term": "update",
+                "tfidf": 0.23416937392720505,
+                "weight": 2.172536973938679,
+                "contribution": 0.5087416230209251
+              },
+              {
+                "term": "our",
+                "tfidf": 0.15911391599238534,
+                "weight": 1.4112891269034984,
+                "contribution": 0.22455573957909009
+              },
+              {
+                "term": "due",
+                "tfidf": 0.2653125235562109,
+                "weight": 0.5763836706156926,
+                "contribution": 0.15292180618764123
+              },
+              {
+                "term": "your",
+                "tfidf": 0.22000319600194035,
+                "weight": 0.5718222491097986,
+                "contribution": 0.1258027223491734
+              },
+              {
+                "term": "please",
+                "tfidf": 0.16025329477011366,
+                "weight": 0.5932767170555797,
+                "contribution": 0.09507454861855313
+              },
+              {
+                "term": "has",
+                "tfidf": 0.1680312271267048,
+                "weight": 0.29646630820037334,
+                "contribution": 0.049815597568632596
+              },
+              {
+                "term": "number",
+                "tfidf": 0.16852027562174596,
+                "weight": 0.2735215090000507,
+                "contribution": 0.04609392008516441
+              },
+              {
+                "term": "to",
+                "tfidf": 0.07403933885363909,
+                "weight": 0.10878155215337237,
+                "contribution": 0.00805411420090835
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "house",
+                "tfidf": 0.20041045057449894,
+                "weight": -3.0368365296706976,
+                "contribution": -0.6086137772324022
+              },
+              {
+                "term": "pay",
+                "tfidf": 0.20441369384173416,
+                "weight": -1.714268193770983,
+                "contribution": -0.3504198937241243
+              },
+              {
+                "term": "but",
+                "tfidf": 0.12031188240873837,
+                "weight": -2.7451750357337694,
+                "contribution": -0.3302771760906054
+              },
+              {
+                "term": "cannot",
+                "tfidf": 0.25772825715954867,
+                "weight": -1.2603194119195802,
+                "contribution": -0.32481992549838073
+              },
+              {
+                "term": "here",
+                "tfidf": 0.16224148045620962,
+                "weight": -1.8891417543708684,
+                "contribution": -0.3064971550207708
+              },
+              {
+                "term": "sorting",
+                "tfidf": 0.27509034353876505,
+                "weight": -0.8854154360274489,
+                "contribution": -0.24356923647131637
+              },
+              {
+                "term": "at",
+                "tfidf": 0.12343226346684887,
+                "weight": -1.657625797140823,
+                "contribution": -0.20460450412213144
+              },
+              {
+                "term": "arrived",
+                "tfidf": 0.28887140678855455,
+                "weight": -0.4575612931439572,
+                "contribution": -0.13217637444248512
+              },
+              {
+                "term": "address",
+                "tfidf": 0.2141915138242884,
+                "weight": -0.5753032683490904,
+                "contribution": -0.1232250779557525
+              },
+              {
+                "term": "be",
+                "tfidf": 0.12449448379144451,
+                "weight": -0.7845599663700762,
+                "contribution": -0.0976733880166757
+              }
+            ]
+          }
+        },
+        {
+          "id": "user-license-reminder",
+          "expected": "ham",
+          "served": {
+            "prediction": "ham",
+            "score": -0.0694512672701677,
+            "bias": -1.9497124350050514,
+            "known_features": 29,
+            "spam_evidence": 3.532364310047369,
+            "ham_evidence": -1.652103142312486,
+            "top_spam": [
+              {
+                "term": "ph",
+                "tfidf": 0.4096990249963747,
+                "weight": 3.2047807723095794,
+                "contribution": 1.3129955577423635
+              },
+              {
+                "term": "official",
+                "tfidf": 0.20484951249818736,
+                "weight": 3.082894897592393,
+                "contribution": 0.631529516854951
+              },
+              {
+                "term": "schedule",
+                "tfidf": 0.19756833486412403,
+                "weight": 1.5154599579605588,
+                "contribution": 0.299406900447523
+              },
+              {
+                "term": "log",
+                "tfidf": 0.17196491136978717,
+                "weight": 1.604562024212992,
+                "contribution": 0.2759283662811135
+              },
+              {
+                "term": "reply",
+                "tfidf": 0.11904865842474902,
+                "weight": 2.1055730412100404,
+                "contribution": 0.25066564577137407
+              },
+              {
+                "term": "account",
+                "tfidf": 0.15329642472457655,
+                "weight": 1.318455978585929,
+                "contribution": 0.20211458767396576
+              },
+              {
+                "term": "12",
+                "tfidf": 0.18340456746611522,
+                "weight": 0.908053197068849,
+                "contribution": 0.16654110384463533
+              },
+              {
+                "term": "due",
+                "tfidf": 0.19756833486412403,
+                "weight": 0.5763836706156926,
+                "contribution": 0.11387516204641412
+              },
+              {
+                "term": "your",
+                "tfidf": 0.16382816957255295,
+                "weight": 0.5718222491097986,
+                "contribution": 0.0936805923925187
+              },
+              {
+                "term": "please",
+                "tfidf": 0.11933464798359994,
+                "weight": 0.5932767170555797,
+                "contribution": 0.07079846818669343
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "online",
+                "tfidf": 0.1595004267460635,
+                "weight": -2.7718265423216977,
+                "contribution": -0.4421075163663764
+              },
+              {
+                "term": "appointment",
+                "tfidf": 0.19756833486412403,
+                "weight": -1.0818567510302124,
+                "contribution": -0.21374063686255027
+              },
+              {
+                "term": "before",
+                "tfidf": 0.13364263119437989,
+                "weight": -1.3988091178071462,
+                "contribution": -0.18694053104243633
+              },
+              {
+                "term": "at",
+                "tfidf": 0.0919154001280627,
+                "weight": -1.657625797140823,
+                "contribution": -0.15236133840679764
+              },
+              {
+                "term": "do",
+                "tfidf": 0.09331630033337657,
+                "weight": -1.5634106903340639,
+                "contribution": -0.1458917015236251
+              },
+              {
+                "term": "not",
+                "tfidf": 0.0901302956472798,
+                "weight": -1.5510384900850518,
+                "contribution": -0.13979555767167617
+              },
+              {
+                "term": "in",
+                "tfidf": 0.07360495646276298,
+                "weight": -1.368727298797424,
+                "contribution": -0.10074511323737957
+              },
+              {
+                "term": "renewal",
+                "tfidf": 0.21511175599285312,
+                "weight": -0.28928459648196636,
+                "contribution": -0.06222851753091972
+              },
+              {
+                "term": "s",
+                "tfidf": 0.08446443877476277,
+                "weight": -0.7210395556504157,
+                "contribution": -0.060902201402416686
+              },
+              {
+                "term": "is",
+                "tfidf": 0.1537538174520329,
+                "weight": -0.33737420425035847,
+                "contribution": -0.051872571813334475
+              }
+            ]
+          },
+          "candidate": {
+            "prediction": "spam",
+            "score": 4.1503250345784295,
+            "bias": -1.9497124350056705,
+            "known_features": 46,
+            "spam_evidence": 6.757588971303625,
+            "ham_evidence": -0.6575515017195354,
+            "top_spam": [
+              {
+                "term": "on or",
+                "tfidf": 0.16904473726043392,
+                "weight": 3.1092105450858263,
+                "contribution": 0.5255956796814041
+              },
+              {
+                "term": "official",
+                "tfidf": 0.17209995163274786,
+                "weight": 2.2097995640887262,
+                "contribution": 0.3803063980977371
+              },
+              {
+                "term": "account at",
+                "tfidf": 0.18261525774820306,
+                "weight": 1.9762018302754054,
+                "contribution": 0.3608846065982138
+              },
+              {
+                "term": "please log",
+                "tfidf": 0.1788621825461395,
+                "weight": 1.9556630660549121,
+                "contribution": 0.3497941643194566
+              },
+              {
+                "term": "renewal on",
+                "tfidf": 0.19096172576494186,
+                "weight": 1.757108638392177,
+                "contribution": 0.3355404979438573
+              },
+              {
+                "term": "for renewal",
+                "tfidf": 0.20147703188039706,
+                "weight": 1.6243994183716204,
+                "contribution": 0.3272791734017574
+              },
+              {
+                "term": "your driver",
+                "tfidf": 0.20147703188039706,
+                "weight": 1.6113815816778594,
+                "contribution": 0.3246563783031947
+              },
+              {
+                "term": "notification",
+                "tfidf": 0.1670183559445796,
+                "weight": 1.9172552859514536,
+                "contribution": 0.32021682578566657
+              },
+              {
+                "term": "is an",
+                "tfidf": 0.1676719004537289,
+                "weight": 1.7872212412496804,
+                "contribution": 0.29966678205160624
+              },
+              {
+                "term": "due for",
+                "tfidf": 0.19313056386365826,
+                "weight": 1.4739534994316354,
+                "contribution": 0.28466547045404406
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "do",
+                "tfidf": 0.08689241094635926,
+                "weight": -1.5485574261213912,
+                "contribution": -0.1345578882445763
+              },
+              {
+                "term": "not",
+                "tfidf": 0.07822053427263224,
+                "weight": -1.6059805723667289,
+                "contribution": -0.12562065840199327
+              },
+              {
+                "term": "is",
+                "tfidf": 0.12041518804767366,
+                "weight": -0.8305353603275796,
+                "contribution": -0.1000090715940879
+              },
+              {
+                "term": "before",
+                "tfidf": 0.11153228442337242,
+                "weight": -0.8439144712272482,
+                "contribution": -0.09412370883391738
+              },
+              {
+                "term": "s",
+                "tfidf": 0.07620464826041098,
+                "weight": -1.0790254307534894,
+                "contribution": -0.08222675341460811
+              },
+              {
+                "term": "in",
+                "tfidf": 0.061170085350532484,
+                "weight": -0.7838876734803861,
+                "contribution": -0.04795047589202556
+              },
+              {
+                "term": "at",
+                "tfidf": 0.06489460064904816,
+                "weight": -0.7108390689067257,
+                "contribution": -0.04612961750244319
+              },
+              {
+                "term": "an",
+                "tfidf": 0.17108075806386436,
+                "weight": -0.13525629697657227,
+                "contribution": -0.023139749819663148
+              },
+              {
+                "term": "to",
+                "tfidf": 0.07673751387673346,
+                "weight": -0.04943576908569547,
+                "contribution": -0.0037935780162205467
+              }
+            ]
+          },
+          "served_on_v3_normalized_input": {
+            "prediction": "ham",
+            "score": -0.768716317262296,
+            "bias": -1.9497124350050514,
+            "known_features": 24,
+            "spam_evidence": 2.7562758187532697,
+            "ham_evidence": -1.5752797010105293,
+            "top_spam": [
+              {
+                "term": "official",
+                "tfidf": 0.27832615110012526,
+                "weight": 3.082894897592393,
+                "contribution": 0.8580502710931055
+              },
+              {
+                "term": "schedule",
+                "tfidf": 0.2684333174699593,
+                "weight": 1.5154599579605588,
+                "contribution": 0.4067999440082378
+              },
+              {
+                "term": "log",
+                "tfidf": 0.233646306120697,
+                "weight": 1.604562024212992,
+                "contribution": 0.374899989898914
+              },
+              {
+                "term": "reply",
+                "tfidf": 0.16174973759474817,
+                "weight": 2.1055730412100404,
+                "contribution": 0.3405758869022999
+              },
+              {
+                "term": "account",
+                "tfidf": 0.20828169591752876,
+                "weight": 1.318455978585929,
+                "contribution": 0.2746102472124823
+              },
+              {
+                "term": "due",
+                "tfidf": 0.2684333174699593,
+                "weight": 0.5763836706156926,
+                "contribution": 0.15472058083888268
+              },
+              {
+                "term": "your",
+                "tfidf": 0.22259102949688878,
+                "weight": 0.5718222491097986,
+                "contribution": 0.12728250311857647
+              },
+              {
+                "term": "please",
+                "tfidf": 0.16213830758546516,
+                "weight": 0.5932767170555797,
+                "contribution": 0.09619288283325257
+              },
+              {
+                "term": "or",
+                "tfidf": 0.12650909712275013,
+                "weight": 0.7502008561066997,
+                "contribution": 0.09490723296677277
+              },
+              {
+                "term": "to",
+                "tfidf": 0.1498204840492878,
+                "weight": 0.10878155215337237,
+                "contribution": 0.016297704799251096
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "appointment",
+                "tfidf": 0.2684333174699593,
+                "weight": -1.0818567510302124,
+                "contribution": -0.29040639670631174
+              },
+              {
+                "term": "before",
+                "tfidf": 0.1815783631096238,
+                "weight": -1.3988091178071462,
+                "contribution": -0.25399346991423855
+              },
+              {
+                "term": "at",
+                "tfidf": 0.12488416121907059,
+                "weight": -1.657625797140823,
+                "contribution": -0.20701120729102493
+              },
+              {
+                "term": "do",
+                "tfidf": 0.12678754462216185,
+                "weight": -1.5634106903340639,
+                "contribution": -0.198221002663495
+              },
+              {
+                "term": "not",
+                "tfidf": 0.12245876487133808,
+                "weight": -1.5510384900850518,
+                "contribution": -0.1899382577637206
+              },
+              {
+                "term": "in",
+                "tfidf": 0.10000601897626867,
+                "weight": -1.368727298797424,
+                "contribution": -0.13688096821687212
+              },
+              {
+                "term": "renewal",
+                "tfidf": 0.2922693169817033,
+                "weight": -0.28928459648196636,
+                "contribution": -0.08454901142711195
+              },
+              {
+                "term": "s",
+                "tfidf": 0.11476064483785343,
+                "weight": -0.7210395556504157,
+                "contribution": -0.082746964360041
+              },
+              {
+                "term": "is",
+                "tfidf": 0.2089031489823743,
+                "weight": -0.33737420425035847,
+                "contribution": -0.07047853365332261
+              },
+              {
+                "term": "an",
+                "tfidf": 0.340015458988413,
+                "weight": -0.12238983585243979,
+                "contribution": -0.04161443621288384
+              }
+            ]
+          }
+        },
+        {
+          "id": "user-extortion-deadline",
+          "expected": "spam",
+          "served": {
+            "prediction": "ham",
+            "score": -2.511607132702565,
+            "bias": -1.9497124350050514,
+            "known_features": 7,
+            "spam_evidence": 0.524178311542125,
+            "ham_evidence": -1.08607300923964,
+            "top_spam": [
+              {
+                "term": "12",
+                "tfidf": 0.48470062068729125,
+                "weight": 0.908053197068849,
+                "contribution": 0.4401339482363503
+              },
+              {
+                "term": "been",
+                "tfidf": 0.32092121785074096,
+                "weight": 0.2618847200837413,
+                "contribution": 0.08404436330577467
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "pay",
+                "tfidf": 0.40228422631170935,
+                "weight": -1.714268193770983,
+                "contribution": -0.6896230540219314
+              },
+              {
+                "term": "you",
+                "tfidf": 0.14661713764900486,
+                "weight": -0.9778630063697271,
+                "contribution": -0.14337147500678
+              },
+              {
+                "term": "hours",
+                "tfidf": 0.42940522913203216,
+                "weight": -0.32002757477289556,
+                "contribution": -0.13742151407392378
+              },
+              {
+                "term": "within",
+                "tfidf": 0.49501154741994235,
+                "weight": -0.17020028359243433,
+                "contribution": -0.08425110575240394
+              },
+              {
+                "term": "have",
+                "tfidf": 0.22208199738370332,
+                "weight": -0.14141560664342911,
+                "contribution": -0.031405860384600845
+              }
+            ]
+          },
+          "candidate": {
+            "prediction": "spam",
+            "score": 0.5352907559760283,
+            "bias": -1.9497124350056705,
+            "known_features": 9,
+            "spam_evidence": 2.672275600652854,
+            "ham_evidence": -0.1872724096711492,
+            "top_spam": [
+              {
+                "term": "within hours",
+                "tfidf": 0.5092660008716587,
+                "weight": 2.0854894388650607,
+                "contribution": 1.062068866390889
+              },
+              {
+                "term": "within",
+                "tfidf": 0.3207364797494508,
+                "weight": 1.6586756625175223,
+                "contribution": 0.5319977930419582
+              },
+              {
+                "term": "have been",
+                "tfidf": 0.4123873610510008,
+                "weight": 0.964616337701889,
+                "contribution": 0.39779558593156306
+              },
+              {
+                "term": "you have",
+                "tfidf": 0.3017286153343237,
+                "weight": 1.0730176091321475,
+                "contribution": 0.32376011743278943
+              },
+              {
+                "term": "pay",
+                "tfidf": 0.2933036635999864,
+                "weight": 0.5723393087078117,
+                "contribution": 0.16786921606628477
+              },
+              {
+                "term": "hours",
+                "tfidf": 0.3607131096076229,
+                "weight": 0.36109847277798046,
+                "contribution": 0.1302529529903089
+              },
+              {
+                "term": "been",
+                "tfidf": 0.3129264576991832,
+                "weight": 0.18704416759584674,
+                "contribution": 0.05853106879906067
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "you",
+                "tfidf": 0.15034516032788645,
+                "weight": -0.8872962927599328,
+                "contribution": -0.13340070339333138
+              },
+              {
+                "term": "have",
+                "tfidf": 0.2000128404922778,
+                "weight": -0.26934123901859053,
+                "contribution": -0.053871706277817816
+              }
+            ]
+          },
+          "served_on_v3_normalized_input": {
+            "prediction": "ham",
+            "score": -3.0953068364932435,
+            "bias": -1.9497124350050514,
+            "known_features": 6,
+            "spam_evidence": 0.096085827955551,
+            "ham_evidence": -1.2416802294437432,
+            "top_spam": [
+              {
+                "term": "been",
+                "tfidf": 0.36690123778441985,
+                "weight": 0.2618847200837413,
+                "contribution": 0.096085827955551
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "pay",
+                "tfidf": 0.4599215395086818,
+                "weight": -1.714268193770983,
+                "contribution": -0.7884288668099177
+              },
+              {
+                "term": "you",
+                "tfidf": 0.16762372286910585,
+                "weight": -0.9778630063697271,
+                "contribution": -0.16391303758366982
+              },
+              {
+                "term": "hours",
+                "tfidf": 0.4909283067501025,
+                "weight": -0.32002757477289556,
+                "contribution": -0.15711059539659944
+              },
+              {
+                "term": "within",
+                "tfidf": 0.565934376923712,
+                "weight": -0.17020028359243433,
+                "contribution": -0.0963221914471234
+              },
+              {
+                "term": "have",
+                "tfidf": 0.25390081801202075,
+                "weight": -0.14141560664342911,
+                "contribution": -0.03590553820643281
+              }
+            ]
+          }
+        }
+      ],
+      "regressions": [
+        {
+          "id": "02abbf9c353e8da0958921ae3834a6000972f1258b9772c43111e4b4bad250c9",
+          "expected": "spam",
+          "served": {
+            "prediction": "spam",
+            "score": 1.1359060060685753,
+            "bias": -1.9497124350050514,
+            "known_features": 1,
+            "spam_evidence": 3.0856184410736276,
+            "ham_evidence": 0,
+            "top_spam": [
+              {
+                "term": "ringtoneking",
+                "tfidf": 1.0,
+                "weight": 3.0856184410736276,
+                "contribution": 3.0856184410736276
+              }
+            ],
+            "top_ham": []
+          },
+          "candidate": {
+            "prediction": "ham",
+            "score": -1.9497124350056703,
+            "bias": -1.9497124350056705,
+            "known_features": 0,
+            "spam_evidence": 0,
+            "ham_evidence": 0,
+            "top_spam": [],
+            "top_ham": []
+          },
+          "served_on_v3_normalized_input": {
+            "prediction": "spam",
+            "score": 1.1359060060685753,
+            "bias": -1.9497124350050514,
+            "known_features": 1,
+            "spam_evidence": 3.0856184410736276,
+            "ham_evidence": 0,
+            "top_spam": [
+              {
+                "term": "ringtoneking",
+                "tfidf": 1.0,
+                "weight": 3.0856184410736276,
+                "contribution": 3.0856184410736276
+              }
+            ],
+            "top_ham": []
+          }
+        },
+        {
+          "id": "5dd7ef98111bf16008b31b37255a69644bb689b8a2ac402a72e0145b7a13b6ed",
+          "expected": "spam",
+          "served": {
+            "prediction": "spam",
+            "score": 2.382972995084959,
+            "bias": -1.9497124350050514,
+            "known_features": 16,
+            "spam_evidence": 5.946898713253642,
+            "ham_evidence": -1.6142132831636333,
+            "top_spam": [
+              {
+                "term": "http",
+                "tfidf": 0.30200206369882565,
+                "weight": 4.883852062837186,
+                "contribution": 1.474933401776597
+              },
+              {
+                "term": "uk",
+                "tfidf": 0.2588970157892833,
+                "weight": 5.681642554552545,
+                "contribution": 1.4709603021550544
+              },
+              {
+                "term": "co",
+                "tfidf": 0.27402526825625506,
+                "weight": 4.51069617996504,
+                "contribution": 1.236044730737385
+              },
+              {
+                "term": "asp",
+                "tfidf": 0.39982519358672297,
+                "weight": 2.5980255862179664,
+                "contribution": 1.038756082952858
+              },
+              {
+                "term": "link",
+                "tfidf": 0.34089148848873246,
+                "weight": 1.4420259756924398,
+                "contribution": 0.49157438129321257
+              },
+              {
+                "term": "your",
+                "tfidf": 0.15225255661173792,
+                "weight": 0.5718222491097986,
+                "contribution": 0.08706139935444092
+              },
+              {
+                "term": "has",
+                "tfidf": 0.23257102065392526,
+                "weight": 0.29646630820037334,
+                "contribution": 0.068949471887662
+              },
+              {
+                "term": "been",
+                "tfidf": 0.2257049134486992,
+                "weight": 0.2618847200837413,
+                "contribution": 0.059108668080037646
+              },
+              {
+                "term": "to",
+                "tfidf": 0.10247740792101867,
+                "weight": 0.10878155215337237,
+                "contribution": 0.011147651494302708
+              },
+              {
+                "term": "a",
+                "tfidf": 0.1215094096546736,
+                "weight": 0.0688228471017851,
+                "contribution": 0.008362623522091772
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "also",
+                "tfidf": 0.25232219732561767,
+                "weight": -2.449643121861661,
+                "contribution": -0.6180993351717202
+              },
+              {
+                "term": "o",
+                "tfidf": 0.3082837785261,
+                "weight": -1.1955556670807326,
+                "contribution": -0.3685704184859403
+              },
+              {
+                "term": "can",
+                "tfidf": 0.16652295985136178,
+                "weight": -1.7240004138226555,
+                "contribution": -0.28708565169472117
+              },
+              {
+                "term": "sent",
+                "tfidf": 0.25660178100093595,
+                "weight": -0.7694112113581202,
+                "contribution": -0.1974322871565812
+              },
+              {
+                "term": "you",
+                "tfidf": 0.10311629933598127,
+                "weight": -0.9778630063697271,
+                "contribution": -0.10083361447440334
+              },
+              {
+                "term": "use",
+                "tfidf": 0.2724304381893841,
+                "weight": -0.15487247482580013,
+                "contribution": -0.04219197618026709
+              }
+            ]
+          },
+          "candidate": {
+            "prediction": "ham",
+            "score": -0.8379902853968275,
+            "bias": -1.9497124350056705,
+            "known_features": 19,
+            "spam_evidence": 2.457807833146821,
+            "ham_evidence": -1.346085683537972,
+            "top_spam": [
+              {
+                "term": "link to",
+                "tfidf": 0.27891030293117886,
+                "weight": 2.796089915774898,
+                "contribution": 0.7798582854315912
+              },
+              {
+                "term": "link",
+                "tfidf": 0.19180791794797125,
+                "weight": 2.883483865964074,
+                "contribution": 0.553075036767136
+              },
+              {
+                "term": "has been",
+                "tfidf": 0.24141443984548897,
+                "weight": 1.3536951669173583,
+                "contribution": 0.3268015604428997
+              },
+              {
+                "term": "to your",
+                "tfidf": 0.23504863311855384,
+                "weight": 0.8120620661394575,
+                "contribution": 0.19087407865350817
+              },
+              {
+                "term": "use",
+                "tfidf": 0.17843485863943567,
+                "weight": 0.9622099438795058,
+                "contribution": 0.17169179531759896
+              },
+              {
+                "term": "a link",
+                "tfidf": 0.3687460108259022,
+                "weight": 0.3563812424403423,
+                "contribution": 0.13141416148305493
+              },
+              {
+                "term": "can also",
+                "tfidf": 0.31590580400775176,
+                "weight": 0.34782412572926447,
+                "contribution": 0.10987966009179663
+              },
+              {
+                "term": "your",
+                "tfidf": 0.10938914854199494,
+                "weight": 0.8788099056378362,
+                "contribution": 0.09613226730799382
+              },
+              {
+                "term": "has",
+                "tfidf": 0.20567051276712484,
+                "weight": 0.28187520573856517,
+                "contribution": 0.05797341810058951
+              },
+              {
+                "term": "been",
+                "tfidf": 0.2144283356501886,
+                "weight": 0.18704416759584674,
+                "contribution": 0.04010756955065235
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "sent you",
+                "tfidf": 0.32112899729185673,
+                "weight": -1.149233039784196,
+                "contribution": -0.36905205372057137
+              },
+              {
+                "term": "also",
+                "tfidf": 0.19363170445917638,
+                "weight": -1.7211450027276776,
+                "contribution": -0.333268240499554
+              },
+              {
+                "term": "can",
+                "tfidf": 0.1441871900096207,
+                "weight": -1.8183028878120533,
+                "contribution": -0.2621759839799986
+              },
+              {
+                "term": "sent",
+                "tfidf": 0.2321471334201274,
+                "weight": -0.7539705935695302,
+                "contribution": -0.17503211198023838
+              },
+              {
+                "term": "you",
+                "tfidf": 0.10302184973173523,
+                "weight": -0.8872962927599328,
+                "contribution": -0.09141090534023955
+              },
+              {
+                "term": "picture",
+                "tfidf": 0.33122228648587265,
+                "weight": -0.18719989710028173,
+                "contribution": -0.062004777947475394
+              },
+              {
+                "term": "you can",
+                "tfidf": 0.215620173747198,
+                "weight": -0.13988260470046576,
+                "contribution": -0.030161511529725044
+              },
+              {
+                "term": "a",
+                "tfidf": 0.11875531685149265,
+                "weight": -0.1566978301571078,
+                "contribution": -0.018608700470248717
+              },
+              {
+                "term": "to",
+                "tfidf": 0.08842581294412975,
+                "weight": -0.04943576908569547,
+                "contribution": -0.0043713980699209
+              }
+            ]
+          },
+          "served_on_v3_normalized_input": {
+            "prediction": "ham",
+            "score": -2.675807357170484,
+            "bias": -1.9497124350050514,
+            "known_features": 11,
+            "spam_evidence": 1.0151211496670571,
+            "ham_evidence": -1.7412160718324923,
+            "top_spam": [
+              {
+                "term": "link",
+                "tfidf": 0.4765135781202147,
+                "weight": 1.4420259756924398,
+                "contribution": 0.6871449574194983
+              },
+              {
+                "term": "your",
+                "tfidf": 0.21282552653527992,
+                "weight": 0.5718222491097986,
+                "contribution": 0.12169837125138089
+              },
+              {
+                "term": "has",
+                "tfidf": 0.32509831709258225,
+                "weight": 0.29646630820037334,
+                "contribution": 0.09638069787059218
+              },
+              {
+                "term": "been",
+                "tfidf": 0.31550056114207714,
+                "weight": 0.2618847200837413,
+                "contribution": 0.08262477614095619
+              },
+              {
+                "term": "to",
+                "tfidf": 0.1432475669645342,
+                "weight": 0.10878155215337237,
+                "contribution": 0.015582692676596179
+              },
+              {
+                "term": "a",
+                "tfidf": 0.16985136187035452,
+                "weight": 0.0688228471017851,
+                "contribution": 0.01168965430803338
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "also",
+                "tfidf": 0.3527074073331083,
+                "weight": -2.449643121861661,
+                "contribution": -0.864007274403208
+              },
+              {
+                "term": "can",
+                "tfidf": 0.23277334318238355,
+                "weight": -1.7240004138226555,
+                "contribution": -0.40130133997331224
+              },
+              {
+                "term": "sent",
+                "tfidf": 0.3586896034243967,
+                "weight": -0.7694112113581202,
+                "contribution": -0.2759798022723288
+              },
+              {
+                "term": "you",
+                "tfidf": 0.14414063835075092,
+                "weight": -0.9778630063697271,
+                "contribution": -0.14094979795771687
+              },
+              {
+                "term": "use",
+                "tfidf": 0.3808156180900723,
+                "weight": -0.15487247482580013,
+                "contribution": -0.05897785722592624
+              }
+            ]
+          }
+        },
+        {
+          "id": "c2a6ae06b999f74b0fe397a89b7366f79a6195060abc389b19dee4ec4bfcc19f",
+          "expected": "spam",
+          "served": {
+            "prediction": "spam",
+            "score": 0.47085562585436946,
+            "bias": -1.9497124350050514,
+            "known_features": 19,
+            "spam_evidence": 3.62185145627926,
+            "ham_evidence": -1.2012833954198427,
+            "top_spam": [
+              {
+                "term": "500",
+                "tfidf": 0.2089619593966292,
+                "weight": 5.310929555860848,
+                "contribution": 1.1097822462101525
+              },
+              {
+                "term": "83600",
+                "tfidf": 0.29928198518025734,
+                "weight": 2.6504059907982374,
+                "contribution": 0.7932187664597433
+              },
+              {
+                "term": "balance",
+                "tfidf": 0.2504661510290661,
+                "weight": 2.225537218078431,
+                "contribution": 0.55742174098404
+              },
+              {
+                "term": "txt",
+                "tfidf": 0.16117682851306878,
+                "weight": 3.380156607744042,
+                "contribution": 0.5448029219136777
+              },
+              {
+                "term": "ur",
+                "tfidf": 0.41733394877974206,
+                "weight": 0.5507443605356066,
+                "contribution": 0.22984431875049863
+              },
+              {
+                "term": "who",
+                "tfidf": 0.1813212064790503,
+                "weight": 0.8851931907329398,
+                "contribution": 0.16050429731073673
+              },
+              {
+                "term": "2",
+                "tfidf": 0.12527103649421267,
+                "weight": 0.7761038628777763,
+                "contribution": 0.09722333532986134
+              },
+              {
+                "term": "now",
+                "tfidf": 0.1242790503068138,
+                "weight": 0.37029234174174697,
+                "contribution": 0.046019580567550455
+              },
+              {
+                "term": "question",
+                "tfidf": 0.22605823395347052,
+                "weight": 0.1840950951822613,
+                "contribution": 0.04161621209639805
+              },
+              {
+                "term": "luck",
+                "tfidf": 0.2504661510290661,
+                "weight": 0.13204842938600336,
+                "contribution": 0.03307366185774569
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "answer",
+                "tfidf": 0.4852171135695018,
+                "weight": -0.8883265880958273,
+                "contribution": -0.4310312629829011
+              },
+              {
+                "term": "good",
+                "tfidf": 0.14632277896451765,
+                "weight": -1.899548341396983,
+                "contribution": -0.27794719209064683
+              },
+              {
+                "term": "in",
+                "tfidf": 0.1024055490952061,
+                "weight": -1.368727298797424,
+                "contribution": -0.14016527059494843
+              },
+              {
+                "term": "s",
+                "tfidf": 0.11751419533987328,
+                "weight": -0.7210395556504157,
+                "contribution": -0.08473238319047838
+              },
+              {
+                "term": "girl",
+                "tfidf": 0.2200068397645809,
+                "weight": -0.3576709704684937,
+                "contribution": -0.07869005988830405
+              },
+              {
+                "term": "is",
+                "tfidf": 0.21391554126691303,
+                "weight": -0.33737420425035847,
+                "contribution": -0.0721695855117095
+              },
+              {
+                "term": "the",
+                "tfidf": 0.09577800118875465,
+                "weight": -0.6438193354265378,
+                "contribution": -0.06166372907382617
+              },
+              {
+                "term": "next",
+                "tfidf": 0.1888712600704988,
+                "weight": -0.2905890079122786,
+                "contribution": -0.0548839120870282
+              }
+            ]
+          },
+          "candidate": {
+            "prediction": "ham",
+            "score": -0.5115847703536289,
+            "bias": -1.9497124350056705,
+            "known_features": 22,
+            "spam_evidence": 3.1315845395466493,
+            "ham_evidence": -1.693456874894622,
+            "top_spam": [
+              {
+                "term": "balance is",
+                "tfidf": 0.2707367054705891,
+                "weight": 2.659592854517868,
+                "contribution": 0.7200494073252873
+              },
+              {
+                "term": "txt",
+                "tfidf": 0.20824429874942793,
+                "weight": 3.233928444160024,
+                "contribution": 0.6734471610599327
+              },
+              {
+                "term": "ur next",
+                "tfidf": 0.3029748735217536,
+                "weight": 1.592828699198101,
+                "contribution": 0.482587073681364
+              },
+              {
+                "term": "balance",
+                "tfidf": 0.19946026493471183,
+                "weight": 2.00676403067712,
+                "contribution": 0.40026968522030854
+              },
+              {
+                "term": "is now",
+                "tfidf": 0.21619695156860583,
+                "weight": 1.7315179036090846,
+                "contribution": 0.3743488923467472
+              },
+              {
+                "term": "answer to",
+                "tfidf": 0.30861863089722386,
+                "weight": 1.2117583494215811,
+                "contribution": 0.37397120277676815
+              },
+              {
+                "term": "good luck",
+                "tfidf": 0.24583737326382957,
+                "weight": 0.36473696984599435,
+                "contribution": 0.08966597859914786
+              },
+              {
+                "term": "now",
+                "tfidf": 0.10163486196696965,
+                "weight": 0.1696773941868308,
+                "contribution": 0.017245138537093647
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "answer",
+                "tfidf": 0.37343133315206006,
+                "weight": -0.9529859587122438,
+                "contribution": -0.35587481703710727
+              },
+              {
+                "term": "good",
+                "tfidf": 0.14832122225439784,
+                "weight": -2.0405953404693635,
+                "contribution": -0.3026635950250451
+              },
+              {
+                "term": "girl",
+                "tfidf": 0.20947772744650575,
+                "weight": -0.9235119562509198,
+                "contribution": -0.1934551858651195
+              },
+              {
+                "term": "is",
+                "tfidf": 0.18107660227245853,
+                "weight": -0.8305353603275796,
+                "contribution": -0.15039052111525017
+              },
+              {
+                "term": "in the",
+                "tfidf": 0.16311542656316877,
+                "weight": -0.9130237066483744,
+                "contribution": -0.14892825137223506
+              },
+              {
+                "term": "luck",
+                "tfidf": 0.22648761923862043,
+                "weight": -0.5793464118785021,
+                "contribution": -0.13121478954079915
+              },
+              {
+                "term": "s",
+                "tfidf": 0.11459417211473286,
+                "weight": -1.0790254307534894,
+                "contribution": -0.12365002592793913
+              },
+              {
+                "term": "next",
+                "tfidf": 0.15965763349608764,
+                "weight": -0.5504718266523669,
+                "contribution": -0.08788702914958549
+              },
+              {
+                "term": "in",
+                "tfidf": 0.09198566555911053,
+                "weight": -0.7838876734803861,
+                "contribution": -0.07210642936867603
+              },
+              {
+                "term": "the",
+                "tfidf": 0.08147983276318932,
+                "weight": -0.6995686697658385,
+                "contribution": -0.05700073821888734
+              }
+            ]
+          },
+          "served_on_v3_normalized_input": {
+            "prediction": "ham",
+            "score": -1.4940729914894924,
+            "bias": -1.9497124350050514,
+            "known_features": 16,
+            "spam_evidence": 1.7577930883740998,
+            "ham_evidence": -1.3021536448585407,
+            "top_spam": [
+              {
+                "term": "balance",
+                "tfidf": 0.2714974773810155,
+                "weight": 2.225537218078431,
+                "contribution": 0.6042277405258569
+              },
+              {
+                "term": "txt",
+                "tfidf": 0.17471064322976135,
+                "weight": 3.380156607744042,
+                "contribution": 0.5905493351562897
+              },
+              {
+                "term": "ur",
+                "tfidf": 0.452376953347317,
+                "weight": 0.5507443605356066,
+                "contribution": 0.24914405589231403
+              },
+              {
+                "term": "who",
+                "tfidf": 0.19654651917029523,
+                "weight": 0.8851931907329398,
+                "contribution": 0.17398164043180656
+              },
+              {
+                "term": "now",
+                "tfidf": 0.13471460519107284,
+                "weight": 0.37029234174174697,
+                "contribution": 0.04988378662301726
+              },
+              {
+                "term": "question",
+                "tfidf": 0.24504005833687406,
+                "weight": 0.1840950951822613,
+                "contribution": 0.045110672862993695
+              },
+              {
+                "term": "luck",
+                "tfidf": 0.2714974773810155,
+                "weight": 0.13204842938600336,
+                "contribution": 0.03585081547042507
+              },
+              {
+                "term": "to",
+                "tfidf": 0.08314867026942009,
+                "weight": 0.10878155215337237,
+                "contribution": 0.009045041411396485
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "answer",
+                "tfidf": 0.5259601817449968,
+                "weight": -0.8883265880958273,
+                "contribution": -0.46722441372379425
+              },
+              {
+                "term": "good",
+                "tfidf": 0.15860931790194793,
+                "weight": -1.899548341396983,
+                "contribution": -0.301286066750752
+              },
+              {
+                "term": "in",
+                "tfidf": 0.11100441370993767,
+                "weight": -1.368727298797424,
+                "contribution": -0.15193477133179473
+              },
+              {
+                "term": "s",
+                "tfidf": 0.127381713896873,
+                "weight": -0.7210395556504157,
+                "contribution": -0.09184725438618968
+              },
+              {
+                "term": "girl",
+                "tfidf": 0.23848053622112514,
+                "weight": -0.3576709704684937,
+                "contribution": -0.0852975648280566
+              },
+              {
+                "term": "is",
+                "tfidf": 0.23187775908219077,
+                "weight": -0.33737420425035847,
+                "contribution": -0.07822957445371044
+              },
+              {
+                "term": "the",
+                "tfidf": 0.1038203589766712,
+                "weight": -0.6438193354265378,
+                "contribution": -0.06684155452010504
+              },
+              {
+                "term": "next",
+                "tfidf": 0.20473054122576193,
+                "weight": -0.2905890079122786,
+                "contribution": -0.05949244486413801
+              }
+            ]
+          }
+        },
+        {
+          "id": "d7c83b3738ca8332fbc5c276e4108d6476ac061acd93e8ac6de4c78f8d04cb6f",
+          "expected": "ham",
+          "served": {
+            "prediction": "ham",
+            "score": -2.7717354092607636,
+            "bias": -1.9497124350050514,
+            "known_features": 12,
+            "spam_evidence": 1.5938372285754212,
+            "ham_evidence": -2.4158602028311345,
+            "top_spam": [
+              {
+                "term": "reference",
+                "tfidf": 0.32382322211490405,
+                "weight": 2.247250096167317,
+                "contribution": 0.7277117670389286
+              },
+              {
+                "term": "receive",
+                "tfidf": 0.2706636093028522,
+                "weight": 2.2888018264692542,
+                "contribution": 0.6194953633311288
+              },
+              {
+                "term": "from",
+                "tfidf": 0.17972487555013245,
+                "weight": 0.8582419448688485,
+                "contribution": 0.15424742673345743
+              },
+              {
+                "term": "informed",
+                "tfidf": 0.3488310878375318,
+                "weight": 0.24206202735966897,
+                "contribution": 0.08443876032803171
+              },
+              {
+                "term": "a",
+                "tfidf": 0.11542549427119769,
+                "weight": 0.0688228471017851,
+                "contribution": 0.007943911143874612
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "might",
+                "tfidf": 0.2706636093028522,
+                "weight": -2.69752325683283,
+                "contribution": -0.7301213808727586
+              },
+              {
+                "term": "rakhesh",
+                "tfidf": 0.32382322211490405,
+                "weight": -1.5407653941532793,
+                "contribution": -0.49893561445785506
+              },
+              {
+                "term": "kindly",
+                "tfidf": 0.36168689854513036,
+                "weight": -0.7990803487833755,
+                "contribution": -0.28901689303982014
+              },
+              {
+                "term": "regret",
+                "tfidf": 0.3488310878375318,
+                "weight": -0.786604689527783,
+                "contribution": -0.2743921695460805
+              },
+              {
+                "term": "check",
+                "tfidf": 0.2747289163634529,
+                "weight": -0.9972687758347938,
+                "contribution": -0.27397857010820015
+              },
+              {
+                "term": "kerala",
+                "tfidf": 0.3488310878375318,
+                "weight": -0.6335309015846828,
+                "contribution": -0.22099527357847723
+              },
+              {
+                "term": "be",
+                "tfidf": 0.1636844941529521,
+                "weight": -0.7845599663700762,
+                "contribution": -0.12842030122794304
+              }
+            ]
+          },
+          "candidate": {
+            "prediction": "spam",
+            "score": 0.049448513161607366,
+            "bias": -1.9497124350056705,
+            "known_features": 16,
+            "spam_evidence": 3.370526868688934,
+            "ham_evidence": -1.3713659205216642,
+            "top_spam": [
+              {
+                "term": "receive a",
+                "tfidf": 0.2606669356921934,
+                "weight": 4.116155469931902,
+                "contribution": 1.0729456331798093
+              },
+              {
+                "term": "dlf",
+                "tfidf": 0.3092284719046058,
+                "weight": 1.9061308650966016,
+                "contribution": 0.5894299346640264
+              },
+              {
+                "term": "reference",
+                "tfidf": 0.2583210783644176,
+                "weight": 1.9267828620857195,
+                "contribution": 0.49772862670806195
+              },
+              {
+                "term": "rgds",
+                "tfidf": 0.3448410904860374,
+                "weight": 1.3049582854075918,
+                "contribution": 0.4500032381787436
+              },
+              {
+                "term": "receive",
+                "tfidf": 0.20299551301945992,
+                "weight": 1.9766963870383236,
+                "contribution": 0.4012604971705574
+              },
+              {
+                "term": "kindly",
+                "tfidf": 0.20712672150796674,
+                "weight": 0.7572994282561929,
+                "contribution": 0.1568569477745629
+              },
+              {
+                "term": "madam",
+                "tfidf": 0.2986658892398296,
+                "weight": 0.3462401595913249,
+                "contribution": 0.10341012515488358
+              },
+              {
+                "term": "from",
+                "tfidf": 0.13179482676600776,
+                "weight": 0.7503470984780325,
+                "contribution": 0.09889186585828885
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "might",
+                "tfidf": 0.22789877980882714,
+                "weight": -2.677375716032733,
+                "contribution": -0.6101706587736447
+              },
+              {
+                "term": "rakhesh",
+                "tfidf": 0.3145602569051121,
+                "weight": -1.6801378183717048,
+                "contribution": -0.528504583782998
+              },
+              {
+                "term": "regret",
+                "tfidf": 0.2765613033574759,
+                "weight": -0.2781420974174402,
+                "contribution": -0.07692334098034931
+              },
+              {
+                "term": "check",
+                "tfidf": 0.18169881969392443,
+                "weight": -0.4044248169629716,
+                "contribution": -0.07348351189710337
+              },
+              {
+                "term": "kerala",
+                "tfidf": 0.29520418875475296,
+                "weight": -0.17825441854541246,
+                "contribution": -0.05262145101864868
+              },
+              {
+                "term": "a",
+                "tfidf": 0.10227393192782742,
+                "weight": -0.1566978301571078,
+                "contribution": -0.016026103214726306
+              },
+              {
+                "term": "be",
+                "tfidf": 0.10858881329212312,
+                "weight": -0.11381340549705055,
+                "contribution": -0.01235886263965992
+              },
+              {
+                "term": "informed",
+                "tfidf": 0.30053597375525926,
+                "weight": -0.004250433645504259,
+                "contribution": -0.001277408214533739
+              }
+            ]
+          },
+          "served_on_v3_normalized_input": {
+            "prediction": "ham",
+            "score": -2.7717354092607636,
+            "bias": -1.9497124350050514,
+            "known_features": 12,
+            "spam_evidence": 1.5938372285754212,
+            "ham_evidence": -2.4158602028311345,
+            "top_spam": [
+              {
+                "term": "reference",
+                "tfidf": 0.32382322211490405,
+                "weight": 2.247250096167317,
+                "contribution": 0.7277117670389286
+              },
+              {
+                "term": "receive",
+                "tfidf": 0.2706636093028522,
+                "weight": 2.2888018264692542,
+                "contribution": 0.6194953633311288
+              },
+              {
+                "term": "from",
+                "tfidf": 0.17972487555013245,
+                "weight": 0.8582419448688485,
+                "contribution": 0.15424742673345743
+              },
+              {
+                "term": "informed",
+                "tfidf": 0.3488310878375318,
+                "weight": 0.24206202735966897,
+                "contribution": 0.08443876032803171
+              },
+              {
+                "term": "a",
+                "tfidf": 0.11542549427119769,
+                "weight": 0.0688228471017851,
+                "contribution": 0.007943911143874612
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "might",
+                "tfidf": 0.2706636093028522,
+                "weight": -2.69752325683283,
+                "contribution": -0.7301213808727586
+              },
+              {
+                "term": "rakhesh",
+                "tfidf": 0.32382322211490405,
+                "weight": -1.5407653941532793,
+                "contribution": -0.49893561445785506
+              },
+              {
+                "term": "kindly",
+                "tfidf": 0.36168689854513036,
+                "weight": -0.7990803487833755,
+                "contribution": -0.28901689303982014
+              },
+              {
+                "term": "regret",
+                "tfidf": 0.3488310878375318,
+                "weight": -0.786604689527783,
+                "contribution": -0.2743921695460805
+              },
+              {
+                "term": "check",
+                "tfidf": 0.2747289163634529,
+                "weight": -0.9972687758347938,
+                "contribution": -0.27397857010820015
+              },
+              {
+                "term": "kerala",
+                "tfidf": 0.3488310878375318,
+                "weight": -0.6335309015846828,
+                "contribution": -0.22099527357847723
+              },
+              {
+                "term": "be",
+                "tfidf": 0.1636844941529521,
+                "weight": -0.7845599663700762,
+                "contribution": -0.12842030122794304
+              }
+            ]
+          }
+        }
+      ],
+      "improvements": [
+        {
+          "id": "8be8254c8f8584f53c837e588f641654ba13891237bf3ffc07ec459c54562ae7",
+          "expected": "ham",
+          "served": {
+            "prediction": "spam",
+            "score": 1.0577709216400724,
+            "bias": -1.9497124350050514,
+            "known_features": 1,
+            "spam_evidence": 3.007483356645123,
+            "ham_evidence": 0,
+            "top_spam": [
+              {
+                "term": "anytime",
+                "tfidf": 1.0,
+                "weight": 3.007483356645123,
+                "contribution": 3.007483356645123
+              }
+            ],
+            "top_ham": []
+          },
+          "candidate": {
+            "prediction": "ham",
+            "score": -1.1126912546144077,
+            "bias": -1.9497124350056705,
+            "known_features": 1,
+            "spam_evidence": 0.8370211803912628,
+            "ham_evidence": 0,
+            "top_spam": [
+              {
+                "term": "anytime",
+                "tfidf": 1.0,
+                "weight": 0.8370211803912628,
+                "contribution": 0.8370211803912628
+              }
+            ],
+            "top_ham": []
+          },
+          "served_on_v3_normalized_input": {
+            "prediction": "spam",
+            "score": 1.0577709216400724,
+            "bias": -1.9497124350050514,
+            "known_features": 1,
+            "spam_evidence": 3.007483356645123,
+            "ham_evidence": 0,
+            "top_spam": [
+              {
+                "term": "anytime",
+                "tfidf": 1.0,
+                "weight": 3.007483356645123,
+                "contribution": 3.007483356645123
+              }
+            ],
+            "top_ham": []
+          }
+        }
+      ]
+    },
+    "logistic_regression": {
+      "diagnostics": [
+        {
+          "id": "user-parcel-fee",
+          "expected": "spam",
+          "served": {
+            "prediction": "spam",
+            "score": 0.08251733177399467,
+            "bias": -3.4989214026663347,
+            "known_features": 30,
+            "spam_evidence": 4.522517127428497,
+            "ham_evidence": -0.9410783929881672,
+            "top_spam": [
+              {
+                "term": "50",
+                "tfidf": 0.15016204970553942,
+                "weight": 5.184307858786439,
+                "contribution": 0.7784862943799079
+              },
+              {
+                "term": "18",
+                "tfidf": 0.15801152777284946,
+                "weight": 3.8297398132756157,
+                "contribution": 0.6051430388681873
+              },
+              {
+                "term": "your",
+                "tfidf": 0.17661505988415963,
+                "weight": 3.346295248285973,
+                "contribution": 0.5910061356661059
+              },
+              {
+                "term": "info",
+                "tfidf": 0.38815193996215247,
+                "weight": 1.156359003949721,
+                "contribution": 0.4488429906757865
+              },
+              {
+                "term": "our",
+                "tfidf": 0.12773411619506853,
+                "weight": 2.4888452660986684,
+                "contribution": 0.31791045041139354
+              },
+              {
+                "term": "an",
+                "tfidf": 0.13489279147167507,
+                "weight": 2.082575770195367,
+                "contribution": 0.28092445909292674
+              },
+              {
+                "term": "to",
+                "tfidf": 0.059437601376044216,
+                "weight": 3.799175417435037,
+                "contribution": 0.22581387401917014
+              },
+              {
+                "term": "please",
+                "tfidf": 0.12864879132123103,
+                "weight": 1.6527813082811327,
+                "contribution": 0.21262831762869064
+              },
+              {
+                "term": "due",
+                "tfidf": 0.2129886660168538,
+                "weight": 0.938909099111063,
+                "contribution": 0.19997699653075127
+              },
+              {
+                "term": "local",
+                "tfidf": 0.19771940778298944,
+                "weight": 0.9510441030315158,
+                "contribution": 0.18803987682689569
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "but",
+                "tfidf": 0.09658446196485206,
+                "weight": -2.304615100873375,
+                "contribution": -0.2225900095539282
+              },
+              {
+                "term": "at",
+                "tfidf": 0.0990894541533961,
+                "weight": -2.090490005272927,
+                "contribution": -0.20714551353562446
+              },
+              {
+                "term": "house",
+                "tfidf": 0.1608863160756736,
+                "weight": -1.0625042419295587,
+                "contribution": -0.17094239329882296
+              },
+              {
+                "term": "pay",
+                "tfidf": 0.1641000559768311,
+                "weight": -0.4028331607968978,
+                "contribution": -0.06610494423609474
+              },
+              {
+                "term": "here",
+                "tfidf": 0.13024487510724825,
+                "weight": -0.4292989124626884,
+                "contribution": -0.05591398323738035
+              },
+              {
+                "term": "hours",
+                "tfidf": 0.17516327394529865,
+                "weight": -0.3175190578313198,
+                "contribution": -0.055617677709760595
+              },
+              {
+                "term": "arrived",
+                "tfidf": 0.2319013620526314,
+                "weight": -0.22413995644590723,
+                "contribution": -0.051978361190223366
+              },
+              {
+                "term": "the",
+                "tfidf": 0.07421445335900541,
+                "weight": -0.4220407303308979,
+                "contribution": -0.031321522096743
+              },
+              {
+                "term": "sorting",
+                "tfidf": 0.22083814408416383,
+                "weight": -0.12819493464192555,
+                "contribution": -0.02831033144731352
+              },
+              {
+                "term": "has",
+                "tfidf": 0.13489279147167507,
+                "weight": -0.20494705392722923,
+                "contribution": -0.027645880208139878
+              }
+            ]
+          },
+          "candidate": {
+            "prediction": "spam",
+            "score": 2.536671068301826,
+            "bias": -3.2600415850824622,
+            "known_features": 43,
+            "spam_evidence": 6.439998603752503,
+            "ham_evidence": -0.6432859503682156,
+            "top_spam": [
+              {
+                "term": "your",
+                "tfidf": 0.10516514253264118,
+                "weight": 8.79854278815169,
+                "contribution": 0.9253000063955147
+              },
+              {
+                "term": "be",
+                "tfidf": 0.07159390615040594,
+                "weight": 5.5856980585523,
+                "contribution": 0.399901942588498
+              },
+              {
+                "term": "our",
+                "tfidf": 0.10552927582426032,
+                "weight": 3.258125438006308,
+                "contribution": 0.34382761801740663
+              },
+              {
+                "term": "pay",
+                "tfidf": 0.11411959968281672,
+                "weight": 2.972341640861163,
+                "contribution": 0.3392024381756425
+              },
+              {
+                "term": "to",
+                "tfidf": 0.05020904053142831,
+                "weight": 5.563555497383466,
+                "contribution": 0.2793407834669772
+              },
+              {
+                "term": "update",
+                "tfidf": 0.1142152156468642,
+                "weight": 2.441559067651937,
+                "contribution": 0.2788631954264227
+              },
+              {
+                "term": "parcel",
+                "tfidf": 0.15645767528124127,
+                "weight": 1.6633359180936687,
+                "contribution": 0.2602416709567245
+              },
+              {
+                "term": "address and",
+                "tfidf": 0.21155107667321332,
+                "weight": 1.2245416923474164,
+                "contribution": 0.25905311344733467
+              },
+              {
+                "term": "please",
+                "tfidf": 0.09214942885057224,
+                "weight": 2.741746708397191,
+                "contribution": 0.2526503932317376
+              },
+              {
+                "term": "due",
+                "tfidf": 0.1293920080528918,
+                "weight": 1.9224829271945818,
+                "contribution": 0.24875392639710833
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "but",
+                "tfidf": 0.09352510967423618,
+                "weight": -3.0611408980706387,
+                "contribution": -0.2862935382203463
+              },
+              {
+                "term": "house",
+                "tfidf": 0.13476200314202982,
+                "weight": -1.1961768070740801,
+                "contribution": -0.16119918263334038
+              },
+              {
+                "term": "cannot",
+                "tfidf": 0.1450131416043914,
+                "weight": -0.6604026079732394,
+                "contribution": -0.09576705690593275
+              },
+              {
+                "term": "arrived",
+                "tfidf": 0.20230469869727763,
+                "weight": -0.17410605177325716,
+                "contribution": -0.03522247234536141
+              },
+              {
+                "term": "sorting",
+                "tfidf": 0.2232001352547805,
+                "weight": -0.11799860969077731,
+                "contribution": -0.02633730564285755
+              },
+              {
+                "term": "cannot be",
+                "tfidf": 0.2139537572788448,
+                "weight": -0.07312432324797753,
+                "contribution": -0.015645223707377573
+              },
+              {
+                "term": "to an",
+                "tfidf": 0.18364364401830938,
+                "weight": -0.0681601248633738,
+                "contribution": -0.012517173706652937
+              },
+              {
+                "term": "the",
+                "tfidf": 0.06002580175010775,
+                "weight": -0.14964346392984687,
+                "contribution": -0.008982468899052388
+              },
+              {
+                "term": "but cannot",
+                "tfidf": 0.2232001352547805,
+                "weight": -0.005920822161625444,
+                "contribution": -0.0013215283072943009
+              }
+            ]
+          },
+          "served_on_v3_normalized_input": {
+            "prediction": "ham",
+            "score": -1.4600951839127503,
+            "bias": -3.4989214026663347,
+            "known_features": 25,
+            "spam_evidence": 3.2110946214682947,
+            "ham_evidence": -1.1722684027147106,
+            "top_spam": [
+              {
+                "term": "your",
+                "tfidf": 0.22000319600194035,
+                "weight": 3.346295248285973,
+                "contribution": 0.7361956493890206
+              },
+              {
+                "term": "our",
+                "tfidf": 0.15911391599238534,
+                "weight": 2.4888452660986684,
+                "contribution": 0.39600991658806944
+              },
+              {
+                "term": "an",
+                "tfidf": 0.1680312271267048,
+                "weight": 2.082575770195367,
+                "contribution": 0.34993776225026985
+              },
+              {
+                "term": "to",
+                "tfidf": 0.07403933885363909,
+                "weight": 3.799175417435037,
+                "contribution": 0.28128843609588844
+              },
+              {
+                "term": "please",
+                "tfidf": 0.16025329477011366,
+                "weight": 1.6527813082811327,
+                "contribution": 0.2648636501865104
+              },
+              {
+                "term": "due",
+                "tfidf": 0.2653125235562109,
+                "weight": 0.938909099111063,
+                "contribution": 0.24910434247504465
+              },
+              {
+                "term": "local",
+                "tfidf": 0.24629214322039789,
+                "weight": 0.9510441030315158,
+                "contribution": 0.2342346904327529
+              },
+              {
+                "term": "update",
+                "tfidf": 0.23416937392720505,
+                "weight": 0.5814164949126769,
+                "contribution": 0.13614993660465155
+              },
+              {
+                "term": "number",
+                "tfidf": 0.16852027562174596,
+                "weight": 0.8023056905041792,
+                "contribution": 0.13520477609665948
+              },
+              {
+                "term": "delivered",
+                "tfidf": 0.2653125235562109,
+                "weight": 0.48539315649208153,
+                "contribution": 0.12878088326582893
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "but",
+                "tfidf": 0.12031188240873837,
+                "weight": -2.304615100873375,
+                "contribution": -0.27727258101368024
+              },
+              {
+                "term": "at",
+                "tfidf": 0.12343226346684887,
+                "weight": -2.090490005272927,
+                "contribution": -0.2580339131056622
+              },
+              {
+                "term": "house",
+                "tfidf": 0.20041045057449894,
+                "weight": -1.0625042419295587,
+                "contribution": -0.2129369538624193
+              },
+              {
+                "term": "pay",
+                "tfidf": 0.20441369384173416,
+                "weight": -0.4028331607968978,
+                "contribution": -0.08234461440043514
+              },
+              {
+                "term": "here",
+                "tfidf": 0.16224148045620962,
+                "weight": -0.4292989124626884,
+                "contribution": -0.06965009111618731
+              },
+              {
+                "term": "hours",
+                "tfidf": 0.2181947570915236,
+                "weight": -0.3175190578313198,
+                "contribution": -0.06928099369543426
+              },
+              {
+                "term": "arrived",
+                "tfidf": 0.28887140678855455,
+                "weight": -0.22413995644590723,
+                "contribution": -0.06474762453605457
+              },
+              {
+                "term": "the",
+                "tfidf": 0.09244634596408226,
+                "weight": -0.4220407303308979,
+                "contribution": -0.03901612336710413
+              },
+              {
+                "term": "sorting",
+                "tfidf": 0.27509034353876505,
+                "weight": -0.12819493464192555,
+                "contribution": -0.035265188610576835
+              },
+              {
+                "term": "has",
+                "tfidf": 0.1680312271267048,
+                "weight": -0.20494705392722923,
+                "contribution": -0.03443750496739527
+              }
+            ]
+          }
+        },
+        {
+          "id": "user-license-reminder",
+          "expected": "ham",
+          "served": {
+            "prediction": "ham",
+            "score": -0.035240356089498714,
+            "bias": -3.4989214026663347,
+            "known_features": 29,
+            "spam_evidence": 4.131531409535054,
+            "ham_evidence": -0.6678503629582171,
+            "top_spam": [
+              {
+                "term": "reply",
+                "tfidf": 0.11904865842474902,
+                "weight": 5.249495574175431,
+                "contribution": 0.6249454055122426
+              },
+              {
+                "term": "your",
+                "tfidf": 0.16382816957255295,
+                "weight": 3.346295248285973,
+                "contribution": 0.5482174253760226
+              },
+              {
+                "term": "an",
+                "tfidf": 0.2502531678762991,
+                "weight": 2.082575770195367,
+                "contribution": 0.521171183833814
+              },
+              {
+                "term": "to",
+                "tfidf": 0.11026866501200021,
+                "weight": 3.799175417435037,
+                "contribution": 0.4189300014269702
+              },
+              {
+                "term": "or",
+                "tfidf": 0.09311136150788218,
+                "weight": 3.2258275888389853,
+                "contribution": 0.3003611987864867
+              },
+              {
+                "term": "please",
+                "tfidf": 0.11933464798359994,
+                "weight": 1.6527813082811327,
+                "contribution": 0.19723407561760273
+              },
+              {
+                "term": "due",
+                "tfidf": 0.19756833486412403,
+                "weight": 0.938909099111063,
+                "contribution": 0.18549870730014753
+              },
+              {
+                "term": "account",
+                "tfidf": 0.15329642472457655,
+                "weight": 1.1384412681108298,
+                "contribution": 0.1745189761603033
+              },
+              {
+                "term": "ph",
+                "tfidf": 0.4096990249963747,
+                "weight": 0.42250762556860605,
+                "contribution": 0.17310096224899127
+              },
+              {
+                "term": "for",
+                "tfidf": 0.08032574648158078,
+                "weight": 2.053161460116137,
+                "contribution": 0.16492172693104104
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "at",
+                "tfidf": 0.0919154001280627,
+                "weight": -2.090490005272927,
+                "contribution": -0.19214822529837697
+              },
+              {
+                "term": "in",
+                "tfidf": 0.07360495646276298,
+                "weight": -1.582571890225214,
+                "contribution": -0.11648513507921938
+              },
+              {
+                "term": "appointment",
+                "tfidf": 0.19756833486412403,
+                "weight": -0.5559726101895397,
+                "contribution": -0.10984258282520808
+              },
+              {
+                "term": "online",
+                "tfidf": 0.1595004267460635,
+                "weight": -0.4531729125677764,
+                "contribution": -0.07228127294431685
+              },
+              {
+                "term": "not",
+                "tfidf": 0.0901302956472798,
+                "weight": -0.7487992391403052,
+                "contribution": -0.06748949680417388
+              },
+              {
+                "term": "do",
+                "tfidf": 0.09331630033337657,
+                "weight": -0.5184386162968846,
+                "contribution": -0.04837877362278026
+              },
+              {
+                "term": "15",
+                "tfidf": 0.21511175599285312,
+                "weight": -0.1827924409853785,
+                "contribution": -0.03932080296258474
+              },
+              {
+                "term": "driver",
+                "tfidf": 0.20484951249818736,
+                "weight": -0.07713641912112737,
+                "contribution": -0.0158013578528188
+              },
+              {
+                "term": "portal",
+                "tfidf": 0.43022351198570624,
+                "weight": -0.012059885686320873,
+                "contribution": -0.005188446374115115
+              },
+              {
+                "term": "renewal",
+                "tfidf": 0.21511175599285312,
+                "weight": -0.004250205621738949,
+                "contribution": -0.0009142691946229614
+              }
+            ]
+          },
+          "candidate": {
+            "prediction": "spam",
+            "score": 1.842105506894081,
+            "bias": -3.2600415850824622,
+            "known_features": 46,
+            "spam_evidence": 5.585891425006937,
+            "ham_evidence": -0.48374433303039444,
+            "top_spam": [
+              {
+                "term": "your",
+                "tfidf": 0.09492987426091462,
+                "weight": 8.79854278815169,
+                "contribution": 0.8352445605585171
+              },
+              {
+                "term": "to",
+                "tfidf": 0.07673751387673346,
+                "weight": 5.563555497383466,
+                "contribution": 0.42693341718444044
+              },
+              {
+                "term": "reply",
+                "tfidf": 0.1031858164066336,
+                "weight": 3.9729161934409527,
+                "contribution": 0.40994860093533975
+              },
+              {
+                "term": "an",
+                "tfidf": 0.17108075806386436,
+                "weight": 1.9752688484847722,
+                "contribution": 0.3379304919787113
+              },
+              {
+                "term": "account",
+                "tfidf": 0.093979352777052,
+                "weight": 3.5199145040493627,
+                "contribution": 0.33079928692111704
+              },
+              {
+                "term": "on",
+                "tfidf": 0.05683248436303964,
+                "weight": 5.78345811583743,
+                "contribution": 0.32868829293262547
+              },
+              {
+                "term": "is an",
+                "tfidf": 0.1676719004537289,
+                "weight": 1.8733361011314462,
+                "contribution": 0.3141058242652885
+              },
+              {
+                "term": "for",
+                "tfidf": 0.05449135602941736,
+                "weight": 5.377000593127427,
+                "contribution": 0.2930000536904949
+              },
+              {
+                "term": "please",
+                "tfidf": 0.08318092367235462,
+                "weight": 2.741746708397191,
+                "contribution": 0.22806102368011627
+              },
+              {
+                "term": "due",
+                "tfidf": 0.1167988437900497,
+                "weight": 1.9224829271945818,
+                "contribution": 0.22454378310243747
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "is",
+                "tfidf": 0.12041518804767366,
+                "weight": -1.8196412575729433,
+                "contribution": -0.21911244420995135
+              },
+              {
+                "term": "not",
+                "tfidf": 0.07822053427263224,
+                "weight": -1.6639390170679567,
+                "contribution": -0.13015419891213412
+              },
+              {
+                "term": "do",
+                "tfidf": 0.08689241094635926,
+                "weight": -0.7295847945076066,
+                "contribution": -0.06339538178457002
+              },
+              {
+                "term": "s",
+                "tfidf": 0.07620464826041098,
+                "weight": -0.797738982261278,
+                "contribution": -0.06079141854683893
+              },
+              {
+                "term": "or before",
+                "tfidf": 0.19096172576494186,
+                "weight": -0.05388980192589611,
+                "contribution": -0.010290889576900008
+              }
+            ]
+          },
+          "served_on_v3_normalized_input": {
+            "prediction": "spam",
+            "score": 1.0107124239421865,
+            "bias": -3.4989214026663347,
+            "known_features": 24,
+            "spam_evidence": 5.258351080611703,
+            "ham_evidence": -0.7487172540031822,
+            "top_spam": [
+              {
+                "term": "reply",
+                "tfidf": 0.16174973759474817,
+                "weight": 5.249495574175431,
+                "contribution": 0.8491045316276679
+              },
+              {
+                "term": "your",
+                "tfidf": 0.22259102949688878,
+                "weight": 3.346295248285973,
+                "contribution": 0.7448553043165218
+              },
+              {
+                "term": "an",
+                "tfidf": 0.340015458988413,
+                "weight": 2.082575770195367,
+                "contribution": 0.7081079563811254
+              },
+              {
+                "term": "to",
+                "tfidf": 0.1498204840492878,
+                "weight": 3.799175417435037,
+                "contribution": 0.5691943000282723
+              },
+              {
+                "term": "or",
+                "tfidf": 0.12650909712275013,
+                "weight": 3.2258275888389853,
+                "contribution": 0.40809653573767807
+              },
+              {
+                "term": "please",
+                "tfidf": 0.16213830758546516,
+                "weight": 1.6527813082811327,
+                "contribution": 0.2679791641335938
+              },
+              {
+                "term": "due",
+                "tfidf": 0.2684333174699593,
+                "weight": 0.938909099111063,
+                "contribution": 0.25203448427711345
+              },
+              {
+                "term": "account",
+                "tfidf": 0.20828169591752876,
+                "weight": 1.1384412681108298,
+                "contribution": 0.23711647802462568
+              },
+              {
+                "term": "for",
+                "tfidf": 0.10913746183633526,
+                "weight": 2.053161460116137,
+                "contribution": 0.22407683049725927
+              },
+              {
+                "term": "schedule",
+                "tfidf": 0.2684333174699593,
+                "weight": 0.7781658039885755,
+                "contribution": 0.2088856283063314
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "at",
+                "tfidf": 0.12488416121907059,
+                "weight": -2.090490005272927,
+                "contribution": -0.26106909084535995
+              },
+              {
+                "term": "in",
+                "tfidf": 0.10000601897626867,
+                "weight": -1.582571890225214,
+                "contribution": -0.15826671448517213
+              },
+              {
+                "term": "appointment",
+                "tfidf": 0.2684333174699593,
+                "weight": -0.5559726101895397,
+                "contribution": -0.14924157217561063
+              },
+              {
+                "term": "not",
+                "tfidf": 0.12245876487133808,
+                "weight": -0.7487992391403052,
+                "contribution": -0.0916970299617195
+              },
+              {
+                "term": "do",
+                "tfidf": 0.12678754462216185,
+                "weight": -0.5184386162968846,
+                "contribution": -0.0657315591975931
+              },
+              {
+                "term": "driver",
+                "tfidf": 0.27832615110012526,
+                "weight": -0.07713641912112737,
+                "contribution": -0.021469082643629487
+              },
+              {
+                "term": "renewal",
+                "tfidf": 0.2922693169817033,
+                "weight": -0.004250205621738949,
+                "contribution": -0.0012422046940974382
+              }
+            ]
+          }
+        },
+        {
+          "id": "user-extortion-deadline",
+          "expected": "spam",
+          "served": {
+            "prediction": "ham",
+            "score": -3.0754555012342344,
+            "bias": -3.4989214026663347,
+            "known_features": 7,
+            "spam_evidence": 0.7838550021266308,
+            "ham_evidence": -0.3603891006945309,
+            "top_spam": [
+              {
+                "term": "have",
+                "tfidf": 0.22208199738370332,
+                "weight": 1.6480721360118038,
+                "contribution": 0.36600715179792775
+              },
+              {
+                "term": "12",
+                "tfidf": 0.48470062068729125,
+                "weight": 0.4812113995920434,
+                "contribution": 0.23324346406406357
+              },
+              {
+                "term": "been",
+                "tfidf": 0.32092121785074096,
+                "weight": 0.4300968765107011,
+                "contribution": 0.13802721340361393
+              },
+              {
+                "term": "within",
+                "tfidf": 0.49501154741994235,
+                "weight": 0.09409310369382543,
+                "contribution": 0.04657717286102562
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "pay",
+                "tfidf": 0.40228422631170935,
+                "weight": -0.4028331607968978,
+                "contribution": -0.16205342642388043
+              },
+              {
+                "term": "hours",
+                "tfidf": 0.42940522913203216,
+                "weight": -0.3175190578313198,
+                "contribution": -0.13634434378184485
+              },
+              {
+                "term": "you",
+                "tfidf": 0.14661713764900486,
+                "weight": -0.4228109447697048,
+                "contribution": -0.061991330488805604
+              }
+            ]
+          },
+          "candidate": {
+            "prediction": "spam",
+            "score": 0.34076561461350874,
+            "bias": -3.2600415850824622,
+            "known_features": 9,
+            "spam_evidence": 3.6559153294285607,
+            "ham_evidence": -0.055108129732589696,
+            "top_spam": [
+              {
+                "term": "pay",
+                "tfidf": 0.2933036635999864,
+                "weight": 2.972341640861163,
+                "contribution": 0.871798692735374
+              },
+              {
+                "term": "you have",
+                "tfidf": 0.3017286153343237,
+                "weight": 2.375626103858751,
+                "contribution": 0.7167943748693753
+              },
+              {
+                "term": "within",
+                "tfidf": 0.3207364797494508,
+                "weight": 1.5521501740712,
+                "contribution": 0.497831182874094
+              },
+              {
+                "term": "have been",
+                "tfidf": 0.4123873610510008,
+                "weight": 0.9077277432448292,
+                "contribution": 0.37433544858951556
+              },
+              {
+                "term": "been",
+                "tfidf": 0.3129264576991832,
+                "weight": 1.109791029788048,
+                "contribution": 0.34728297573790257
+              },
+              {
+                "term": "hours",
+                "tfidf": 0.3607131096076229,
+                "weight": 0.8965210494939341,
+                "contribution": 0.3233868955916465
+              },
+              {
+                "term": "have",
+                "tfidf": 0.2000128404922778,
+                "weight": 1.4880414455258406,
+                "contribution": 0.29762739628985846
+              },
+              {
+                "term": "within hours",
+                "tfidf": 0.5092660008716587,
+                "weight": 0.44546143342085265,
+                "contribution": 0.2268583627407943
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "you",
+                "tfidf": 0.15034516032788645,
+                "weight": -0.3665440883657635,
+                "contribution": -0.055108129732589696
+              }
+            ]
+          },
+          "served_on_v3_normalized_input": {
+            "prediction": "ham",
+            "score": -3.281444826352324,
+            "bias": -3.4989214026663347,
+            "known_features": 6,
+            "spam_evidence": 0.6295004618469876,
+            "ham_evidence": -0.4120238855329771,
+            "top_spam": [
+              {
+                "term": "have",
+                "tfidf": 0.25390081801202075,
+                "weight": 1.6480721360118038,
+                "contribution": 0.4184468634762153
+              },
+              {
+                "term": "been",
+                "tfidf": 0.36690123778441985,
+                "weight": 0.4300968765107011,
+                "contribution": 0.15780307635898902
+              },
+              {
+                "term": "within",
+                "tfidf": 0.565934376923712,
+                "weight": 0.09409310369382543,
+                "contribution": 0.05325052201178331
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "pay",
+                "tfidf": 0.4599215395086818,
+                "weight": -0.4028331607968978,
+                "contribution": -0.1852716474788576
+              },
+              {
+                "term": "hours",
+                "tfidf": 0.4909283067501025,
+                "weight": -0.3175190578313198,
+                "contribution": -0.1558790934220177
+              },
+              {
+                "term": "you",
+                "tfidf": 0.16762372286910585,
+                "weight": -0.4228109447697048,
+                "contribution": -0.07087314463210181
+              }
+            ]
+          }
+        }
+      ],
+      "regressions": [
+        {
+          "id": "075d3052f8d75f34cb0adca119decf591b5fb8f9fc2ee90b9614cc24558a73f8",
+          "expected": "spam",
+          "served": {
+            "prediction": "spam",
+            "score": 0.5018563921589174,
+            "bias": -3.4989214026663347,
+            "known_features": 22,
+            "spam_evidence": 5.18406753875104,
+            "ham_evidence": -1.1832897439257875,
+            "top_spam": [
+              {
+                "term": "chat",
+                "tfidf": 0.17042898538624687,
+                "weight": 5.807884184360328,
+                "contribution": 0.9898318087813608
+              },
+              {
+                "term": "1",
+                "tfidf": 0.13650622059374448,
+                "weight": 6.188255551913399,
+                "contribution": 0.8447353774599545
+              },
+              {
+                "term": "now",
+                "tfidf": 0.2077329226661228,
+                "weight": 2.9665350141979765,
+                "contribution": 0.6162469886907338
+              },
+              {
+                "term": "2",
+                "tfidf": 0.10469551574506432,
+                "weight": 4.883496334226291,
+                "contribution": 0.5112801673509525
+              },
+              {
+                "term": "calls",
+                "tfidf": 0.19082795020690033,
+                "weight": 2.2209632627488856,
+                "contribution": 0.42382186691519924
+              },
+              {
+                "term": "c",
+                "tfidf": 0.14591689852494116,
+                "weight": 2.7741633635020433,
+                "contribution": 0.40479731400373714
+              },
+              {
+                "term": "xx",
+                "tfidf": 0.19995565013682187,
+                "weight": 1.6788923141566945,
+                "contribution": 0.33570400418691526
+              },
+              {
+                "term": "luv",
+                "tfidf": 0.18236161485985922,
+                "weight": 1.4380277062291207,
+                "contribution": 0.26224105472116166
+              },
+              {
+                "term": "minmoremobsemspobox45po139wa",
+                "tfidf": 0.25012550920420695,
+                "weight": 0.9450203976164918,
+                "contribution": 0.23637370816218714
+              },
+              {
+                "term": "wanna",
+                "tfidf": 0.1694639977746673,
+                "weight": 1.253619038325108,
+                "contribution": 0.21244329392100667
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "am",
+                "tfidf": 0.25018896113143557,
+                "weight": -2.159941779774315,
+                "contribution": -0.5403935899861199
+              },
+              {
+                "term": "u",
+                "tfidf": 0.1736381113156824,
+                "weight": -1.729073259649206,
+                "contribution": -0.3002330151319387
+              },
+              {
+                "term": "hope",
+                "tfidf": 0.14385805326390716,
+                "weight": -1.7631452510432264,
+                "contribution": -0.25364264343658144
+              },
+              {
+                "term": "here",
+                "tfidf": 0.14048026893453577,
+                "weight": -0.4292989124626884,
+                "contribution": -0.0603080266760622
+              },
+              {
+                "term": "havin",
+                "tfidf": 0.23819287973059458,
+                "weight": -0.06981681226106225,
+                "contribution": -0.016629867566072702
+              },
+              {
+                "term": "claire",
+                "tfidf": 0.5002510184084139,
+                "weight": -0.012638108766406777,
+                "contribution": -0.006322226781151294
+              },
+              {
+                "term": "2nite",
+                "tfidf": 0.22972654438355344,
+                "weight": -0.01391927173878839,
+                "contribution": -0.0031976261968875122
+              },
+              {
+                "term": "borin",
+                "tfidf": 0.25012550920420695,
+                "weight": -0.010245848810572333,
+                "contribution": -0.002562748150973723
+              }
+            ]
+          },
+          "candidate": {
+            "prediction": "ham",
+            "score": -0.8104170788840945,
+            "bias": -3.2600415850824622,
+            "known_features": 23,
+            "spam_evidence": 3.923177008193021,
+            "ham_evidence": -1.4735525019946525,
+            "top_spam": [
+              {
+                "term": "xx",
+                "tfidf": 0.1433724713964326,
+                "weight": 5.823475833385306,
+                "contribution": 0.8349261223498513
+              },
+              {
+                "term": "po",
+                "tfidf": 0.23983805980621045,
+                "weight": 2.1753469958431983,
+                "contribution": 0.5217310028883012
+              },
+              {
+                "term": "chat",
+                "tfidf": 0.18683618109786043,
+                "weight": 2.6866848481092234,
+                "contribution": 0.5019699368342125
+              },
+              {
+                "term": "c",
+                "tfidf": 0.14917529467286,
+                "weight": 2.9149493815186074,
+                "contribution": 0.4348384329445093
+              },
+              {
+                "term": "calls",
+                "tfidf": 0.18696320836711258,
+                "weight": 2.3081704487367007,
+                "contribution": 0.4315429525539715
+              },
+              {
+                "term": "now",
+                "tfidf": 0.17053776826058184,
+                "weight": 2.2060545811570327,
+                "contribution": 0.37621562493155297
+              },
+              {
+                "term": "here",
+                "tfidf": 0.1317017455608212,
+                "weight": 2.1076850530091296,
+                "contribution": 0.2775858005737543
+              },
+              {
+                "term": "luv",
+                "tfidf": 0.22961817373072418,
+                "weight": 0.9269810019146978,
+                "contribution": 0.21285168474272984
+              },
+              {
+                "term": "wa",
+                "tfidf": 0.2047412336788648,
+                "weight": 0.7192582191077672,
+                "contribution": 0.1472618151137875
+              },
+              {
+                "term": "cum",
+                "tfidf": 0.2436301702870811,
+                "weight": 0.38349806610696907,
+                "contribution": 0.09343169915040715
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "u",
+                "tfidf": 0.16211067086949416,
+                "weight": -4.269105520731045,
+                "contribution": -0.6920675599783709
+              },
+              {
+                "term": "hope",
+                "tfidf": 0.17180602468657194,
+                "weight": -1.2465407401843336,
+                "contribution": -0.21416320918092727
+              },
+              {
+                "term": "nite",
+                "tfidf": 0.20451483381960703,
+                "weight": -0.8270072411444132,
+                "contribution": -0.16913524849026132
+              },
+              {
+                "term": "am",
+                "tfidf": 0.25084421102527904,
+                "weight": -0.6720877663140892,
+                "contribution": -0.1685893254807998
+              },
+              {
+                "term": "time",
+                "tfidf": 0.12806050768694807,
+                "weight": -0.5371260375379404,
+                "contribution": -0.06878463305898738
+              },
+              {
+                "term": "wanna",
+                "tfidf": 0.17323681962562207,
+                "weight": -0.23117475299638177,
+                "contribution": -0.04004797898683192
+              },
+              {
+                "term": "havin",
+                "tfidf": 0.26332034871311727,
+                "weight": -0.1505863737252249,
+                "contribution": -0.03965245644077002
+              },
+              {
+                "term": "c u",
+                "tfidf": 0.2377691608235099,
+                "weight": -0.1536584922839648,
+                "contribution": -0.036535250763764085
+              },
+              {
+                "term": "over",
+                "tfidf": 0.17283263668143617,
+                "weight": -0.19274249658082293,
+                "contribution": -0.03331219388462632
+              },
+              {
+                "term": "borin",
+                "tfidf": 0.3002546726269957,
+                "weight": -0.03751697061283513,
+                "contribution": -0.011264645729313428
+              }
+            ]
+          },
+          "served_on_v3_normalized_input": {
+            "prediction": "ham",
+            "score": -0.7809299276229824,
+            "bias": -3.4989214026663347,
+            "known_features": 21,
+            "spam_evidence": 4.0359748866023315,
+            "ham_evidence": -1.3179834115589795,
+            "top_spam": [
+              {
+                "term": "chat",
+                "tfidf": 0.1722529752807806,
+                "weight": 5.807884184360328,
+                "contribution": 1.0004253308422562
+              },
+              {
+                "term": "now",
+                "tfidf": 0.2099561521880627,
+                "weight": 2.9665350141979765,
+                "contribution": 0.6228422769121671
+              },
+              {
+                "term": "calls",
+                "tfidf": 0.19287025687194992,
+                "weight": 2.2209632627488856,
+                "contribution": 0.42835775498954154
+              },
+              {
+                "term": "c",
+                "tfidf": 0.14747855159556184,
+                "weight": 2.7741633635020433,
+                "contribution": 0.40912959473875343
+              },
+              {
+                "term": "po",
+                "tfidf": 0.18286207528427317,
+                "weight": 2.2194717961581443,
+                "contribution": 0.4058572186803916
+              },
+              {
+                "term": "xx",
+                "tfidf": 0.20209564460066218,
+                "weight": 1.6788923141566945,
+                "contribution": 0.3392968244445946
+              },
+              {
+                "term": "luv",
+                "tfidf": 0.18431331187842329,
+                "weight": 1.4380277062291207,
+                "contribution": 0.2650476491080216
+              },
+              {
+                "term": "wanna",
+                "tfidf": 0.17127766003832368,
+                "weight": 1.253619038325108,
+                "contribution": 0.21471693546381812
+              },
+              {
+                "term": "alone",
+                "tfidf": 0.19492241188191584,
+                "weight": 0.7644927449563109,
+                "contribution": 0.14901676971311048
+              },
+              {
+                "term": "over",
+                "tfidf": 0.16444909455862783,
+                "weight": 0.6953001689244827,
+                "contribution": 0.11434148322609215
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "am",
+                "tfidf": 0.2528665698480128,
+                "weight": -2.159941779774315,
+                "contribution": -0.5461770689229429
+              },
+              {
+                "term": "u",
+                "tfidf": 0.1754964463848489,
+                "weight": -1.729073259649206,
+                "contribution": -0.3034462126075028
+              },
+              {
+                "term": "hope",
+                "tfidf": 0.1453976718610958,
+                "weight": -1.7631452510432264,
+                "contribution": -0.2563572146546324
+              },
+              {
+                "term": "nite",
+                "tfidf": 0.18744720245870872,
+                "weight": -0.6011023262290653,
+                "contribution": -0.11267494944306039
+              },
+              {
+                "term": "here",
+                "tfidf": 0.14198373731661446,
+                "weight": -0.4292989124626884,
+                "contribution": -0.060953464017410613
+              },
+              {
+                "term": "havin",
+                "tfidf": 0.24074210223869003,
+                "weight": -0.06981681226106225,
+                "contribution": -0.016807846155332075
+              },
+              {
+                "term": "wa",
+                "tfidf": 0.24074210223869003,
+                "weight": -0.05228246591244307,
+                "contribution": -0.012586590753984196
+              },
+              {
+                "term": "claire",
+                "tfidf": 0.5056048776726655,
+                "weight": -0.012638108766406777,
+                "contribution": -0.006389889436852939
+              },
+              {
+                "term": "borin",
+                "tfidf": 0.25280243883633274,
+                "weight": -0.010245848810572333,
+                "contribution": -0.0025901755672610247
+              }
+            ]
+          }
+        },
+        {
+          "id": "c2a6ae06b999f74b0fe397a89b7366f79a6195060abc389b19dee4ec4bfcc19f",
+          "expected": "spam",
+          "served": {
+            "prediction": "spam",
+            "score": 1.622323874684152,
+            "bias": -3.4989214026663347,
+            "known_features": 19,
+            "spam_evidence": 5.663381668032166,
+            "ham_evidence": -0.5421363906816792,
+            "top_spam": [
+              {
+                "term": "txt",
+                "tfidf": 0.16117682851306878,
+                "weight": 7.602925857399187,
+                "contribution": 1.2254154771156052
+              },
+              {
+                "term": "ur",
+                "tfidf": 0.41733394877974206,
+                "weight": 1.7485505430785795,
+                "contribution": 0.7297295027839461
+              },
+              {
+                "term": "500",
+                "tfidf": 0.2089619593966292,
+                "weight": 3.179811063789343,
+                "contribution": 0.664459550400501
+              },
+              {
+                "term": "2",
+                "tfidf": 0.12527103649421267,
+                "weight": 4.883496334226291,
+                "contribution": 0.6117606475042155
+              },
+              {
+                "term": "who",
+                "tfidf": 0.1813212064790503,
+                "weight": 3.013303393331918,
+                "contribution": 0.5463758067663597
+              },
+              {
+                "term": "next",
+                "tfidf": 0.1888712600704988,
+                "weight": 2.228652056648352,
+                "contribution": 0.4209283221978829
+              },
+              {
+                "term": "now",
+                "tfidf": 0.1242790503068138,
+                "weight": 2.9665350141979765,
+                "contribution": 0.3686781542664349
+              },
+              {
+                "term": "to",
+                "tfidf": 0.07670762765997932,
+                "weight": 3.799175417435037,
+                "contribution": 0.2914257333355533
+              },
+              {
+                "term": "balance",
+                "tfidf": 0.2504661510290661,
+                "weight": 1.0074591763858416,
+                "contribution": 0.25233442222827474
+              },
+              {
+                "term": "is",
+                "tfidf": 0.21391554126691303,
+                "weight": 0.9119595732310974,
+                "contribution": 0.19508232572127324
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "good",
+                "tfidf": 0.14632277896451765,
+                "weight": -1.6132285992058142,
+                "contribution": -0.23605209174083078
+              },
+              {
+                "term": "in",
+                "tfidf": 0.1024055490952061,
+                "weight": -1.582571890225214,
+                "contribution": -0.16206414340115127
+              },
+              {
+                "term": "answer",
+                "tfidf": 0.4852171135695018,
+                "weight": -0.21350841730672437,
+                "contribution": -0.10359793796836146
+              },
+              {
+                "term": "the",
+                "tfidf": 0.09577800118875465,
+                "weight": -0.4220407303308979,
+                "contribution": -0.04042221757133562
+              }
+            ]
+          },
+          "candidate": {
+            "prediction": "ham",
+            "score": -0.48138013003320435,
+            "bias": -3.2600415850824622,
+            "known_features": 22,
+            "spam_evidence": 3.601139720772684,
+            "ham_evidence": -0.822478265723426,
+            "top_spam": [
+              {
+                "term": "txt",
+                "tfidf": 0.20824429874942793,
+                "weight": 6.75929412918198,
+                "contribution": 1.4075844659726267
+              },
+              {
+                "term": "to",
+                "tfidf": 0.06815442870271414,
+                "weight": 5.563555497383466,
+                "contribution": 0.3791809464800147
+              },
+              {
+                "term": "balance",
+                "tfidf": 0.19946026493471183,
+                "weight": 1.5501108134975745,
+                "contribution": 0.3091855135383879
+              },
+              {
+                "term": "is now",
+                "tfidf": 0.21619695156860583,
+                "weight": 1.1735760855704966,
+                "contribution": 0.2537235721341587
+              },
+              {
+                "term": "now",
+                "tfidf": 0.10163486196696965,
+                "weight": 2.2060545811570327,
+                "contribution": 0.22421205284749607
+              },
+              {
+                "term": "balance is",
+                "tfidf": 0.2707367054705891,
+                "weight": 0.8193285020575544,
+                "contribution": 0.22182229934521505
+              },
+              {
+                "term": "who",
+                "tfidf": 0.17328425839768752,
+                "weight": 1.0071499583964472,
+                "contribution": 0.17452323363599018
+              },
+              {
+                "term": "in",
+                "tfidf": 0.09198566555911053,
+                "weight": 1.7250779663049447,
+                "contribution": 0.15868244487191718
+              },
+              {
+                "term": "next",
+                "tfidf": 0.15965763349608764,
+                "weight": 0.9533595117467955,
+                "contribution": 0.15221112351647892
+              },
+              {
+                "term": "question",
+                "tfidf": 0.2292207137861898,
+                "weight": 0.5523333664975217,
+                "contribution": 0.1266062485164911
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "is",
+                "tfidf": 0.18107660227245853,
+                "weight": -1.8196412575729433,
+                "contribution": -0.32949445627609214
+              },
+              {
+                "term": "good",
+                "tfidf": 0.14832122225439784,
+                "weight": -1.8496017603346881,
+                "contribution": -0.27433519377672677
+              },
+              {
+                "term": "s",
+                "tfidf": 0.11459417211473286,
+                "weight": -0.797738982261278,
+                "contribution": -0.09141623823588071
+              },
+              {
+                "term": "luck",
+                "tfidf": 0.22648761923862043,
+                "weight": -0.2951104826668207,
+                "contribution": -0.06683887063156839
+              },
+              {
+                "term": "girl",
+                "tfidf": 0.20947772744650575,
+                "weight": -0.15251074831484668,
+                "contribution": -0.03194760496816009
+              },
+              {
+                "term": "answer",
+                "tfidf": 0.37343133315206006,
+                "weight": -0.04352333609154174,
+                "contribution": -0.016252977419889604
+              },
+              {
+                "term": "the",
+                "tfidf": 0.08147983276318932,
+                "weight": -0.14964346392984687,
+                "contribution": -0.012192924415108277
+              }
+            ]
+          },
+          "served_on_v3_normalized_input": {
+            "prediction": "spam",
+            "score": 0.6206032658175782,
+            "bias": -3.4989214026663347,
+            "known_features": 16,
+            "spam_evidence": 4.707183567148601,
+            "ham_evidence": -0.5876588986646886,
+            "top_spam": [
+              {
+                "term": "txt",
+                "tfidf": 0.17471064322976135,
+                "weight": 7.602925857399187,
+                "contribution": 1.3283120669743969
+              },
+              {
+                "term": "ur",
+                "tfidf": 0.452376953347317,
+                "weight": 1.7485505430785795,
+                "contribution": 0.7910039674516843
+              },
+              {
+                "term": "who",
+                "tfidf": 0.19654651917029523,
+                "weight": 3.013303393331918,
+                "contribution": 0.5922542931634275
+              },
+              {
+                "term": "next",
+                "tfidf": 0.20473054122576193,
+                "weight": 2.228652056648352,
+                "contribution": 0.45627314176152456
+              },
+              {
+                "term": "now",
+                "tfidf": 0.13471460519107284,
+                "weight": 2.9665350141979765,
+                "contribution": 0.39963559322317405
+              },
+              {
+                "term": "to",
+                "tfidf": 0.08314867026942009,
+                "weight": 3.799175417435037,
+                "contribution": 0.3158963840799923
+              },
+              {
+                "term": "balance",
+                "tfidf": 0.2714974773810155,
+                "weight": 1.0074591763858416,
+                "contribution": 0.2735226249531115
+              },
+              {
+                "term": "is",
+                "tfidf": 0.23187775908219077,
+                "weight": 0.9119595732310974,
+                "contribution": 0.21146314221437792
+              },
+              {
+                "term": "question",
+                "tfidf": 0.24504005833687406,
+                "weight": 0.6723944139117847,
+                "contribution": 0.16476356641033196
+              },
+              {
+                "term": "s",
+                "tfidf": 0.127381713896873,
+                "weight": 0.8048235938317939,
+                "contribution": 0.1025198087669347
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "good",
+                "tfidf": 0.15860931790194793,
+                "weight": -1.6132285992058142,
+                "contribution": -0.25587308773994916
+              },
+              {
+                "term": "in",
+                "tfidf": 0.11100441370993767,
+                "weight": -1.582571890225214,
+                "contribution": -0.17567246482827772
+              },
+              {
+                "term": "answer",
+                "tfidf": 0.5259601817449968,
+                "weight": -0.21350841730672437,
+                "contribution": -0.11229692597073138
+              },
+              {
+                "term": "the",
+                "tfidf": 0.1038203589766712,
+                "weight": -0.4220407303308979,
+                "contribution": -0.0438164201257303
+              }
+            ]
+          }
+        }
+      ],
+      "improvements": [
+        {
+          "id": "f16c6c2eb7baf4671ef990b474fe5d6fee8a0c0a0591d8340d68cffce6221876",
+          "expected": "spam",
+          "served": {
+            "prediction": "ham",
+            "score": -0.4258843536424286,
+            "bias": -3.4989214026663347,
+            "known_features": 28,
+            "spam_evidence": 3.783069338395888,
+            "ham_evidence": -0.7100322893719816,
+            "top_spam": [
+              {
+                "term": "from",
+                "tfidf": 0.24270839862637028,
+                "weight": 3.0510643672228843,
+                "contribution": 0.740518946674646
+              },
+              {
+                "term": "new",
+                "tfidf": 0.14552468625339468,
+                "weight": 3.261758649163592,
+                "contribution": 0.4746664040538282
+              },
+              {
+                "term": "sale",
+                "tfidf": 0.22880530327560408,
+                "weight": 1.7050618044906256,
+                "contribution": 0.39012718328012636
+              },
+              {
+                "term": "10am",
+                "tfidf": 0.22330392752835976,
+                "weight": 1.729905469263284,
+                "contribution": 0.38629468553928153
+              },
+              {
+                "term": "now",
+                "tfidf": 0.10649420009615915,
+                "weight": 2.9665350141979765,
+                "contribution": 0.3159187733942616
+              },
+              {
+                "term": "club",
+                "tfidf": 0.2050143688610506,
+                "weight": 1.23649917212948,
+                "contribution": 0.2535000973713369
+              },
+              {
+                "term": "on",
+                "tfidf": 0.20719852963801727,
+                "weight": 1.1953901065721557,
+                "contribution": 0.24768307242558343
+              },
+              {
+                "term": "xmas",
+                "tfidf": 0.19370835825179586,
+                "weight": 1.113885930261923,
+                "contribution": 0.21576901483081148
+              },
+              {
+                "term": "they",
+                "tfidf": 0.14709252086721164,
+                "weight": 1.0068287854171933,
+                "contribution": 0.14809698412868785
+              },
+              {
+                "term": "week",
+                "tfidf": 0.14669285902529536,
+                "weight": 0.9852185507141036,
+                "contribution": 0.1445245259690098
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "day",
+                "tfidf": 0.1295809728711522,
+                "weight": -1.3763636079345096,
+                "contribution": -0.17835053534060286
+              },
+              {
+                "term": "sat",
+                "tfidf": 0.18697521850167134,
+                "weight": -0.6452291764934184,
+                "contribution": -0.12064186625851037
+              },
+              {
+                "term": "night",
+                "tfidf": 0.14477029626232057,
+                "weight": -0.7364082030491221,
+                "contribution": -0.10661003372542453
+              },
+              {
+                "term": "re",
+                "tfidf": 0.14440005814573112,
+                "weight": -0.5353237728204031,
+                "contribution": -0.07730078392205837
+              },
+              {
+                "term": "the",
+                "tfidf": 0.16414353985204513,
+                "weight": -0.4220407303308979,
+                "contribution": -0.06927525943825598
+              },
+              {
+                "term": "till",
+                "tfidf": 0.1999736742443265,
+                "weight": -0.2733061205358599,
+                "contribution": -0.05465402911701868
+              },
+              {
+                "term": "fast",
+                "tfidf": 0.2023888851413934,
+                "weight": -0.16267197463656477,
+                "contribution": -0.03292299959044336
+              },
+              {
+                "term": "selling",
+                "tfidf": 0.24421896991532613,
+                "weight": -0.11738142328437526,
+                "contribution": -0.028666770281705004
+              },
+              {
+                "term": "during",
+                "tfidf": 0.22880530327560408,
+                "weight": -0.0913949613902098,
+                "contribution": -0.02091165185874908
+              },
+              {
+                "term": "thurs",
+                "tfidf": 0.23553844302572857,
+                "weight": -0.0735738920456787,
+                "contribution": -0.017329479979782198
+              }
+            ]
+          },
+          "candidate": {
+            "prediction": "spam",
+            "score": 0.15684489879308172,
+            "bias": -3.2600415850824622,
+            "known_features": 45,
+            "spam_evidence": 4.266666636956363,
+            "ham_evidence": -0.8497801530808196,
+            "top_spam": [
+              {
+                "term": "from",
+                "tfidf": 0.13777222917252838,
+                "weight": 4.457143706072721,
+                "contribution": 0.6140706241279433
+              },
+              {
+                "term": "on",
+                "tfidf": 0.09982467408993051,
+                "weight": 5.78345811583743,
+                "contribution": 0.577331821526235
+              },
+              {
+                "term": "sale",
+                "tfidf": 0.10866691551636745,
+                "weight": 4.333021359370889,
+                "contribution": 0.4708560659893721
+              },
+              {
+                "term": "new",
+                "tfidf": 0.09747505357512065,
+                "weight": 4.3243904311112535,
+                "contribution": 0.4215201889523085
+              },
+              {
+                "term": "till",
+                "tfidf": 0.09438976228422633,
+                "weight": 3.417337072398447,
+                "contribution": 0.32256163390876336
+              },
+              {
+                "term": "club",
+                "tfidf": 0.14451180757432763,
+                "weight": 2.0778290472232395,
+                "contribution": 0.3002708314446733
+              },
+              {
+                "term": "this",
+                "tfidf": 0.08363449676393599,
+                "weight": 2.3379669767210713,
+                "contribution": 0.19553469154876765
+              },
+              {
+                "term": "now",
+                "tfidf": 0.07011455487154258,
+                "weight": 2.2060545811570327,
+                "contribution": 0.15467653498015266
+              },
+              {
+                "term": "xmas",
+                "tfidf": 0.1695951336342097,
+                "weight": 0.7985491711589809,
+                "contribution": 0.13543005339619477
+              },
+              {
+                "term": "are now",
+                "tfidf": 0.1909185311319339,
+                "weight": 0.6495693321208752,
+                "contribution": 0.12401482275686883
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "night",
+                "tfidf": 0.12140123318837065,
+                "weight": -1.1393729882231554,
+                "contribution": -0.13832128583180997
+              },
+              {
+                "term": "sat",
+                "tfidf": 0.14486189433377547,
+                "weight": -0.9161320142708929,
+                "contribution": -0.13271261904709897
+              },
+              {
+                "term": "they",
+                "tfidf": 0.10834530079202728,
+                "weight": -1.0607755534981007,
+                "contribution": -0.11493004641658094
+              },
+              {
+                "term": "am",
+                "tfidf": 0.10313158415012512,
+                "weight": -0.6720877663140892,
+                "contribution": -0.06931347602789112
+              },
+              {
+                "term": "new years",
+                "tfidf": 0.20286902222673897,
+                "weight": -0.3226840472419311,
+                "contribution": -0.06546259715213741
+              },
+              {
+                "term": "thurs",
+                "tfidf": 0.1641660108820351,
+                "weight": -0.3735928942157702,
+                "contribution": -0.06133125513727712
+              },
+              {
+                "term": "are",
+                "tfidf": 0.08810568185963111,
+                "weight": -0.593386257051423,
+                "contribution": -0.052280700783649964
+              },
+              {
+                "term": "re",
+                "tfidf": 0.11327873347554711,
+                "weight": -0.4575109377870636,
+                "contribution": -0.05182625958372839
+              },
+              {
+                "term": "on thurs",
+                "tfidf": 0.18806699307164526,
+                "weight": -0.200300082160555,
+                "contribution": -0.03766983416393908
+              },
+              {
+                "term": "and on",
+                "tfidf": 0.1960685020128978,
+                "weight": -0.13783534265464614,
+                "contribution": -0.027025169158730947
+              }
+            ]
+          },
+          "served_on_v3_normalized_input": {
+            "prediction": "ham",
+            "score": -0.8961103512089656,
+            "bias": -3.4989214026663347,
+            "known_features": 28,
+            "spam_evidence": 3.6152449245752254,
+            "ham_evidence": -1.0124338731178562,
+            "top_spam": [
+              {
+                "term": "from",
+                "tfidf": 0.2497989338044355,
+                "weight": 3.0510643672228843,
+                "contribution": 0.7621526259009811
+              },
+              {
+                "term": "new",
+                "tfidf": 0.149776075628449,
+                "weight": 3.261758649163592,
+                "contribution": 0.4885334101188738
+              },
+              {
+                "term": "sale",
+                "tfidf": 0.23548967044618982,
+                "weight": 1.7050618044906256,
+                "contribution": 0.40152444242988317
+              },
+              {
+                "term": "now",
+                "tfidf": 0.10960534448306661,
+                "weight": 2.9665350141979765,
+                "contribution": 0.3251480921522481
+              },
+              {
+                "term": "club",
+                "tfidf": 0.21100370257445003,
+                "weight": 1.23649917212948,
+                "contribution": 0.2609059035495625
+              },
+              {
+                "term": "on",
+                "tfidf": 0.21325167189249433,
+                "weight": 1.1953901065721557,
+                "contribution": 0.2549189387902592
+              },
+              {
+                "term": "xmas",
+                "tfidf": 0.19936739574799722,
+                "weight": 1.113885930261923,
+                "contribution": 0.22207253707665486
+              },
+              {
+                "term": "they",
+                "tfidf": 0.15138971329871384,
+                "weight": 1.0068287854171933,
+                "contribution": 0.15242352116520116
+              },
+              {
+                "term": "week",
+                "tfidf": 0.1509783756500868,
+                "weight": 0.9852185507141036,
+                "contribution": 0.14874669644714802
+              },
+              {
+                "term": "pm",
+                "tfidf": 0.21396361152813173,
+                "weight": 0.5572731181490402,
+                "contribution": 0.11923616896671191
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "am",
+                "tfidf": 0.13200626515396133,
+                "weight": -2.159941779774315,
+                "contribution": -0.28512584729800733
+              },
+              {
+                "term": "day",
+                "tfidf": 0.13336657918618225,
+                "weight": -1.3763636079345096,
+                "contribution": -0.18356090610657727
+              },
+              {
+                "term": "sat",
+                "tfidf": 0.19243755261007367,
+                "weight": -0.6452291764934184,
+                "contribution": -0.1241663235970067
+              },
+              {
+                "term": "night",
+                "tfidf": 0.1489996467264844,
+                "weight": -0.7364082030491221,
+                "contribution": -0.1097245621008044
+              },
+              {
+                "term": "re",
+                "tfidf": 0.14861859239420241,
+                "weight": -0.5353237728204031,
+                "contribution": -0.0795590655917221
+              },
+              {
+                "term": "the",
+                "tfidf": 0.1689388644067786,
+                "weight": -0.4220407303308979,
+                "contribution": -0.07129908171550937
+              },
+              {
+                "term": "till",
+                "tfidf": 0.20581574802480213,
+                "weight": -0.2733061205358599,
+                "contribution": -0.05625070363784474
+              },
+              {
+                "term": "fast",
+                "tfidf": 0.2083015174106771,
+                "weight": -0.16267197463656477,
+                "contribution": -0.03388481915698762
+              },
+              {
+                "term": "selling",
+                "tfidf": 0.2513536352467932,
+                "weight": -0.11738142328437526,
+                "contribution": -0.029504247452970297
+              },
+              {
+                "term": "during",
+                "tfidf": 0.23548967044618982,
+                "weight": -0.0913949613902098,
+                "contribution": -0.02152256933822275
+              }
+            ]
+          }
+        },
+        {
+          "id": "fb844c0608c8d7c63b7deea5ff0de583f37cb1f428ba0ccedd12e4e147512e82",
+          "expected": "ham",
+          "served": {
+            "prediction": "spam",
+            "score": 0.6645670521179334,
+            "bias": -3.4989214026663347,
+            "known_features": 7,
+            "spam_evidence": 6.418508063093827,
+            "ham_evidence": -2.255019608309559,
+            "top_spam": [
+              {
+                "term": "free",
+                "tfidf": 0.3979295201728678,
+                "weight": 5.845149737409829,
+                "contribution": 2.325957630346058
+              },
+              {
+                "term": "now",
+                "tfidf": 0.6652136865356617,
+                "weight": 2.9665350141979765,
+                "contribution": 1.9733796930317575
+              },
+              {
+                "term": "call",
+                "tfidf": 0.3226775943061537,
+                "weight": 6.012186855576733,
+                "contribution": 1.939997991076579
+              },
+              {
+                "term": "are",
+                "tfidf": 0.3265860623325431,
+                "weight": 0.5486233777392243,
+                "contribution": 0.17917274863943267
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "i",
+                "tfidf": 0.18549104507135447,
+                "weight": -6.745560240871421,
+                "contribution": -1.2512410186710174
+              },
+              {
+                "term": "can",
+                "tfidf": 0.3335936659184756,
+                "weight": -2.747167807989731,
+                "contribution": -0.9164377799605172
+              },
+              {
+                "term": "you",
+                "tfidf": 0.20657178050487043,
+                "weight": -0.4228109447697048,
+                "contribution": -0.08734080967802436
+              }
+            ]
+          },
+          "candidate": {
+            "prediction": "ham",
+            "score": -2.446181909449515,
+            "bias": -3.2600415850824622,
+            "known_features": 14,
+            "spam_evidence": 3.633462456636143,
+            "ham_evidence": -2.819602781003195,
+            "top_spam": [
+              {
+                "term": "call",
+                "tfidf": 0.16212663337081548,
+                "weight": 7.344671090194977,
+                "contribution": 1.1907667970692686
+              },
+              {
+                "term": "free",
+                "tfidf": 0.1692332462522074,
+                "weight": 6.950204945498464,
+                "contribution": 1.1762057450448513
+              },
+              {
+                "term": "call now",
+                "tfidf": 0.3082388407510787,
+                "weight": 2.173507752194266,
+                "contribution": 0.6699595098998433
+              },
+              {
+                "term": "now",
+                "tfidf": 0.2592523451627601,
+                "weight": 2.2060545811570327,
+                "contribution": 0.5719248237220111
+              },
+              {
+                "term": "can i",
+                "tfidf": 0.3021737626471971,
+                "weight": 0.08142858163664193,
+                "contribution": 0.02460558090016855
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "i",
+                "tfidf": 0.1123693934370663,
+                "weight": -9.408710652881917,
+                "contribution": -1.057251109089205
+              },
+              {
+                "term": "are you",
+                "tfidf": 0.25151177277048414,
+                "weight": -2.0123643513521396,
+                "contribution": -0.506133325468702
+              },
+              {
+                "term": "can",
+                "tfidf": 0.1674275718742488,
+                "weight": -2.5992748472847467,
+                "contribution": -0.43519027631469404
+              },
+              {
+                "term": "you free",
+                "tfidf": 0.35574022842381775,
+                "weight": -1.0243629513917911,
+                "contribution": -0.3644071103170119
+              },
+              {
+                "term": "free now",
+                "tfidf": 0.33507117092274097,
+                "weight": -0.47962297832772655,
+                "contribution": -0.16070783294972374
+              },
+              {
+                "term": "i call",
+                "tfidf": 0.37288921624313737,
+                "weight": -0.35200757883667483,
+                "contribution": -0.13125983018405207
+              },
+              {
+                "term": "are",
+                "tfidf": 0.19240826225669416,
+                "weight": -0.593386257051423,
+                "contribution": -0.11417241856626834
+              },
+              {
+                "term": "you",
+                "tfidf": 0.11962711909031075,
+                "weight": -0.3665440883657635,
+                "contribution": -0.043848613310780576
+              },
+              {
+                "term": "now can",
+                "tfidf": 0.3980255272161719,
+                "weight": -0.016662913178318934,
+                "contribution": -0.0066322648027576925
+              }
+            ]
+          },
+          "served_on_v3_normalized_input": {
+            "prediction": "spam",
+            "score": 0.6645670521179334,
+            "bias": -3.4989214026663347,
+            "known_features": 7,
+            "spam_evidence": 6.418508063093827,
+            "ham_evidence": -2.255019608309559,
+            "top_spam": [
+              {
+                "term": "free",
+                "tfidf": 0.3979295201728678,
+                "weight": 5.845149737409829,
+                "contribution": 2.325957630346058
+              },
+              {
+                "term": "now",
+                "tfidf": 0.6652136865356617,
+                "weight": 2.9665350141979765,
+                "contribution": 1.9733796930317575
+              },
+              {
+                "term": "call",
+                "tfidf": 0.3226775943061537,
+                "weight": 6.012186855576733,
+                "contribution": 1.939997991076579
+              },
+              {
+                "term": "are",
+                "tfidf": 0.3265860623325431,
+                "weight": 0.5486233777392243,
+                "contribution": 0.17917274863943267
+              }
+            ],
+            "top_ham": [
+              {
+                "term": "i",
+                "tfidf": 0.18549104507135447,
+                "weight": -6.745560240871421,
+                "contribution": -1.2512410186710174
+              },
+              {
+                "term": "can",
+                "tfidf": 0.3335936659184756,
+                "weight": -2.747167807989731,
+                "contribution": -0.9164377799605172
+              },
+              {
+                "term": "you",
+                "tfidf": 0.20657178050487043,
+                "weight": -0.4228109447697048,
+                "contribution": -0.08734080967802436
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
