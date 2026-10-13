@@ -2,7 +2,7 @@
 
 An explainable SMS spam detection web application for an AI case study.
 
-Status: React/JavaScript/Vite frontend and browser inference are implemented locally. Both models, explanations, and the validation comparison are connected. Production build and 782-case Python/JavaScript parity checks pass. Final test evaluation and public deployment are pending.
+Status: React/JavaScript/Vite frontend and browser inference are implemented locally. Both models, explanations, and the validation comparison are connected. Production build and 782-case Python/JavaScript parity checks pass. Revision 2 was frozen and final held-out evaluation completed on 2026-10-14. The dashboard now shows final-test metrics; public deployment remains pending.
 
 The external-data revision is now evaluated: 36 candidates were compared, but none was adopted after regression review. The leading candidate catches the hacking/payment diagnostic while incorrectly flagging the legitimate license reminder. Served models remain revision 2. See [the revision 3 experiment](docs/revision-v3.md) for data preparation, results, limitations, and reproduction commands. Expanded Python/JavaScript parity checks cover 3,418 cases per model.
 
@@ -22,23 +22,23 @@ Preserve source attribution and original downloads. See [the external-data audit
 
 The [labeling policy](docs/labeling-policy.md) defines spam as unsolicited advertising or scam attempts, and ham as supported legitimate communication, including expected notifications. Ambiguous examples stay out of new curated training and scored evaluation sets until resolved. Predictions do not authenticate a sender or link.
 
-Use the [example review template](docs/example-review-template.md) to record provenance, source labels, recipient context, proposed labels, and duplicate/template checks. Financial Scams and Super SMS remain review sources rather than approved bulk training additions. The served models remain revision 2, and both final-test partitions remain unevaluated.
+Use the [example review template](docs/example-review-template.md) to record provenance, source labels, recipient context, proposed labels, and duplicate/template checks. Financial Scams and Super SMS remain review sources rather than approved bulk training additions. The served models remain revision 2, and final results are now available in the [held-out evaluation](docs/final-evaluation.md).
 
 The [notification evidence queue](reports/notification-evidence-queue.md) contains eight previously reviewed leads with original labels and specific missing-context requirements. All eight remain on hold; recipient-confirmed examples have not yet been collected.
 
 Current collection scope is existing local datasets only. Direct overlap checks found matches for one of the eight leads; unresolved context remains unknown, and original labels are preserved.
 
-The [Super SMS candidate preparation](docs/super-sms-preparation.md) provides 59,615 source-labeled messages in 58,348 template groups after exclusions and deduplication. Existing-corpus overlaps, malformed/encoding-flagged groups, conflicting labels, and all previously reviewed cases are quarantined. A separate [controlled experiment](docs/super-sms-experiment.md) assigned these groups to partitions and evaluated eight candidates. None passed the adoption gates: all missed more original-validation spam and flagged the legitimate license reminder. Revision 2 remains served; all final tests remain unevaluated.
+The [Super SMS candidate preparation](docs/super-sms-preparation.md) provides 59,615 source-labeled messages in 58,348 template groups after exclusions and deduplication. Existing-corpus overlaps, malformed/encoding-flagged groups, conflicting labels, and all previously reviewed cases are quarantined. A separate [controlled experiment](docs/super-sms-experiment.md) assigned these groups to partitions and evaluated eight candidates. None passed the adoption gates: all missed more original-validation spam and flagged the legitimate license reminder. Revision 2 remains served. Its subsequent [final evaluation](docs/final-evaluation.md) is complete; the rejected candidates were not tested on final partitions.
 
-## Next steps
+## Final evaluation and next steps
 
-1. Collect and review supported legitimate notifications and spam examples using the policy and template. Start with receipts, OTPs, delivery updates, and account notices; keep unresolved source labels on hold.
-2. Audit duplicates and related templates against existing data, protect reserved test groups, and preserve already inspected examples as development material. Document coverage and intended use before adding approved records to a dataset.
-3. If suitable, prepare a controlled training mixture and compare revised models on development partitions. Track false alarms and missed spam separately, including the known hacking/payment and legitimate license diagnostics.
-4. Adopt a candidate only when the measured tradeoff and diagnostic review support it; verify Python/JavaScript feature values, scores, labels, and explanations before changing app model imports and dashboard metrics.
-5. Once model choices are frozen, evaluate the reserved final tests, update the results, verify the application on desktop/mobile, and complete deployment and the paper.
+Revision 2 is frozen. On 773 held-out UCI messages, both models achieved 98.06% accuracy. Naive Bayes had 0 false alarms and 15 missed spam messages; logistic regression had 1 false alarm and 14 misses. Supplemental spam recall was much lower (approximately 22–34%), limiting claims about performance on other SMS sources. See [final results, model hashes, and verification](docs/final-evaluation.md).
 
-The policy, review template, candidate preparation, and initial Super SMS experiment are complete. The next development investigation is the license false alarm and additional original-validation misses. No new model has been adopted.
+1. Finish desktop/mobile browser checks, privacy verification, and named-device latency measurements.
+2. Deploy the frozen application and verify the hosted build.
+3. Complete the IMRAD paper using final results, error analysis, and documented limitations.
+
+Final-test results must not be used for further model or threshold selection. The proposed legacy-feature experiment is deferred; no new training is planned for this frozen release.
 
 ## Run the website
 

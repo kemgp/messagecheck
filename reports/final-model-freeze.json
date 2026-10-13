@@ -1,0 +1,43 @@
+{
+  "revision": 2,
+  "date": "2026-10-14",
+  "timezone": "Asia/Manila",
+  "model_and_inference_sha256": {
+    "models/naive_bayes.json": "46e6172003fe6185a3ae2e9f4243daca96adabdc972455ee205531e036d1df06",
+    "models/naive_bayes.joblib": "7e9d1c40cdb5f299c67341e301083c637421b3820696b28ee3dafa48ae55925e",
+    "models/logistic_regression.json": "41d7fa4bc0a9d27768cd3e76490408327d4059230c4bec3dffe74430a9c8bc98",
+    "models/logistic_regression.joblib": "8bdf3f1e663b5f051d5efced37ebf437d3eaa1103f6d288649b2147a24b52135",
+    "src/inference.js": "f758c7efd61630dc44a9a49a19b3cbcdf4000783e358bc58a3b1bf7c6bb127a4"
+  },
+  "test_sha256": {
+    "uci": "ef7ac0072b704157ae79c9fa26b28cbcf7658b758d6ebaee941143f0cc114439",
+    "external": "87e08bb45b080144e0ad117f9a350719ecde5f412145c0a06620185ebbb71572",
+    "super_sms": "bcaeb743aba5d5cde19ee4e5cb264fc726ac7e424a364010403cafa5bf590583"
+  },
+  "primary_dataset": "uci",
+  "supplemental_datasets": [
+    "external",
+    "super_sms"
+  ],
+  "selection": "Retain served revision 2 after rejection of all external-data candidates. No further model or threshold tuning against final results.",
+  "decision_rule": "Positive spam-minus-ham score predicts spam; ties ham. No calibration or threshold search.",
+  "ui_policy": "Zero known terms shows insufficient evidence; abs(score)<0.5 with known terms shows borderline notice. All underlying binary outputs still count in metrics.",
+  "metrics": [
+    "accuracy",
+    "spam_precision",
+    "spam_recall",
+    "spam_f1",
+    "macro_f1",
+    "class_support",
+    "confusion_matrix"
+  ],
+  "baseline": "Always ham, majority class determined from original training data",
+  "parity": "Python/JavaScript labels, sparse TF-IDF, scores and explanation sums; tolerance 1e-10. No performance-driven fixes.",
+  "limitations": [
+    "Known hacking/payment false negative remains.",
+    "Older English-focused training corpus; no authenticity or modern-scam reliability claim.",
+    "Source labels and heuristic grouping have limitations.",
+    "Supplemental sets have different class balances and are not pooled with primary results.",
+    "Source texts were processed in earlier automated overlap audits, not scored for model selection."
+  ]
+}

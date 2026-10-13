@@ -1,0 +1,232 @@
+{
+  "revision": 2,
+  "evaluation_date": "2026-10-14",
+  "freeze_sha256": "e8dceb219e7ccc8b1d119aa5fbdd8c25c8b9a15ea94f090b67b5284e08fd6b6a",
+  "model_sha256": {
+    "models/naive_bayes.json": "46e6172003fe6185a3ae2e9f4243daca96adabdc972455ee205531e036d1df06",
+    "models/naive_bayes.joblib": "7e9d1c40cdb5f299c67341e301083c637421b3820696b28ee3dafa48ae55925e",
+    "models/logistic_regression.json": "41d7fa4bc0a9d27768cd3e76490408327d4059230c4bec3dffe74430a9c8bc98",
+    "models/logistic_regression.joblib": "8bdf3f1e663b5f051d5efced37ebf437d3eaa1103f6d288649b2147a24b52135",
+    "src/inference.js": "f758c7efd61630dc44a9a49a19b3cbcdf4000783e358bc58a3b1bf7c6bb127a4"
+  },
+  "primary_dataset": "uci",
+  "datasets": {
+    "uci": {
+      "rows": 773,
+      "class_support": {
+        "ham": 677,
+        "spam": 96
+      },
+      "test_sha256": "ef7ac0072b704157ae79c9fa26b28cbcf7658b758d6ebaee941143f0cc114439",
+      "majority_baseline": {
+        "accuracy": 0.8758085381630013,
+        "spam_precision": 0.0,
+        "spam_recall": 0.0,
+        "spam_f1": 0.0,
+        "macro_f1": 0.4668965517241379,
+        "confusion_matrix": [
+          [
+            677,
+            0
+          ],
+          [
+            96,
+            0
+          ]
+        ]
+      },
+      "models": {
+        "naive_bayes": {
+          "accuracy": 0.9805950840879689,
+          "spam_precision": 1.0,
+          "spam_recall": 0.84375,
+          "spam_f1": 0.9152542372881356,
+          "macro_f1": 0.9521486672196704,
+          "confusion_matrix": [
+            [
+              677,
+              0
+            ],
+            [
+              15,
+              81
+            ]
+          ],
+          "zero_known_terms": 1,
+          "borderline_notices": 7
+        },
+        "logistic_regression": {
+          "accuracy": 0.9805950840879689,
+          "spam_precision": 0.9879518072289156,
+          "spam_recall": 0.8541666666666666,
+          "spam_f1": 0.9162011173184358,
+          "macro_f1": 0.9526140919437827,
+          "confusion_matrix": [
+            [
+              676,
+              1
+            ],
+            [
+              14,
+              82
+            ]
+          ],
+          "zero_known_terms": 1,
+          "borderline_notices": 13
+        }
+      }
+    },
+    "external": {
+      "rows": 2840,
+      "class_support": {
+        "spam": 2750,
+        "ham": 90
+      },
+      "test_sha256": "87e08bb45b080144e0ad117f9a350719ecde5f412145c0a06620185ebbb71572",
+      "majority_baseline": {
+        "accuracy": 0.03169014084507042,
+        "spam_precision": 0.0,
+        "spam_recall": 0.0,
+        "spam_f1": 0.0,
+        "macro_f1": 0.030716723549488054,
+        "confusion_matrix": [
+          [
+            90,
+            0
+          ],
+          [
+            2750,
+            0
+          ]
+        ]
+      },
+      "models": {
+        "naive_bayes": {
+          "accuracy": 0.3211267605633803,
+          "spam_precision": 1.0,
+          "spam_recall": 0.2989090909090909,
+          "spam_f1": 0.46024636058230683,
+          "macro_f1": 0.27281767744485363,
+          "confusion_matrix": [
+            [
+              90,
+              0
+            ],
+            [
+              1928,
+              822
+            ]
+          ],
+          "zero_known_terms": 2,
+          "borderline_notices": 549
+        },
+        "logistic_regression": {
+          "accuracy": 0.2443661971830986,
+          "spam_precision": 1.0,
+          "spam_recall": 0.21963636363636363,
+          "spam_f1": 0.3601669648181276,
+          "macro_f1": 0.21877651766271813,
+          "confusion_matrix": [
+            [
+              90,
+              0
+            ],
+            [
+              2146,
+              604
+            ]
+          ],
+          "zero_known_terms": 2,
+          "borderline_notices": 643
+        }
+      }
+    },
+    "super_sms": {
+      "rows": 11751,
+      "class_support": {
+        "spam": 4700,
+        "ham": 7051
+      },
+      "test_sha256": "bcaeb743aba5d5cde19ee4e5cb264fc726ac7e424a364010403cafa5bf590583",
+      "majority_baseline": {
+        "accuracy": 0.6000340396561995,
+        "spam_precision": 0.0,
+        "spam_recall": 0.0,
+        "spam_f1": 0.0,
+        "macro_f1": 0.3750132964578236,
+        "confusion_matrix": [
+          [
+            7051,
+            0
+          ],
+          [
+            4700,
+            0
+          ]
+        ]
+      },
+      "models": {
+        "naive_bayes": {
+          "accuracy": 0.7342353842226194,
+          "spam_precision": 0.9888406695598264,
+          "spam_recall": 0.3393617021276596,
+          "spam_f1": 0.5053065103754159,
+          "macro_f1": 0.6618102742115022,
+          "confusion_matrix": [
+            [
+              7033,
+              18
+            ],
+            [
+              3105,
+              1595
+            ]
+          ],
+          "zero_known_terms": 22,
+          "borderline_notices": 808
+        },
+        "logistic_regression": {
+          "accuracy": 0.7102374266019913,
+          "spam_precision": 0.9806978470675576,
+          "spam_recall": 0.28106382978723404,
+          "spam_f1": 0.43691086489168185,
+          "macro_f1": 0.6209189099594473,
+          "confusion_matrix": [
+            [
+              7025,
+              26
+            ],
+            [
+              3379,
+              1321
+            ]
+          ],
+          "zero_known_terms": 22,
+          "borderline_notices": 917
+        }
+      }
+    }
+  },
+  "environment": {
+    "python": "3.12.14",
+    "sklearn": "1.9.1"
+  },
+  "status": "complete; Python/JavaScript parity passed; frozen revision 2 unchanged",
+  "parity_cases_per_model": 15364,
+  "parity": {
+    "cases_per_model": 15364,
+    "label_mismatches": 0,
+    "tolerance": 1e-10,
+    "max_score_error": {
+      "naive_bayes": 4.796163466380676e-14,
+      "logistic_regression": 5.329070518200751e-15
+    },
+    "checks": [
+      "labels",
+      "TF-IDF features",
+      "decision scores",
+      "explanation sums",
+      "borderline notices"
+    ]
+  }
+}
