@@ -1,0 +1,59 @@
+{
+  "scope": "Eight notification leads versus Super SMS, original cleaned corpus, staged external candidates, and raw Financial Scams. Direct matches only; not a full connected-component grouping audit. No model predictions or final-test files read.",
+  "method": "Lowercase whitespace equality, normalize_v3 equality, or word-trigram set Jaccard >= 0.8. A match is a leakage/duplication flag, not proof of shared authenticity.",
+  "source_sha256": {
+    "data/processed/messages.jsonl": "f8042a53df7c8f3a56df287a71ecec38e0c6289855f978252d52ba6c026622f1",
+    "data/staging/external-candidates.jsonl": "d76f9cdf145fa68cc47f3bc4a0d15e572e7155c886faa2bf90ac83b652fe8219",
+    "data/raw/Financial scams detection dataset.csv": "58ec802e4de8768643e3be0badbaedb3ae5017a273e8f3898e72f6a29cbc96ad",
+    "data/raw/super_sms_dataset.csv": "ba825b468b59fb229cc56c15a6c2d14d593a88051d54ea2f402166bf2ab894d3"
+  },
+  "records": [
+    {
+      "csv_record_including_header": 463,
+      "matches": []
+    },
+    {
+      "csv_record_including_header": 1278,
+      "matches": [
+        {
+          "source_file": "data/staging/external-candidates.jsonl",
+          "record_or_id": "8bf2d10bdbde0309ed66dd20a0e8c5152da09b01e34d348a01da8cf0995d32ca",
+          "source_label": "spam",
+          "match_type": "v3_normalized_equal",
+          "jaccard": null
+        },
+        {
+          "source_file": "data/raw/super_sms_dataset.csv",
+          "record_or_id": 48909,
+          "source_label": "1",
+          "match_type": "v3_normalized_equal",
+          "jaccard": null
+        }
+      ]
+    },
+    {
+      "csv_record_including_header": 10917,
+      "matches": []
+    },
+    {
+      "csv_record_including_header": 17958,
+      "matches": []
+    },
+    {
+      "csv_record_including_header": 50956,
+      "matches": []
+    },
+    {
+      "csv_record_including_header": 52775,
+      "matches": []
+    },
+    {
+      "csv_record_including_header": 63357,
+      "matches": []
+    },
+    {
+      "csv_record_including_header": 64348,
+      "matches": []
+    }
+  ]
+}

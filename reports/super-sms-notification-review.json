@@ -1,0 +1,491 @@
+{
+  "source_file": "data/raw/super_sms_dataset.csv",
+  "source_sha256": "ba825b468b59fb229cc56c15a6c2d14d593a88051d54ea2f402166bf2ab894d3",
+  "source_url": "https://github.com/smspamresearch/spstudy",
+  "citation": "Salman, Ikram, and Kaafar (2024), Investigating Evasive Techniques in SMS Spam Filtering: A Comparative Analysis of Machine Learning Models, IEEE Access.",
+  "review_type": "Assistant qualitative content review; not independent annotation or sender/transaction verification.",
+  "sample_method": "Up to four distinct normalized messages per regex category and source label, ordered by SHA-256; union with six previously inspected records. Categories overlap. No model predictions used.",
+  "encoding": "Lossless Latin-1 decoding for inspection. UTF-8 and strict Windows-1252 fail; text artifacts remain unresolved.",
+  "record_numbering": "Parsed CSV record position including the header, not physical file line number.",
+  "pool_counts": {
+    "account_security:0": 5,
+    "account_security:1": 344,
+    "payments:0": 10,
+    "payments:1": 221,
+    "delivery:0": 11,
+    "delivery:1": 498,
+    "billing_service:0": 1,
+    "billing_service:1": 402
+  },
+  "patterns": {
+    "account_security": "\\b(?:otp|one.?time password|verification code|account.{0,30}(?:blocked|suspended|locked)|(?:suspicious|unauthorized).{0,30}(?:activity|login|transaction))\\b",
+    "payments": "\\b(?:payment.{0,30}(?:successful|received|completed|processed)|transaction.{0,40}(?:successful|completed|declined)|(?:credited|debited).{0,30}(?:account|rs)|a/c|neft|salary credited)\\b",
+    "delivery": "\\b(?:out for delivery|your (?:order|parcel|package)|(?:order|parcel|package).{0,30}(?:shipped|dispatched|delivered|tracking)|tracking (?:id|number))\\b",
+    "billing_service": "\\b(?:your.{0,25}(?:bill|subscription)|(?:bill|subscription).{0,35}(?:due|paid|renew|expire)|recharge.{0,20}successful|appointment.{0,20}(?:confirmed|reminder))\\b"
+  },
+  "review_counts": {
+    "label_policy_review": 3,
+    "scam_pattern_review": 9,
+    "promotion_review": 6,
+    "notification_candidate": 5,
+    "incomplete": 1,
+    "outside_notification_scope": 10
+  },
+  "label_counts": {
+    "spam": 18,
+    "ham": 16
+  },
+  "limitations": [
+    "Small deliberately targeted sample, not representative; counts are not dataset error rates.",
+    "Regex hits include personal conversations, promotions, and misleading abbreviations.",
+    "Source label spam may describe unwanted marketing rather than fraudulent content.",
+    "No individual source, sender, consent, or transaction evidence is available in the two-column CSV.",
+    "Candidate notifications are development leads, not a verified evaluation set.",
+    "No source relabeling, dataset filtering, model evaluation, or training performed."
+  ],
+  "records": [
+    {
+      "csv_record_including_header": 463,
+      "source_label": "1",
+      "source_label_name": "spam",
+      "message_sha256": "9a750d1ce0581d4e72b891fe619dc3960f4dd206059eaab91cc62a320171114f",
+      "sample_categories": [
+        "previously_inspected"
+      ],
+      "disposition": "label_policy_review",
+      "reason": "Routine login OTP with a do-not-share instruction; text alone does not explain its spam label.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 1278,
+      "source_label": "1",
+      "source_label_name": "spam",
+      "message_sha256": "24d9f5a30788c79548b809b4d5ded804a9590b172c464bc7fdb3d5fbad0f9396",
+      "sample_categories": [
+        "previously_inspected"
+      ],
+      "disposition": "label_policy_review",
+      "reason": "Payment-success notice with a link; transaction context and destination authenticity are unavailable.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 9790,
+      "source_label": "1",
+      "source_label_name": "spam",
+      "message_sha256": "b638ae8623876791609b30716c7a9e9e5cb24b1b0ffc6bee329315d18cb22b5c",
+      "sample_categories": [
+        "payments"
+      ],
+      "disposition": "scam_pattern_review",
+      "reason": "Threat of account blocking combined with a demand to update documents through a supplied bank-themed domain.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 10523,
+      "source_label": "1",
+      "source_label_name": "spam",
+      "message_sha256": "97a3ae95ece7f024eedf429655b8bcd5984e10258681f5cdaef6eee916b9362d",
+      "sample_categories": [
+        "payments"
+      ],
+      "disposition": "promotion_review",
+      "reason": "Savings-account acquisition and cashback advertising, rather than a transaction receipt. Unwanted marketing is distinct from fraud.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 10917,
+      "source_label": "0",
+      "source_label_name": "ham",
+      "message_sha256": "e7c77ce66d00eaa6e6471ac7ece9e754d3697abda6bb81ee48c07f529f8670f5",
+      "sample_categories": [
+        "previously_inspected"
+      ],
+      "disposition": "notification_candidate",
+      "reason": "Delivery status with tracking and courier contact details; content fits an operational notification but origin is unverified.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 12238,
+      "source_label": "0",
+      "source_label_name": "ham",
+      "message_sha256": "e41ace2c78afa1c3ef0af5da57e2d33cbc65af37f6205b4e579ac831a4249aff",
+      "sample_categories": [
+        "payments"
+      ],
+      "disposition": "incomplete",
+      "reason": "Truncated NEFT reference notice ending in an HTML fragment; insufficient message content.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 17422,
+      "source_label": "0",
+      "source_label_name": "ham",
+      "message_sha256": "a9871c7376b08b4831fbb3c9223026dd42cdbf3e9b2f6dcc646335c55bf2d7fa",
+      "sample_categories": [
+        "account_security"
+      ],
+      "disposition": "outside_notification_scope",
+      "reason": "Personal discussion of an OTP implementation error, not an OTP notification.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 17958,
+      "source_label": "0",
+      "source_label_name": "ham",
+      "message_sha256": "a5bc648be4fa4b96041689b9b470096ce43f9e2e20a3d2b65755d8c52a8f48ce",
+      "sample_categories": [
+        "delivery",
+        "previously_inspected"
+      ],
+      "disposition": "notification_candidate",
+      "reason": "Order-dispatch status and courier contact; content fits delivery notification but origin is unverified.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 20416,
+      "source_label": "1",
+      "source_label_name": "spam",
+      "message_sha256": "309cabe62044e2ad021434662b2d185c84195cc4c8637020377fb40515374898",
+      "sample_categories": [
+        "payments"
+      ],
+      "disposition": "scam_pattern_review",
+      "reason": "Same-day account-block threat and net-banking login request through a supplied KYC-themed domain.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 21105,
+      "source_label": "1",
+      "source_label_name": "spam",
+      "message_sha256": "65e39040b03cb6055efb44a4c10bec9d6a6574c4a1faa3b9243921187953c984",
+      "sample_categories": [
+        "billing_service"
+      ],
+      "disposition": "promotion_review",
+      "reason": "Plumbing-service discount advertisement framed around a higher water bill.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 21168,
+      "source_label": "1",
+      "source_label_name": "spam",
+      "message_sha256": "b9c70bea6a34e89585b894c82f9969a0fedf92b13902c654a3d079e590aca285",
+      "sample_categories": [
+        "delivery"
+      ],
+      "disposition": "scam_pattern_review",
+      "reason": "Missed-delivery lure with a redelivery-themed URL and deadline-like wording; no sender verification is available.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 22171,
+      "source_label": "1",
+      "source_label_name": "spam",
+      "message_sha256": "f0f40ad9bcb97c9eca8f1b9f22647ec013f6198dd0d77ebb54cb0fa67e990f92",
+      "sample_categories": [
+        "billing_service"
+      ],
+      "disposition": "promotion_review",
+      "reason": "Subscription entitlement combined with a claim invitation; whether this is unwanted promotion depends on context.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 22975,
+      "source_label": "0",
+      "source_label_name": "ham",
+      "message_sha256": "0de8fbe702cb1997bf6acaca3787e7325f7701fca057343d0bae1658e49d0d4f",
+      "sample_categories": [
+        "delivery"
+      ],
+      "disposition": "outside_notification_scope",
+      "reason": "Personal conversation containing the phrase your order; not a delivery notification.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 26155,
+      "source_label": "1",
+      "source_label_name": "spam",
+      "message_sha256": "52d462443d5027dfbcc68c56a81b81e86dca3583033de9b27ffbf1c8b0f56e91",
+      "sample_categories": [
+        "account_security"
+      ],
+      "disposition": "scam_pattern_review",
+      "reason": "Account-suspension claim with an urgent callback demand; consistent with a suspicious pattern, not independently verified fraud.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 26852,
+      "source_label": "1",
+      "source_label_name": "spam",
+      "message_sha256": "94b0c56af43220c3fe6c7234366ff51794f0a26b10f88985e3715a6eda9c4aef",
+      "sample_categories": [
+        "account_security"
+      ],
+      "disposition": "scam_pattern_review",
+      "reason": "Account-lock claim demanding an immediate login; destination has been redacted, preventing authenticity assessment.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 27690,
+      "source_label": "0",
+      "source_label_name": "ham",
+      "message_sha256": "bffdf64ef98c52faebf20d2a3aafd9ed77f229006a17b229b8d4605c3ae1ebcd",
+      "sample_categories": [
+        "billing_service"
+      ],
+      "disposition": "outside_notification_scope",
+      "reason": "Conversational remark about a bill amount, not a service-generated bill notice.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 27813,
+      "source_label": "0",
+      "source_label_name": "ham",
+      "message_sha256": "02a4a922885b0e4ec7ba458c01feaef83d022ba6ad6a69c65f1937ec6b7ec5ff",
+      "sample_categories": [
+        "payments"
+      ],
+      "disposition": "outside_notification_scope",
+      "reason": "A/c or non a/c is likely about air conditioning; no usable financial notification content.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 28690,
+      "source_label": "1",
+      "source_label_name": "spam",
+      "message_sha256": "e80cb53cff4a0c4f82ced9b74a41f88e66db8407661858b53174848a34c1469e",
+      "sample_categories": [
+        "delivery"
+      ],
+      "disposition": "promotion_review",
+      "reason": "Order/bill update mixed with a discount offer for another product; separate promotional intent from fraud.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 28753,
+      "source_label": "0",
+      "source_label_name": "ham",
+      "message_sha256": "2de30be29930aa825602900fbefe426f19696168aff8f7cf3f1b2b1da0553c4c",
+      "sample_categories": [
+        "payments"
+      ],
+      "disposition": "outside_notification_scope",
+      "reason": "Bank-detail listing with personal/business identifiers; not a transaction-status notification.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 35235,
+      "source_label": "1",
+      "source_label_name": "spam",
+      "message_sha256": "3d8d49f51e2a61edd88169d706c0ec02f46bde214246132908ef66e4d7e89ff8",
+      "sample_categories": [
+        "account_security"
+      ],
+      "disposition": "scam_pattern_review",
+      "reason": "Banking-suspension threat followed by an immediate document-update link.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 35804,
+      "source_label": "1",
+      "source_label_name": "spam",
+      "message_sha256": "1115b913e2c0012948cb103b92c06fca7c9c60b17fd86eca274e927ed806464b",
+      "sample_categories": [
+        "billing_service"
+      ],
+      "disposition": "scam_pattern_review",
+      "reason": "Rejected-bill warning and urgent callback mixed with unrelated text; both authenticity and text quality need review.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 42708,
+      "source_label": "0",
+      "source_label_name": "ham",
+      "message_sha256": "8f7240964ebae125c1c9828dc8581a2703fb435f6a73706c4d9585730aa9358e",
+      "sample_categories": [
+        "delivery"
+      ],
+      "disposition": "outside_notification_scope",
+      "reason": "Personal conversation about food delivery; not an automated delivery notice.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 47738,
+      "source_label": "0",
+      "source_label_name": "ham",
+      "message_sha256": "1ad280e850aaa382578576ba266916f0114466b5eb9393733d12ec32e3c6987f",
+      "sample_categories": [
+        "account_security"
+      ],
+      "disposition": "outside_notification_scope",
+      "reason": "Personal discussion using OTP in another context; keyword match is not a security notification.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 50196,
+      "source_label": "0",
+      "source_label_name": "ham",
+      "message_sha256": "fe970119a2fc0701d1de75436f7828fe15c2ae5dc3ed5410f44c74e3502dbcef",
+      "sample_categories": [
+        "account_security"
+      ],
+      "disposition": "outside_notification_scope",
+      "reason": "Software-project discussion about an OTP function rather than a service notification.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 50956,
+      "source_label": "0",
+      "source_label_name": "ham",
+      "message_sha256": "ad8e2719ae2f32a386c74e837e99d6ee1a8eb0153b488f41cf910b947fef6086",
+      "sample_categories": [
+        "delivery"
+      ],
+      "disposition": "notification_candidate",
+      "reason": "Delivery notice with cash-on-delivery amount and tracking link; fits operational content, but the transaction is unverified.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 52160,
+      "source_label": "1",
+      "source_label_name": "spam",
+      "message_sha256": "b83db4a8e9457221b64e8d4fcc1a01ece96c77b98722bf0038ffab1d1141d961",
+      "sample_categories": [
+        "delivery"
+      ],
+      "disposition": "scam_pattern_review",
+      "reason": "Generic delivery claim followed by an unexplained domain; may be a delivery lure, but no contextual verification is available.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 52775,
+      "source_label": "0",
+      "source_label_name": "ham",
+      "message_sha256": "7f4eb63d6d0a600cacd363db6afffaef4c51486747f9696485796eb68d87879b",
+      "sample_categories": [
+        "previously_inspected"
+      ],
+      "disposition": "notification_candidate",
+      "reason": "Account-verification OTP with an expiry period; operational wording, not independently authenticated.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 54133,
+      "source_label": "1",
+      "source_label_name": "spam",
+      "message_sha256": "f1be3dc5955aa48a74ec90f1b3cb3baac3c2b22017628028ba464f74cdb0ed69",
+      "sample_categories": [
+        "delivery"
+      ],
+      "disposition": "promotion_review",
+      "reason": "Coupon and time-limited savings advertisement; no transaction-status purpose.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 60137,
+      "source_label": "1",
+      "source_label_name": "spam",
+      "message_sha256": "1f5e5cb1872c0c42aafbcbaa31b7d4a5cc79a27872ac18eea40214c407a10a87",
+      "sample_categories": [
+        "payments"
+      ],
+      "disposition": "scam_pattern_review",
+      "reason": "Bank-document expiry and account-block claim requesting net-banking action through a supplied domain.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 63357,
+      "source_label": "0",
+      "source_label_name": "ham",
+      "message_sha256": "d688e00b4d20ba529d1bede24790a6ab29c3edb934c6b50ac36af5647feb79a9",
+      "sample_categories": [
+        "previously_inspected"
+      ],
+      "disposition": "notification_candidate",
+      "reason": "Account-debit notification with redacted account/cheque details; operational content, origin unverified.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 64348,
+      "source_label": "1",
+      "source_label_name": "spam",
+      "message_sha256": "559e53dcb7627fb93b21843a54cf12d28527837283ebb0f95e432554032383cc",
+      "sample_categories": [
+        "account_security"
+      ],
+      "disposition": "label_policy_review",
+      "reason": "OTP and agricultural allotment/subsidy details resemble an operational notice; spam label needs source context.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 65464,
+      "source_label": "0",
+      "source_label_name": "ham",
+      "message_sha256": "6b948bdc218ff931fbfb67d798f337322d68c4cc96d5d1590466db0715c9daf3",
+      "sample_categories": [
+        "account_security"
+      ],
+      "disposition": "outside_notification_scope",
+      "reason": "Personal conversation about forwarding an OTP; not a suitable example of a safe service notification.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 65606,
+      "source_label": "1",
+      "source_label_name": "spam",
+      "message_sha256": "7edfcfd83d03257594436d29f73e5c961179438e0dd13311485c844e4bd0313d",
+      "sample_categories": [
+        "billing_service"
+      ],
+      "disposition": "promotion_review",
+      "reason": "Recharge success mixed with a data-offer activation instruction and romanized Hindi; not a clean English-only receipt.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    },
+    {
+      "csv_record_including_header": 66830,
+      "source_label": "0",
+      "source_label_name": "ham",
+      "message_sha256": "b74504cc8776bf7ae0510dcd8c1eba5382c5567b4e6229ea0011be00caa5d41a",
+      "sample_categories": [
+        "payments"
+      ],
+      "disposition": "outside_notification_scope",
+      "reason": "Personal bank/account and birth-date listing; not a notification and unnecessary for this dataset gap.",
+      "authenticity_verified": false,
+      "approved_for_training": false
+    }
+  ]
+}

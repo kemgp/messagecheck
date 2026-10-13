@@ -1,0 +1,375 @@
+{
+  "description": "Evidence queue for eight previously reviewed notification leads. Not training data or verified ground truth.",
+  "source_review": "reports/super-sms-notification-review.json",
+  "records": [
+    {
+      "review_id": "super-sms-463",
+      "policy_version": "1 (2026-10-13)",
+      "reviewer": "assistant; content review only",
+      "review_date": "2026-10-13",
+      "source_file": "data/raw/super_sms_dataset.csv",
+      "source_url": "https://github.com/smspamresearch/spstudy",
+      "csv_record_including_header": 463,
+      "source_file_sha256": "ba825b468b59fb229cc56c15a6c2d14d593a88051d54ea2f402166bf2ab894d3",
+      "original_message_sha256": "9a750d1ce0581d4e72b891fe619dc3960f4dd206059eaab91cc62a320171114f",
+      "source_label": "1",
+      "source_label_name": "spam",
+      "reuse_basis": "unknown; dataset terms need clarification",
+      "text_reference": "data/raw/super_sms_dataset.csv CSV record 463 including header",
+      "redactions_or_repairs": "none; raw text not copied into this queue",
+      "text_quality": "pending individual quality check; source encoding artifacts documented in initial review",
+      "category": "OTP",
+      "expected_by_recipient": "unknown",
+      "context_evidence_reference": null,
+      "evidence_basis": "wording-only",
+      "proposed_disposition": "uncertain",
+      "reason": "Routine login OTP with a do-not-share instruction; text alone does not explain its spam label.",
+      "evidence_needed": "Evidence that the recipient initiated this login and that the OTP came from the service; explanation of the original spam label.",
+      "second_review": "pending",
+      "previously_inspected": true,
+      "duplicate_template_group": null,
+      "cross_dataset_overlap": {
+        "audit": "reports/notification-overlap-audit.json",
+        "direct_matches": 0,
+        "full_template_grouping": "pending; direct audit is not complete grouping"
+      },
+      "intended_role": "development reference",
+      "partition": "unassigned",
+      "approval_status": "hold",
+      "approved_for_training": false,
+      "history": [
+        {
+          "date": "2026-10-13",
+          "action": "Initialized from existing content review; no new verification or source relabeling."
+        },
+        {
+          "date": "2026-10-13",
+          "action": "Recorded existing-datasets-only scope and direct overlap audit; label and approval unchanged."
+        }
+      ]
+    },
+    {
+      "review_id": "super-sms-1278",
+      "policy_version": "1 (2026-10-13)",
+      "reviewer": "assistant; content review only",
+      "review_date": "2026-10-13",
+      "source_file": "data/raw/super_sms_dataset.csv",
+      "source_url": "https://github.com/smspamresearch/spstudy",
+      "csv_record_including_header": 1278,
+      "source_file_sha256": "ba825b468b59fb229cc56c15a6c2d14d593a88051d54ea2f402166bf2ab894d3",
+      "original_message_sha256": "24d9f5a30788c79548b809b4d5ded804a9590b172c464bc7fdb3d5fbad0f9396",
+      "source_label": "1",
+      "source_label_name": "spam",
+      "reuse_basis": "unknown; dataset terms need clarification",
+      "text_reference": "data/raw/super_sms_dataset.csv CSV record 1278 including header",
+      "redactions_or_repairs": "none; raw text not copied into this queue",
+      "text_quality": "pending individual quality check; source encoding artifacts documented in initial review",
+      "category": "receipt",
+      "expected_by_recipient": "unknown",
+      "context_evidence_reference": null,
+      "evidence_basis": "wording-only",
+      "proposed_disposition": "uncertain",
+      "reason": "Payment-success notice with a link; transaction context and destination authenticity are unavailable.",
+      "evidence_needed": "Confirmation of the referenced payment from recipient or source records, plus an explanation of the spam label. A payment-success claim alone is insufficient.",
+      "second_review": "pending",
+      "previously_inspected": true,
+      "duplicate_template_group": null,
+      "cross_dataset_overlap": {
+        "audit": "reports/notification-overlap-audit.json",
+        "direct_matches": 2,
+        "full_template_grouping": "pending; direct audit is not complete grouping"
+      },
+      "intended_role": "development reference",
+      "partition": "unassigned",
+      "approval_status": "hold",
+      "approved_for_training": false,
+      "history": [
+        {
+          "date": "2026-10-13",
+          "action": "Initialized from existing content review; no new verification or source relabeling."
+        },
+        {
+          "date": "2026-10-13",
+          "action": "Recorded existing-datasets-only scope and direct overlap audit; label and approval unchanged."
+        }
+      ]
+    },
+    {
+      "review_id": "super-sms-10917",
+      "policy_version": "1 (2026-10-13)",
+      "reviewer": "assistant; content review only",
+      "review_date": "2026-10-13",
+      "source_file": "data/raw/super_sms_dataset.csv",
+      "source_url": "https://github.com/smspamresearch/spstudy",
+      "csv_record_including_header": 10917,
+      "source_file_sha256": "ba825b468b59fb229cc56c15a6c2d14d593a88051d54ea2f402166bf2ab894d3",
+      "original_message_sha256": "e7c77ce66d00eaa6e6471ac7ece9e754d3697abda6bb81ee48c07f529f8670f5",
+      "source_label": "0",
+      "source_label_name": "ham",
+      "reuse_basis": "unknown; dataset terms need clarification",
+      "text_reference": "data/raw/super_sms_dataset.csv CSV record 10917 including header",
+      "redactions_or_repairs": "none; raw text not copied into this queue",
+      "text_quality": "pending individual quality check; source encoding artifacts documented in initial review",
+      "category": "delivery",
+      "expected_by_recipient": "unknown",
+      "context_evidence_reference": null,
+      "evidence_basis": "wording-only",
+      "proposed_disposition": "uncertain",
+      "reason": "Delivery status with tracking and courier contact details; content fits an operational notification but origin is unverified.",
+      "evidence_needed": "Confirmation that the recipient expected this shipment and that the delivery notice corresponds to it.",
+      "second_review": "pending",
+      "previously_inspected": true,
+      "duplicate_template_group": null,
+      "cross_dataset_overlap": {
+        "audit": "reports/notification-overlap-audit.json",
+        "direct_matches": 0,
+        "full_template_grouping": "pending; direct audit is not complete grouping"
+      },
+      "intended_role": "development reference",
+      "partition": "unassigned",
+      "approval_status": "hold",
+      "approved_for_training": false,
+      "history": [
+        {
+          "date": "2026-10-13",
+          "action": "Initialized from existing content review; no new verification or source relabeling."
+        },
+        {
+          "date": "2026-10-13",
+          "action": "Recorded existing-datasets-only scope and direct overlap audit; label and approval unchanged."
+        }
+      ]
+    },
+    {
+      "review_id": "super-sms-17958",
+      "policy_version": "1 (2026-10-13)",
+      "reviewer": "assistant; content review only",
+      "review_date": "2026-10-13",
+      "source_file": "data/raw/super_sms_dataset.csv",
+      "source_url": "https://github.com/smspamresearch/spstudy",
+      "csv_record_including_header": 17958,
+      "source_file_sha256": "ba825b468b59fb229cc56c15a6c2d14d593a88051d54ea2f402166bf2ab894d3",
+      "original_message_sha256": "a5bc648be4fa4b96041689b9b470096ce43f9e2e20a3d2b65755d8c52a8f48ce",
+      "source_label": "0",
+      "source_label_name": "ham",
+      "reuse_basis": "unknown; dataset terms need clarification",
+      "text_reference": "data/raw/super_sms_dataset.csv CSV record 17958 including header",
+      "redactions_or_repairs": "none; raw text not copied into this queue",
+      "text_quality": "pending individual quality check; source encoding artifacts documented in initial review",
+      "category": "delivery",
+      "expected_by_recipient": "unknown",
+      "context_evidence_reference": null,
+      "evidence_basis": "wording-only",
+      "proposed_disposition": "uncertain",
+      "reason": "Order-dispatch status and courier contact; content fits delivery notification but origin is unverified.",
+      "evidence_needed": "Confirmation of the order and dispatch from recipient or documented source context.",
+      "second_review": "pending",
+      "previously_inspected": true,
+      "duplicate_template_group": null,
+      "cross_dataset_overlap": {
+        "audit": "reports/notification-overlap-audit.json",
+        "direct_matches": 0,
+        "full_template_grouping": "pending; direct audit is not complete grouping"
+      },
+      "intended_role": "development reference",
+      "partition": "unassigned",
+      "approval_status": "hold",
+      "approved_for_training": false,
+      "history": [
+        {
+          "date": "2026-10-13",
+          "action": "Initialized from existing content review; no new verification or source relabeling."
+        },
+        {
+          "date": "2026-10-13",
+          "action": "Recorded existing-datasets-only scope and direct overlap audit; label and approval unchanged."
+        }
+      ]
+    },
+    {
+      "review_id": "super-sms-50956",
+      "policy_version": "1 (2026-10-13)",
+      "reviewer": "assistant; content review only",
+      "review_date": "2026-10-13",
+      "source_file": "data/raw/super_sms_dataset.csv",
+      "source_url": "https://github.com/smspamresearch/spstudy",
+      "csv_record_including_header": 50956,
+      "source_file_sha256": "ba825b468b59fb229cc56c15a6c2d14d593a88051d54ea2f402166bf2ab894d3",
+      "original_message_sha256": "ad8e2719ae2f32a386c74e837e99d6ee1a8eb0153b488f41cf910b947fef6086",
+      "source_label": "0",
+      "source_label_name": "ham",
+      "reuse_basis": "unknown; dataset terms need clarification",
+      "text_reference": "data/raw/super_sms_dataset.csv CSV record 50956 including header",
+      "redactions_or_repairs": "none; raw text not copied into this queue",
+      "text_quality": "pending individual quality check; source encoding artifacts documented in initial review",
+      "category": "delivery",
+      "expected_by_recipient": "unknown",
+      "context_evidence_reference": null,
+      "evidence_basis": "wording-only",
+      "proposed_disposition": "uncertain",
+      "reason": "Delivery notice with cash-on-delivery amount and tracking link; fits operational content, but the transaction is unverified.",
+      "evidence_needed": "Confirmation of the expected order, cash-on-delivery arrangement, and courier notification.",
+      "second_review": "pending",
+      "previously_inspected": true,
+      "duplicate_template_group": null,
+      "cross_dataset_overlap": {
+        "audit": "reports/notification-overlap-audit.json",
+        "direct_matches": 0,
+        "full_template_grouping": "pending; direct audit is not complete grouping"
+      },
+      "intended_role": "development reference",
+      "partition": "unassigned",
+      "approval_status": "hold",
+      "approved_for_training": false,
+      "history": [
+        {
+          "date": "2026-10-13",
+          "action": "Initialized from existing content review; no new verification or source relabeling."
+        },
+        {
+          "date": "2026-10-13",
+          "action": "Recorded existing-datasets-only scope and direct overlap audit; label and approval unchanged."
+        }
+      ]
+    },
+    {
+      "review_id": "super-sms-52775",
+      "policy_version": "1 (2026-10-13)",
+      "reviewer": "assistant; content review only",
+      "review_date": "2026-10-13",
+      "source_file": "data/raw/super_sms_dataset.csv",
+      "source_url": "https://github.com/smspamresearch/spstudy",
+      "csv_record_including_header": 52775,
+      "source_file_sha256": "ba825b468b59fb229cc56c15a6c2d14d593a88051d54ea2f402166bf2ab894d3",
+      "original_message_sha256": "7f4eb63d6d0a600cacd363db6afffaef4c51486747f9696485796eb68d87879b",
+      "source_label": "0",
+      "source_label_name": "ham",
+      "reuse_basis": "unknown; dataset terms need clarification",
+      "text_reference": "data/raw/super_sms_dataset.csv CSV record 52775 including header",
+      "redactions_or_repairs": "none; raw text not copied into this queue",
+      "text_quality": "pending individual quality check; source encoding artifacts documented in initial review",
+      "category": "OTP",
+      "expected_by_recipient": "unknown",
+      "context_evidence_reference": null,
+      "evidence_basis": "wording-only",
+      "proposed_disposition": "uncertain",
+      "reason": "Account-verification OTP with an expiry period; operational wording, not independently authenticated.",
+      "evidence_needed": "Confirmation that the recipient initiated account verification with the named service.",
+      "second_review": "pending",
+      "previously_inspected": true,
+      "duplicate_template_group": null,
+      "cross_dataset_overlap": {
+        "audit": "reports/notification-overlap-audit.json",
+        "direct_matches": 0,
+        "full_template_grouping": "pending; direct audit is not complete grouping"
+      },
+      "intended_role": "development reference",
+      "partition": "unassigned",
+      "approval_status": "hold",
+      "approved_for_training": false,
+      "history": [
+        {
+          "date": "2026-10-13",
+          "action": "Initialized from existing content review; no new verification or source relabeling."
+        },
+        {
+          "date": "2026-10-13",
+          "action": "Recorded existing-datasets-only scope and direct overlap audit; label and approval unchanged."
+        }
+      ]
+    },
+    {
+      "review_id": "super-sms-63357",
+      "policy_version": "1 (2026-10-13)",
+      "reviewer": "assistant; content review only",
+      "review_date": "2026-10-13",
+      "source_file": "data/raw/super_sms_dataset.csv",
+      "source_url": "https://github.com/smspamresearch/spstudy",
+      "csv_record_including_header": 63357,
+      "source_file_sha256": "ba825b468b59fb229cc56c15a6c2d14d593a88051d54ea2f402166bf2ab894d3",
+      "original_message_sha256": "d688e00b4d20ba529d1bede24790a6ab29c3edb934c6b50ac36af5647feb79a9",
+      "source_label": "0",
+      "source_label_name": "ham",
+      "reuse_basis": "unknown; dataset terms need clarification",
+      "text_reference": "data/raw/super_sms_dataset.csv CSV record 63357 including header",
+      "redactions_or_repairs": "none; raw text not copied into this queue",
+      "text_quality": "pending individual quality check; source encoding artifacts documented in initial review",
+      "category": "account notice",
+      "expected_by_recipient": "unknown",
+      "context_evidence_reference": null,
+      "evidence_basis": "wording-only",
+      "proposed_disposition": "uncertain",
+      "reason": "Account-debit notification with redacted account/cheque details; operational content, origin unverified.",
+      "evidence_needed": "Confirmation that the debit corresponds to a recipient-known transaction and service notice.",
+      "second_review": "pending",
+      "previously_inspected": true,
+      "duplicate_template_group": null,
+      "cross_dataset_overlap": {
+        "audit": "reports/notification-overlap-audit.json",
+        "direct_matches": 0,
+        "full_template_grouping": "pending; direct audit is not complete grouping"
+      },
+      "intended_role": "development reference",
+      "partition": "unassigned",
+      "approval_status": "hold",
+      "approved_for_training": false,
+      "history": [
+        {
+          "date": "2026-10-13",
+          "action": "Initialized from existing content review; no new verification or source relabeling."
+        },
+        {
+          "date": "2026-10-13",
+          "action": "Recorded existing-datasets-only scope and direct overlap audit; label and approval unchanged."
+        }
+      ]
+    },
+    {
+      "review_id": "super-sms-64348",
+      "policy_version": "1 (2026-10-13)",
+      "reviewer": "assistant; content review only",
+      "review_date": "2026-10-13",
+      "source_file": "data/raw/super_sms_dataset.csv",
+      "source_url": "https://github.com/smspamresearch/spstudy",
+      "csv_record_including_header": 64348,
+      "source_file_sha256": "ba825b468b59fb229cc56c15a6c2d14d593a88051d54ea2f402166bf2ab894d3",
+      "original_message_sha256": "559e53dcb7627fb93b21843a54cf12d28527837283ebb0f95e432554032383cc",
+      "source_label": "1",
+      "source_label_name": "spam",
+      "reuse_basis": "unknown; dataset terms need clarification",
+      "text_reference": "data/raw/super_sms_dataset.csv CSV record 64348 including header",
+      "redactions_or_repairs": "none; raw text not copied into this queue",
+      "text_quality": "pending individual quality check; source encoding artifacts documented in initial review",
+      "category": "OTP",
+      "expected_by_recipient": "unknown",
+      "context_evidence_reference": null,
+      "evidence_basis": "wording-only",
+      "proposed_disposition": "uncertain",
+      "reason": "OTP and agricultural allotment/subsidy details resemble an operational notice; spam label needs source context.",
+      "evidence_needed": "Confirmation of the subsidy/allotment interaction and requested OTP; explanation of the original spam label.",
+      "second_review": "pending",
+      "previously_inspected": true,
+      "duplicate_template_group": null,
+      "cross_dataset_overlap": {
+        "audit": "reports/notification-overlap-audit.json",
+        "direct_matches": 0,
+        "full_template_grouping": "pending; direct audit is not complete grouping"
+      },
+      "intended_role": "development reference",
+      "partition": "unassigned",
+      "approval_status": "hold",
+      "approved_for_training": false,
+      "history": [
+        {
+          "date": "2026-10-13",
+          "action": "Initialized from existing content review; no new verification or source relabeling."
+        },
+        {
+          "date": "2026-10-13",
+          "action": "Recorded existing-datasets-only scope and direct overlap audit; label and approval unchanged."
+        }
+      ]
+    }
+  ],
+  "collection_constraint": "Existing local datasets only, per user instruction; no personal contributions requested."
+}

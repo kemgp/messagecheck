@@ -1,0 +1,47 @@
+{
+  "source_rows": 67010,
+  "candidate_rows": 59615,
+  "candidate_labels": {
+    "spam": 23848,
+    "ham": 35767
+  },
+  "candidate_groups": 58348,
+  "excluded_source_rows": 6269,
+  "normalized_duplicates_collapsed": 1126,
+  "direct_exclusion_flags": {
+    "malformed_or_missing_label": 2,
+    "unresolved_encoding_artifacts": 591,
+    "empty_normalized_text": 5,
+    "previously_reviewed_case": 34
+  },
+  "excluded_rows_by_reason_nonexclusive": {
+    "overlap_with_protected_corpus_or_diagnostic": 5532,
+    "unresolved_encoding_artifacts": 765,
+    "conflicting_labels_in_template_group": 44,
+    "empty_normalized_text": 5,
+    "malformed_or_missing_label": 6,
+    "previously_reviewed_case": 37
+  },
+  "input_sha256": {
+    "reports/super-sms-notification-review.json": "d0de67615420985fc0888a0661fcc0c0e41a3150a56e16e1955c8454445ead1c",
+    "data/raw/super_sms_dataset.csv": "ba825b468b59fb229cc56c15a6c2d14d593a88051d54ea2f402166bf2ab894d3",
+    "data/processed/messages.jsonl": "f8042a53df7c8f3a56df287a71ecec38e0c6289855f978252d52ba6c026622f1",
+    "data/splits/manifest.jsonl": "c17e0241cc6361f38eaca1386618648cac9f098e7079d15b1d1ed297ceb2b3cb",
+    "data/staging/external-candidates.jsonl": "d76f9cdf145fa68cc47f3bc4a0d15e572e7155c886faa2bf90ac83b652fe8219",
+    "data/revision-v3/manifest.jsonl": "1468641a2882b5450d5cd8218dd16519b1f5332da79367a315c5cc149b950e86",
+    "data/diagnostics/user-examples.json": "f8a8698bb0bf7a8bd9065458917702fa0ff555c0af57c966e44442fd5a6ff862",
+    "data/raw/Financial scams detection dataset.csv": "58ec802e4de8768643e3be0badbaedb3ae5017a273e8f3898e72f6a29cbc96ad"
+  },
+  "output_sha256": {
+    "candidates.jsonl": "762e2fc532d06a12c0bc7bda7420f1f44454000215415dfa2a8789a25a9df5f6",
+    "group-audit.jsonl": "c3912b47ebf3c3cc56864cb39565028be468b5193bb7e7845cde21503caf22a8"
+  },
+  "method": "Equal normalize_v3 text collapsed; connected components of word-trigram set Jaccard >= 0.8, including short texts with at least one trigram. Entire components quarantined on protection, conflict, or exclusion flags.",
+  "limitations": [
+    "Source labels preserved, not independently verified.",
+    "Latin-1 inspection decoding; C1/replacement characters quarantined, other mojibake may remain.",
+    "No English-language guarantee or complete paraphrase detection.",
+    "Groups remain unassigned; future splitting must use group_id, never individual rows.",
+    "No training, model scoring, final-test partition reading, or changes to existing data."
+  ]
+}

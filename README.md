@@ -6,11 +6,39 @@ Status: React/JavaScript/Vite frontend and browser inference are implemented loc
 
 The external-data revision is now evaluated: 36 candidates were compared, but none was adopted after regression review. The leading candidate catches the hacking/payment diagnostic while incorrectly flagging the legitimate license reminder. Served models remain revision 2. See [the revision 3 experiment](docs/revision-v3.md) for data preparation, results, limitations, and reproduction commands. Expanded Python/JavaScript parity checks cover 3,418 cases per model.
 
-## New dataset pending review
+## Datasets
 
-The [Financial Scams Detection Dataset from Mendeley](https://data.mendeley.com/datasets/znsk27yk3h/1) has been added locally. Its intended use is to investigate additional legitimate English payment, account, and security notifications that could help reduce false positives.
+| Dataset | Local data / coverage | Project use |
+| --- | --- | --- |
+| [UCI SMS Spam Collection](https://archive.ics.uci.edu/dataset/228/sms+spam+collection) | Original labeled spam/non-spam SMS corpus; cleaning and split details are documented below. | Trains the served revision 2 models and supplies the original validation and reserved test partitions. |
+| [Mendeley SMS Phishing Dataset, version 1](https://data.mendeley.com/datasets/f45bkkt8pr/1) | `data/raw/Dataset_5971.csv`: 5,971 rows with ham, spam, and smishing labels. Source lists CC BY 4.0. | Audited and used in revision 3 experiments after overlap filtering. Most rows overlap with the original corpus. No resulting model was adopted. |
+| [Fishing for Smishing — IMC 2025](https://github.com/reportsmishing/Smishing-Dataset-IMC25) | `data/raw/final_dataset_output.csv`: 33,869 rows across languages, including 22,078 labeled English. Source lists CC BY 4.0. | English scam reports were filtered, grouped, and used in revision 3 experiments. The supplied file has no explicit legitimate-message control class. No resulting model was adopted. |
+| [Financial Scams Detection Dataset, version 1](https://data.mendeley.com/datasets/znsk27yk3h/1) | 523 rows: 310 scam and 213 ham. Source lists CC BY 4.0. A separate copy excludes 101 records containing Bengali script, leaving 422; this is not an English-language guarantee. | Inspected; ambiguous labels prevent bulk adoption. Original download preserved. Not used for training or model evaluation. |
+| [Super SMS dataset](https://github.com/smspamresearch/spstudy) | `data/raw/super_sms_dataset.csv`: 67,010 rows, including two without labels. Encoding artifacts and dataset reuse terms remain unresolved. | A targeted 34-record notification review found five candidates needing context and three unresolved label-policy cases. No records approved for training. See [the review](reports/super-sms-notification-review.md). |
 
-The newly added dataset has not been inspected, cleaned, merged, or used for training or evaluation. Its suitability and overlap with existing data remain unverified. Dataset work is on hold at the user's request; only this README has been updated. The served models remain revision 2, and both final-test partitions remain unevaluated.
+Preserve source attribution and original downloads. See [the external-data audit](docs/external-data.md) for overlap counts and [revision 3](docs/revision-v3.md) for the subsequent preparation, experiment, and non-adoption decision. Source labels and keyword coverage are not proof of message authenticity or real-world detection performance.
+
+### Labeling and collection
+
+The [labeling policy](docs/labeling-policy.md) defines spam as unsolicited advertising or scam attempts, and ham as supported legitimate communication, including expected notifications. Ambiguous examples stay out of new curated training and scored evaluation sets until resolved. Predictions do not authenticate a sender or link.
+
+Use the [example review template](docs/example-review-template.md) to record provenance, source labels, recipient context, proposed labels, and duplicate/template checks. Financial Scams and Super SMS remain review sources rather than approved bulk training additions. The served models remain revision 2, and both final-test partitions remain unevaluated.
+
+The [notification evidence queue](reports/notification-evidence-queue.md) contains eight previously reviewed leads with original labels and specific missing-context requirements. All eight remain on hold; recipient-confirmed examples have not yet been collected.
+
+Current collection scope is existing local datasets only. Direct overlap checks found matches for one of the eight leads; unresolved context remains unknown, and original labels are preserved.
+
+The [Super SMS candidate preparation](docs/super-sms-preparation.md) now provides 59,615 source-labeled messages in 58,348 template groups after exclusions and deduplication. Existing-corpus overlaps, malformed/encoding-flagged groups, conflicting labels, and all previously reviewed cases are quarantined. Candidates remain unassigned to partitions; no training has been performed on this subset.
+
+## Next steps
+
+1. Collect and review supported legitimate notifications and spam examples using the policy and template. Start with receipts, OTPs, delivery updates, and account notices; keep unresolved source labels on hold.
+2. Audit duplicates and related templates against existing data, protect reserved test groups, and preserve already inspected examples as development material. Document coverage and intended use before adding approved records to a dataset.
+3. If suitable, prepare a controlled training mixture and compare revised models on development partitions. Track false alarms and missed spam separately, including the known hacking/payment and legitimate license diagnostics.
+4. Adopt a candidate only when the measured tradeoff and diagnostic review support it; verify Python/JavaScript feature values, scores, labels, and explanations before changing app model imports and dashboard metrics.
+5. Once model choices are frozen, evaluate the reserved final tests, update the results, verify the application on desktop/mobile, and complete deployment and the paper.
+
+The policy and review template are ready. Collection, approval, dataset preparation, and another training experiment remain future work; no new model has been adopted.
 
 ## Run the website
 
@@ -48,7 +76,7 @@ Users paste a message, receive a spam/non-spam prediction, inspect influential t
 - Inference: exported TF-IDF settings and model parameters evaluated in the browser.
 - Hosting: Vercel Hobby Free, subject to eligibility and usage limits.
 - Database: unnecessary for the first version. No Supabase or Render dependency.
-- Data: UCI SMS Spam Collection, with attribution and license retained.
+- Data: UCI SMS Spam Collection for served models; additional external sources and their experiment/pending status are listed in the dataset table above.
 
 Read [the roadmap](docs/roadmap.md) for the implementation and research plan.
 
